@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://busanmemberstxi.com/index.html">
+    <meta property="og:title" content="부산 멤버스 택시 | BMT - 프리미엄 모빌리티">
+    <meta property="og:description" content="부산 멤버스 택시 - 프리미엄 관광 투어, 장거리 콜택시, 공항·기차역 샌딩 서비스. 최고급 전기차로 안전하고 편안한 이동을 약속합니다.">
+    <meta property="og:site_name" content="부산 멤버스 택시">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="부산 멤버스 택시 | BMT - 프리미엄 모빌리티">
+    <meta name="twitter:description" content="부산 멤버스 택시 - 프리미엄 관광 투어, 장거리 콜택시, 공항·기차역 샌딩 서비스. 최고급 전기차로 안전하고 편안한 이동을 약속합니다.">
+    <meta name="description" content="부산 멤버스 택시 - 프리미엄 관광 투어, 장거리 콜택시, 공항·기차역 샌딩 서비스. 최고급 전기차로 안전하고 편안한 이동을 약속합니다.">
+    <title>부산 멤버스 택시 | BMT - 프리미엄 모빌리티</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body, html {
+            background: #EAF4FB; color: #ffffff;
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* ── 히어로 래퍼 ── */
+        .hero-section {
+            position: relative; height: 100vh; overflow: hidden;
+        }
+
+        /* ── 배경 및 메인 ── */
+        .bg-ocean { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+        .bg-ocean img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; transform: scale(1.05); animation: slowDrift 30s ease-in-out infinite alternate; filter: brightness(0.85) saturate(1.25); }
+        @keyframes slowDrift { from { transform: scale(1.05) translate(0, 0); } to { transform: scale(1.1) translate(-1%, 1%); } }
+        .bg-overlay-top { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(3,4,94,0.50) 0%, rgba(2,62,138,0.10) 35%, rgba(0,150,199,0.05) 55%, rgba(3,4,94,0.45) 100%); }
+
+        .hero { position: relative; z-index: 10; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 80px 40px 140px; }
+        .hero-eyebrow { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 5px; color: rgba(255,255,255,0.88); opacity: 0; transform: translateY(12px); animation: fadeUp 0.9s ease 0.3s forwards; margin-bottom: 22px; display: flex; align-items: center; gap: 14px; }
+        .hero-eyebrow::before, .hero-eyebrow::after { content: ''; width: 40px; height: 1px; background: rgba(200,234,255,0.6); }
+        .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(38px, 5.5vw, 76px); font-weight: 300; line-height: 1.15; letter-spacing: -1px; color: #fff; text-align: center; opacity: 0; animation: fadeUp 1s ease 0.55s forwards; margin-bottom: 30px; }
+        .hero-title em { font-style: italic; font-weight: 600; color: #90E0EF; }
+        .hero-title .title-line { display: block; }
+        .hero-sub { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.72); letter-spacing: 0.3px; line-height: 1.8; text-align: center; opacity: 0; animation: fadeUp 1s ease 0.75s forwards; margin-bottom: 64px; }
+
+        /* ── 서비스 카드 (글래스모피즘 반영) ── */
+        .services { display: flex; gap: 16px; opacity: 0; animation: fadeUp 1s ease 1s forwards; }
+        .svc-card {
+            position: relative; width: 220px; height: 300px; border-radius: 20px; overflow: hidden; cursor: pointer;
+            transition: width 0.55s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s ease, transform 0.4s ease, border-color 0.4s;
+            border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.05); backdrop-filter: blur(8px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); flex-shrink: 0;
+        }
+        .svc-card:hover { width: 360px; border-color: #90E0EF; box-shadow: 0 20px 50px rgba(0,150,199,0.2), 0 10px 20px rgba(0,0,0,0.1); transform: translateY(-6px); }
+        .svc-card .svc-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.6s ease; filter: brightness(0.62) saturate(1.15); }
+        .svc-card:hover .svc-bg { transform: scale(1.06); filter: brightness(0.67) saturate(1.35); }
+        .svc-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,30,80,0.88) 0%, rgba(0,60,120,0.22) 50%, transparent 100%); z-index: 1; }
+        .svc-body { position: absolute; inset: 0; z-index: 2; padding: 24px 22px; display: flex; flex-direction: column; justify-content: flex-end; }
+        .svc-num { position: absolute; top: 20px; left: 22px; font-family: 'Cormorant Garamond', serif; font-size: 13px; font-weight: 600; color: rgba(200,234,255,0.85); letter-spacing: 2px; }
+        .svc-icon { width: 52px; height: 52px; border-radius: 14px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center; font-size: 22px; color: #fff; margin-bottom: 16px; backdrop-filter: blur(6px); transition: background 0.3s, border-color 0.3s; }
+        .svc-card:hover .svc-icon { background: rgba(0,150,199,0.28); border-color: #90E0EF; color: #90E0EF; }
+        .svc-title { font-family: 'Noto Sans KR', sans-serif; font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 10px; line-height: 1.3; white-space: nowrap; }
+        .svc-desc { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.75); line-height: 1.75; max-height: 0; overflow: hidden; transition: max-height 0.55s ease, opacity 0.45s ease; opacity: 0; }
+        .svc-card:hover .svc-desc { max-height: 120px; opacity: 1; }
+        .svc-arrow { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 13px; font-weight: 700; color: #90E0EF; letter-spacing: 1.5px; opacity: 0; transform: translateX(-8px); transition: opacity 0.35s ease 0.1s, transform 0.35s ease 0.1s; }
+        .svc-card:hover .svc-arrow, .svc-card.card-active .svc-arrow { opacity: 1; transform: translateX(0); }
+        .svc-card:hover .svc-arrow i, .svc-card.card-active .svc-arrow i { animation: slideArrow 1.5s infinite ease-in-out; }
+        @keyframes slideArrow { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(4px); } }
+
+        /* ── 하단 바 & 스크롤 힌트 ── */
+        .bottom-bar { position: absolute; bottom: 0; left: 0; right: 0; z-index: 20; padding: 18px 50px; display: flex; align-items: center; justify-content: space-between; background: rgba(3, 4, 94, 0.50); backdrop-filter: blur(15px); border-top: 1px solid rgba(255,255,255,0.15); opacity: 0; animation: fadeIn 1.2s ease 1.4s forwards; }
+        .bottom-stat { display: flex; align-items: baseline; gap: 6px; }
+        .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: #90E0EF; line-height: 1; }
+        .stat-label { font-size: 11px; font-weight: 300; color: rgba(255,255,255,0.52); letter-spacing: 1px; }
+        .bottom-divider { width: 1px; height: 28px; background: rgba(255,255,255,0.15); }
+        .bottom-cta { display: flex; align-items: center; gap: 12px; }
+        .cta-label { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.52); letter-spacing: 1.5px; }
+        .cta-phone { display: inline-flex; align-items: center; gap: 9px; padding: 10px 24px; background: #0096C7; color: #fff; border-radius: 40px; font-size: 14px; font-weight: 700; letter-spacing: 0.5px; transition: background 0.3s, transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 20px rgba(0,150,199,0.40); }
+        .cta-phone:hover { background: #0077A8; transform: scale(1.04); box-shadow: 0 6px 28px rgba(0,150,199,0.55); }
+
+        .scroll-hint { position: absolute; right: 40px; top: 50%; transform: translateY(-50%); z-index: 20; display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0; animation: fadeIn 1.2s ease 1.6s forwards; }
+        .scroll-hint span { font-size: 9px; letter-spacing: 3px; font-weight: 500; color: rgba(255,255,255,0.38); writing-mode: vertical-rl; }
+        .scroll-line { width: 1px; height: 50px; background: linear-gradient(to bottom, rgba(200,234,255,0.55), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+        @keyframes scrollPulse { 0%, 100% { opacity: 0.4; transform: scaleY(1); } 50% { opacity: 0.9; transform: scaleY(0.6); } }
+
+        /* ── 호버 팝업 (기존 복구 완료) ── */
+        .bg-popup { position: fixed; inset: 0; z-index: 1050; opacity: 0; visibility: hidden; transition: opacity 0.5s ease, visibility 0.5s ease; background: rgba(0,15,45,0.92); pointer-events: none; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .bg-popup.active { pointer-events: all; opacity: 1; visibility: visible; }
+        body.hover-active .hero-eyebrow, body.hover-active .hero-title, body.hover-active .hero-sub, body.hover-active .bottom-bar, body.hover-active .scroll-hint { opacity: 0.05; pointer-events: none; transition: opacity 0.5s; }
+        body.hover-active #main-header { opacity: 0.15; transition: opacity 0.5s; }
+        body.tour-active .svc-card:not(#card-tour), body.taxi-active .svc-card:not(#card-taxi), body.airport-active .svc-card:not(#card-airport) { opacity: 0.1; filter: blur(4px); pointer-events: none; }
+        
+        .overlay-title { font-family: 'Cormorant Garamond', serif; color: #fff; font-size: 28px; font-weight: 300; letter-spacing: 6px; text-transform: uppercase; opacity: 0; transform: translateY(-16px); transition: all 0.9s ease; margin-bottom: 4px; }
+        .overlay-title em { font-style: italic; color: #90E0EF; }
+        .bg-tour.active .overlay-title, .bg-taxi.active .overlay-title, .bg-airport.active .overlay-title { transform: translateY(0); opacity: 1; }
+
+        /* 투어 팝업 애니메이션 & 카드 */
+        .marquee-wrapper { position: absolute; inset: 0; z-index: 1; opacity: 0.2; display: flex; align-items: center; overflow: hidden; }
+        .marquee-track { display: flex; gap: 24px; width: max-content; animation: scrollLeft 120s linear infinite; }
+        .bg-tour:not(.active) .marquee-track { animation-play-state: paused; }
+        .bg-tour.active .marquee-track { animation-play-state: running; }
+        .marquee-item { width: 380px; height: 520px; border-radius: 16px; overflow: hidden; flex-shrink: 0; }
+        .marquee-item img { width: 100%; height: 100%; object-fit: cover; }
+        @keyframes scrollLeft { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        /* ── 투어 팝업 오버레이 ── */
+        .tour-overlay-content {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10; display: flex; flex-direction: column;
+            align-items: center; width: 100%; padding: 0 20px;
+        }
+
+        /* 탭 버튼 */
+        .ctab-wrap { display: flex; gap: 8px; margin-bottom: 22px; }
+        .ctab {
+            padding: 9px 26px; border-radius: 40px; font-size: 12px;
+            font-weight: 700; letter-spacing: 1.5px; cursor: pointer;
+            border: 1.5px solid rgba(255,255,255,0.28);
+            background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.6);
+            backdrop-filter: blur(8px); transition: all 0.3s;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .ctab.active { background: #0096C7; border-color: #90E0EF; color: #fff; box-shadow: 0 4px 18px rgba(0,150,199,0.5); }
+        .ctab:hover:not(.active) { background: rgba(255,255,255,0.14); color: #fff; }
+
+        /* 코스 패널 */
+        .cpanel { display: none; width: 100%; max-width: 1020px; }
+        .cpanel.active { display: block; }
+
+        /* 명소 카드 가로 그리드 */
+        .spot-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            width: 100%;
+        }
+
+
+        .scard {
+            background: rgba(5, 20, 60, 0.55);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(180,220,255,0.15);
+            border-radius: 16px;
+            padding: 18px 10px 14px;
+            text-align: center;
+            opacity: 0; transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease,
+                        border-color 0.3s, background 0.3s, box-shadow 0.3s;
+            cursor: default;
+        }
+        .bg-tour.active .cpanel.active .scard { opacity: 1; transform: translateY(0); }
+        .scard:hover {
+            background: rgba(0,90,200,0.35);
+            border-color: rgba(0,150,199,0.55);
+            box-shadow: 0 8px 28px rgba(0,120,255,0.25);
+            transform: translateY(-4px) !important;
+        }
+        .scard-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 10px; font-weight: 600;
+            color: #0096C7; letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        .scard-icon { font-size: 26px; line-height: 1; margin-bottom: 8px; }
+        .scard-name {
+            font-size: 12px; font-weight: 700; color: #fff;
+            line-height: 1.4; word-break: keep-all;
+        }
+        /* 카드마다 지연 */
+        .scard:nth-child(1)  { transition-delay: 0.10s; }
+        .scard:nth-child(2)  { transition-delay: 0.17s; }
+        .scard:nth-child(3)  { transition-delay: 0.24s; }
+        .scard:nth-child(4)  { transition-delay: 0.31s; }
+        .scard:nth-child(5)  { transition-delay: 0.38s; }
+        .scard:nth-child(6)  { transition-delay: 0.45s; }
+        .scard:nth-child(7)  { transition-delay: 0.52s; }
+        .scard:nth-child(8)  { transition-delay: 0.59s; }
+        .scard:nth-child(9)  { transition-delay: 0.66s; }
+        .scard:nth-child(10) { transition-delay: 0.73s; }
+
+        /* B코스 임시 배지 */
+        .temp-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(255,180,0,0.12); border: 1px solid rgba(255,180,0,0.35);
+            color: #FFD060; font-size: 10px; font-weight: 700;
+            padding: 4px 14px; border-radius: 20px; letter-spacing: 1px;
+            margin-bottom: 14px;
+        }
+
+        /* 하단 정보 바 */
+        .cinfo-bar {
+            display: flex; align-items: center; justify-content: center;
+            gap: 22px; margin-top: 16px;
+            background: rgba(0,10,40,0.5); backdrop-filter: blur(12px);
+            border: 1px solid rgba(180,220,255,0.1);
+            border-radius: 40px; padding: 10px 28px;
+        }
+        .cib { display: flex; align-items: center; gap: 7px; font-size: 12px; color: rgba(255,255,255,0.7); white-space: nowrap; }
+        .cib i { color: #0096C7; font-size: 12px; }
+        .cib strong { color: #fff; }
+        .cib-sep { width: 1px; height: 14px; background: rgba(255,255,255,0.15); }
+
+        /* 택시 팝업 애니메이션 & 카드 */
+        .taxi-img-box { position: absolute; inset: 0; z-index: 0; }
+        .taxi-img-box img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.45); transition: transform 20s cubic-bezier(0.25,0.1,0.25,1); }
+        .bg-taxi.active .taxi-img-box img { transform: scale(1.3); }
+        .taxi-overlay-content { position: absolute; top: 10vh; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; flex-direction: column; align-items: center; width: 100%; }
+        .taxi-info-container { width: 820px; max-width: 92vw; margin-top: 22px; display: flex; flex-direction: column; gap: 18px; }
+        .glass-box { background: rgba(0,20,55,0.65); backdrop-filter: blur(14px); border: 1px solid rgba(180,230,255,0.14); border-radius: 18px; padding: 32px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.4); opacity: 0; transform: translateY(24px); transition: all 0.8s ease; }
+        .bg-taxi.active .glass-box { opacity: 1; transform: translateY(0); }
+        .bg-taxi.active .coverage-box { transition-delay: 0.1s; }
+        .bg-taxi.active .feature-box:nth-child(1) { transition-delay: 0.3s; }
+        .bg-taxi.active .feature-box:nth-child(2) { transition-delay: 0.4s; }
+        .coverage-header h3 { color: #fff; font-size: 24px; margin: 0 0 4px; font-weight: 700; }
+        .coverage-header .sub-text { color: rgba(255,255,255,0.5); font-size: 13px; }
+        .route-visual { display: flex; align-items: center; justify-content: space-between; margin: 28px 0; padding: 0 10px; }
+        .route-visual span { color: #fff; font-weight: 700; font-size: 17px; background: rgba(0,150,199,0.2); padding: 9px 22px; border-radius: 30px; border: 1px solid rgba(0,150,199,0.4); letter-spacing: 1px; }
+        .route-line { flex-grow: 1; height: 2px; background: repeating-linear-gradient(90deg,rgba(255,255,255,0.25) 0,rgba(255,255,255,0.25) 8px,transparent 8px,transparent 18px); margin: 0 18px; position: relative; }
+        .moving-car { position: absolute; top: -13px; left: 0; color: #0096C7; font-size: 24px; animation: drive 3.5s ease-in-out infinite; }
+        @keyframes drive { 0%{left:0;opacity:0} 10%{opacity:1} 85%{opacity:1} 100%{left:95%;opacity:0} }
+        .region-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+        .region-tags span { color: rgba(255,255,255,0.85); font-size: 13px; background: rgba(255,255,255,0.08); padding: 7px 16px; border-radius: 20px; transition: all 0.3s; }
+        .region-tags span:hover { background: #0096C7; color: #fff; }
+        .taxi-features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .feature-box { padding: 26px 20px; }
+        .feature-box i { font-size: 36px; color: #0096C7; margin-bottom: 16px; }
+        .feature-box h4 { color: #fff; font-size: 20px; margin: 0 0 10px; font-weight: 700; }
+        .feature-box p { color: rgba(255,255,255,0.65); font-size: 14px; line-height: 1.6; margin: 0; }
+
+        /* 공항 팝업 애니메이션 & 카드 */
+        .airport-img-box { position: absolute; inset: 0; z-index: 0; }
+        .airport-img-box img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.45); transition: transform 15s ease-out; }
+        .bg-airport.active .airport-img-box img { transform: translate(-5%,5%) scale(1.15); }
+        .airport-overlay-content { position: absolute; top: 12vh; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; flex-direction: column; align-items: center; width: 100%; }
+        .timeline-container { display: flex; justify-content: center; align-items: center; gap: 16px; width: 1060px; max-width: 95vw; margin-top: 28px; }
+        .timeline-step { background: rgba(0,20,55,0.70); backdrop-filter: blur(14px); border: 1px solid rgba(180,230,255,0.14); border-radius: 18px; padding: 36px 18px; width: 230px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.35); opacity: 0; transform: translateY(24px); transition: all 0.8s ease; position: relative; overflow: hidden; }
+        .bg-airport.active .timeline-step:nth-child(1) { opacity:1; transform:translateY(0); transition-delay:0.2s; }
+        .bg-airport.active .timeline-step:nth-child(3) { opacity:1; transform:translateY(0); transition-delay:0.4s; }
+        .bg-airport.active .timeline-step:nth-child(5) { opacity:1; transform:translateY(0); transition-delay:0.6s; }
+        .bg-airport.active .timeline-step:nth-child(7) { opacity:1; transform:translateY(0); transition-delay:0.8s; }
+        .timeline-arrow { color: rgba(255,255,255,0.25); font-size: 18px; opacity: 0; transition: all 0.8s ease; }
+        .bg-airport.active .timeline-arrow:nth-child(2) { opacity:1; transition-delay:0.3s; }
+        .bg-airport.active .timeline-arrow:nth-child(4) { opacity:1; transition-delay:0.5s; }
+        .bg-airport.active .timeline-arrow:nth-child(6) { opacity:1; transition-delay:0.7s; }
+        .step-icon { width: 64px; height: 64px; background: rgba(0,150,199,0.10); border: 1px solid #0096C7; color: rgba(255,255,255,0.85); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; margin: 0 auto 18px; transition: all 0.4s; }
+        .timeline-step:hover .step-icon { background: #0096C7; color: #fff; }
+        .step-num { position: absolute; top: 8px; left: 14px; color: rgba(255,255,255,0.04); font-size: 52px; font-weight: 900; font-family: 'Cormorant Garamond', serif; line-height: 1; }
+        .timeline-step h4 { color: #fff; font-size: 17px; margin: 0 0 10px; font-weight: 700; }
+        .timeline-step p { color: rgba(255,255,255,0.65); font-size: 13px; line-height: 1.6; margin: 0; }
+        .guarantees-container { display: flex; justify-content: center; gap: 18px; width: 1060px; max-width: 95vw; margin-top: 30px; }
+        .guarantee-box { background: rgba(255,255,255,0.04); backdrop-filter: blur(8px); border: 1px solid rgba(180,230,255,0.10); border-radius: 14px; padding: 22px; display: flex; align-items: center; gap: 18px; flex: 1; opacity: 0; transform: translateY(16px); transition: all 0.8s ease; }
+        .bg-airport.active .guarantee-box:nth-child(1) { transition-delay:1.0s; opacity:1; transform:translateY(0); }
+        .bg-airport.active .guarantee-box:nth-child(2) { transition-delay:1.2s; opacity:1; transform:translateY(0); }
+        .bg-airport.active .guarantee-box:nth-child(3) { transition-delay:1.4s; opacity:1; transform:translateY(0); }
+        .guarantee-icon { font-size: 28px; color: #0096C7; }
+        .guarantee-text h5 { color: #fff; font-size: 15px; margin: 0 0 5px; font-weight: 700; }
+        .guarantee-text p { color: rgba(255,255,255,0.6); font-size: 12px; line-height: 1.5; margin: 0; }
+
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        #page-transition-overlay { position: fixed; inset: 0; background: #EAF4FB; z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+
+        /* ── 모바일 반응형 ── */
+        @media (max-width: 768px) {
+            .hero { padding: 80px 20px 100px; justify-content: flex-end; }
+            .hero-title { font-size: clamp(28px, 7vw, 48px); margin-bottom: 16px; }
+            .hero-sub { font-size: 13px; margin-bottom: 32px; }
+            .services { flex-direction: column; align-items: center; gap: 12px; width: 100%; }
+            .svc-card { width: 100% !important; max-width: 360px; height: 200px; }
+            .svc-card:hover { width: 100% !important; transform: translateY(-4px); }
+            .svc-desc { max-height: 80px !important; opacity: 1 !important; }
+            .svc-arrow { opacity: 1 !important; transform: translateX(0) !important; }
+            .bottom-bar { padding: 12px 20px; flex-wrap: wrap; gap: 10px; }
+            .bottom-stat .stat-num { font-size: 20px; }
+            .scroll-hint { display: none; }
+            /* 팝업 모바일 */
+            .tour-overlay-content { padding: 0 12px; }
+            .spot-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 8px; }
+            .cpanel { max-width: 100%; }
+            .cinfo-bar { flex-wrap: wrap; gap: 10px; padding: 10px 16px; }
+            .taxi-info-container { width: 100%; padding: 0 16px; }
+            .taxi-features { grid-template-columns: 1fr !important; }
+            .timeline-container { flex-direction: column; align-items: center; width: 100%; padding: 0 16px; gap: 8px; }
+            .timeline-arrow { transform: rotate(90deg); }
+            .guarantees-container { flex-direction: column; width: 100%; padding: 0 16px; gap: 12px; }
+            .popup-close { top: 16px; right: 16px; }
+        }
+        @media (max-width: 480px) {
+            .spot-grid { grid-template-columns: repeat(2, 1fr) !important; }
+            .hero-eyebrow { font-size: 9px; letter-spacing: 3px; }
+        }
+
+        /* ── 팝업 닫기 버튼 ── */
+        .popup-close {
+            position: fixed; top: 24px; right: 32px; z-index: 1100;
+            width: 44px; height: 44px; border-radius: 50%;
+            background: rgba(255,255,255,0.1); border: 1.5px solid rgba(255,255,255,0.25);
+            color: rgba(255,255,255,0.8); font-size: 18px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; backdrop-filter: blur(8px);
+            transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+        }
+        .popup-close:hover { background: rgba(255,60,60,0.45); border-color: rgba(255,100,100,0.6); color: #fff; transform: scale(1.1); }
+
+        /* 활성 카드 테두리 강조 */
+        .svc-card.card-active { border-color: #0096C7 !important; box-shadow: 0 20px 50px rgba(0,150,199,0.25), 0 10px 20px rgba(0,0,0,0.1) !important; }
+
+        /* ── 팝업 하단 CTA 버튼 ── */
+        .popup-cta-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            margin-top: 24px; padding: 14px 36px;
+            background: #0096C7; color: #fff;
+            border-radius: 40px; font-size: 15px; font-weight: 700;
+            letter-spacing: 0.3px; text-decoration: none;
+            box-shadow: 0 6px 24px rgba(0,150,199,0.45);
+            transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+            position: relative; z-index: 20;
+        }
+        .popup-cta-btn:hover { background: #0077A8; transform: scale(1.04); box-shadow: 0 8px 32px rgba(0,150,199,0.6); }
+    </style>
+</head>
+<body class="is-fullscreen">
+    <script src="header.js"></script>
+
+    <div class="hero-section">
+        <div class="bg-ocean">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=90&w=2160" alt="부산 바다">
+        </div>
+        <div class="bg-overlay-top"></div>
+
+        <div class="hero">
+            <p class="hero-eyebrow">프리미엄 전기차 이동 서비스</p>
+            <h1 class="hero-title">
+                <span class="title-line">설레는 여행의 시작</span>
+                <span class="title-line"><em>부산 멤버스 택시</em></span>
+            </h1>
+            <p class="hero-sub">
+                설레는 여행의 시작, 쾌적하고 즐거운 이동<br>
+                부산 멤버스 택시가 완벽한 하루를 만들어 드립니다
+            </p>
+            <div class="services">
+                <div class="svc-card" id="card-tour">
+                    <div class="svc-bg" style="background-image:url('해동 용궁사.png')"></div>
+                    <div class="svc-body">
+                        <span class="svc-num">01</span>
+                        <div class="svc-icon"><i class="fas fa-map-marked-alt"></i></div>
+                        <div class="svc-title">부산 관광 투어</div>
+                        <p class="svc-desc">부산 주요 명소 맞춤 투어<br>반나절 13만 · 종일 25만원</p>
+                        <span class="svc-arrow">EXPLORE <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+                <div class="svc-card" id="card-taxi">
+                    <div class="svc-bg" style="background-image:url('예약.png')"></div>
+                    <div class="svc-body">
+                        <span class="svc-num">02</span>
+                        <div class="svc-icon"><i class="fas fa-road"></i></div>
+                        <div class="svc-title">장거리 콜택시</div>
+                        <p class="svc-desc">전국 어디든 쾌적한 이동<br>확정 요금제 · 전기 프리미엄 차량</p>
+                        <span class="svc-arrow">EXPLORE <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+                <div class="svc-card" id="card-airport">
+                    <div class="svc-bg" style="background-image:url('샌딩.png')"></div>
+                    <div class="svc-body">
+                        <span class="svc-num">03</span>
+                        <div class="svc-icon"><i class="fas fa-plane-departure"></i></div>
+                        <div class="svc-title">공항·기차역 샌딩</div>
+                        <p class="svc-desc">김해공항 5만 · 부산역 4만원<br>실시간 항공편 모니터링</p>
+                        <span class="svc-arrow">EXPLORE <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-bar">
+            <div style="display:flex;align-items:center;gap:28px">
+                <div class="bottom-stat"><span class="stat-num">EV</span><span class="stat-label">전기차 운행</span></div>
+                <div class="bottom-divider"></div>
+                <div class="bottom-stat"><span class="stat-num">24H</span><span class="stat-label">연중무휴</span></div>
+                <div class="bottom-divider"></div>
+                <div class="bottom-stat"><span class="stat-num">100%</span><span class="stat-label">정시 픽업 보장</span></div>
+            </div>
+            <div class="bottom-cta">
+                <span class="cta-label">CALL NOW</span>
+                <a href="tel:010-4242-4767" class="cta-phone"><i class="fas fa-phone-alt"></i> 010-4242-4767</a>
+            </div>
+        </div>
+
+        <div class="scroll-hint">
+            <div class="scroll-line"></div>
+            <span>SCROLL</span>
+        </div>
+    </div><!-- /.hero-section -->
+
+    <div id="page-transition-overlay"></div>
+    <button id="global-popup-close" class="popup-close" style="display:none"><i class="fas fa-times"></i></button>
+
+    <div class="bg-popup bg-tour" id="bg-tour">
+        <div class="marquee-wrapper"><div class="marquee-track">
+            <div class="marquee-item"><img src="해동 용궁사.png" alt="해동용궁사"></div>
+            <div class="marquee-item"><img src="감천문화마을.png" alt="감천문화마을"></div>
+            <div class="marquee-item"><img src="부산 광안리 야경.png" alt="광안대교"></div>
+            <div class="marquee-item"><img src="태종대.png" alt="태종대"></div>
+            <div class="marquee-item"><img src="해운대.png" alt="해운대"></div>
+            <div class="marquee-item"><img src="해동 용궁사.png" alt="해동용궁사"></div>
+            <div class="marquee-item"><img src="감천문화마을.png" alt="감천문화마을"></div>
+            <div class="marquee-item"><img src="부산 광안리 야경.png" alt="광안대교"></div>
+            <div class="marquee-item"><img src="태종대.png" alt="태종대"></div>
+            <div class="marquee-item"><img src="해운대.png" alt="해운대"></div>
+        </div></div>
+        <div class="tour-overlay-content">
+            <h2 class="overlay-title">RECOMMENDED <em>COURSES</em></h2>
+
+            <div class="ctab-wrap">
+                <button class="ctab active" data-cpanel="cpanel-a">A 코스</button>
+                <button class="ctab" data-cpanel="cpanel-b">B 코스</button>
+            </div>
+
+            <div class="cpanel active" id="cpanel-a">
+                <div class="spot-grid">
+                    <div class="scard"><div class="scard-num">01</div><div class="scard-icon">🌊</div><div class="scard-name">광안리<br>해수욕장</div></div>
+                    <div class="scard"><div class="scard-num">02</div><div class="scard-icon">🏛️</div><div class="scard-name">동백섬<br>누리마루</div></div>
+                    <div class="scard"><div class="scard-num">03</div><div class="scard-icon">🏖️</div><div class="scard-name">해운대<br>해수욕장</div></div>
+                    <div class="scard"><div class="scard-num">04</div><div class="scard-icon">🏙️</div><div class="scard-name">엘시티<br>스카이라운지</div></div>
+                    <div class="scard"><div class="scard-num">05</div><div class="scard-icon">🌿</div><div class="scard-name">달맞이길</div></div>
+                    <div class="scard"><div class="scard-num">06</div><div class="scard-icon">⛩️</div><div class="scard-name">해동<br>용궁사</div></div>
+                    <div class="scard"><div class="scard-num">07</div><div class="scard-icon">🚡</div><div class="scard-name">블루라인<br>파크</div></div>
+                    <div class="scard"><div class="scard-num">08</div><div class="scard-icon">🛍️</div><div class="scard-name">신세계<br>백화점</div></div>
+                    <div class="scard"><div class="scard-num">09</div><div class="scard-icon">🎬</div><div class="scard-name">영화의<br>전당</div></div>
+                    <div class="scard"><div class="scard-num">10</div><div class="scard-icon">🌃</div><div class="scard-name">마린시티</div></div>
+                </div>
+            </div>
+
+            <div class="cpanel" id="cpanel-b">
+                <div class="spot-grid">
+                    <div class="scard"><div class="scard-num">01</div><div class="scard-icon">🎨</div><div class="scard-name">감천<br>문화마을</div></div>
+                    <div class="scard"><div class="scard-num">02</div><div class="scard-icon">🚠</div><div class="scard-name">송도<br>해상케이블카</div></div>
+                    <div class="scard"><div class="scard-num">03</div><div class="scard-icon">🌉</div><div class="scard-name">송도<br>용궁구름다리</div></div>
+                    <div class="scard"><div class="scard-num">04</div><div class="scard-icon">🗼</div><div class="scard-name">용두산<br>전망대</div></div>
+                    <div class="scard"><div class="scard-num">05</div><div class="scard-icon">🐟</div><div class="scard-name">자갈치<br>시장</div></div>
+                    <div class="scard"><div class="scard-num">06</div><div class="scard-icon">🏪</div><div class="scard-name">국제시장</div></div>
+                    <div class="scard"><div class="scard-num">07</div><div class="scard-icon">📚</div><div class="scard-name">보수동<br>책방골목</div></div>
+                    <div class="scard"><div class="scard-num">08</div><div class="scard-icon">🏘️</div><div class="scard-name">흰여울<br>문화마을</div></div>
+                    <div class="scard"><div class="scard-num">09</div><div class="scard-icon">🌊</div><div class="scard-name">오륙도</div></div>
+                </div>
+            </div>
+
+            <div class="cinfo-bar">
+                <div class="cib"><i class="fas fa-sun"></i> 반나절 <strong>13만원</strong></div>
+                <div class="cib-sep"></div>
+                <div class="cib"><i class="fas fa-moon"></i> 종일 <strong>25만원</strong></div>
+                <div class="cib-sep"></div>
+                <div class="cib"><i class="fas fa-car"></i> 전용 차량 &amp; 기사 포함</div>
+                <div class="cib-sep"></div>
+                <div class="cib"><i class="fas fa-sliders-h"></i> 명소 자유 조합 가능</div>
+            </div>
+            <a href="tour-reservation.html" class="popup-cta-btn" onclick="event.stopPropagation()"><i class="fas fa-map-marked-alt"></i> 관광 투어 예약하기 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+
+    <div class="bg-popup bg-taxi" id="bg-taxi">
+        <div class="taxi-img-box"><img src="예약.png" alt="야간 주행"></div>
+        <div class="taxi-overlay-content">
+            <h2 class="overlay-title">LONG DISTANCE <em>SERVICE</em></h2>
+            <div class="taxi-info-container">
+                <div class="coverage-box glass-box">
+                    <div class="coverage-header"><h3>전국 어디든 운행 가능</h3><span class="sub-text">(단, 제주도 및 울릉도 제외)</span></div>
+                    <div class="route-visual">
+                        <span class="origin">부산</span>
+                        <div class="route-line"><i class="fas fa-car-side moving-car"></i></div>
+                        <span class="destination">목적지</span>
+                    </div>
+                    <div class="region-tags"><span>#서울</span><span>#경기</span><span>#인천</span><span>#강원</span><span>#충청</span><span>#전라</span><span>#경상</span></div>
+                </div>
+                <div class="taxi-features">
+                    <div class="feature-box glass-box"><i class="fas fa-bolt"></i><h4>전기차 & 프리미엄 차량</h4><p>출고 1년 미만 신차로 소음과 진동을 최소화.<br>장거리 이동에도 피로감이 없습니다.</p></div>
+                    <div class="feature-box glass-box"><i class="fas fa-user-tie"></i><h4>친절한 택시 기사</h4><p>철저한 서비스 마인드 교육 이수.<br>안전하고 정중하게 VIP로 모십니다.</p></div>
+                </div>
+            </div>
+            <a href="long-distance-reservation.html" class="popup-cta-btn" onclick="event.stopPropagation()"><i class="fas fa-road"></i> 장거리 예약하기 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+
+    <div class="bg-popup bg-airport" id="bg-airport">
+        <div class="airport-img-box"><img src="샌딩.png" alt="공항 활주로"></div>
+        <div class="airport-overlay-content">
+            <h2 class="overlay-title">AIRPORT TRANSFER <em>PROCESS</em></h2>
+            <div class="timeline-container">
+                <div class="timeline-step"><span class="step-num">01</span><div class="step-icon"><i class="fas fa-clock"></i></div><h4>예약 & 스케줄 확인</h4><p>비행 시간에 맞춘<br>여유로운 픽업 시간 조율</p></div>
+                <i class="fas fa-chevron-right timeline-arrow"></i>
+                <div class="timeline-step"><span class="step-num">02</span><div class="step-icon"><i class="fas fa-suitcase-rolling"></i></div><h4>자택 앞 픽업</h4><p>도어 투 도어 서비스<br>수하물 적재 지원</p></div>
+                <i class="fas fa-chevron-right timeline-arrow"></i>
+                <div class="timeline-step"><span class="step-num">03</span><div class="step-icon"><i class="fas fa-couch"></i></div><h4>안락한 이동</h4><p>최적 경로로 정시성 확보<br>비행 전 피로 없는 주행</p></div>
+                <i class="fas fa-chevron-right timeline-arrow"></i>
+                <div class="timeline-step"><span class="step-num">04</span><div class="step-icon"><i class="fas fa-plane-departure"></i></div><h4>공항 출국장 하차</h4><p>해당 항공사 게이트<br>가장 가까운 곳에 하차</p></div>
+            </div>
+            <div class="guarantees-container">
+                <div class="guarantee-box"><i class="fas fa-plane-arrival guarantee-icon"></i><div class="guarantee-text"><h5>실시간 항공편 트래킹</h5><p>지연·연착 시에도 걱정 마세요.<br>비행 스케줄에 맞춰 유동적으로 대기합니다.</p></div></div>
+                <div class="guarantee-box"><i class="fas fa-check-circle guarantee-icon"></i><div class="guarantee-text"><h5>100% 정시 픽업 보장</h5><p>단 1분의 지각도 용납하지 않는<br>칼 배차 시스템.</p></div></div>
+                <div class="guarantee-box"><i class="fas fa-receipt guarantee-icon"></i><div class="guarantee-text"><h5>투명한 확정 요금제</h5><p>공항 5만 · 부산역 4만원<br>숨겨진 추가 비용 일절 없음.</p></div></div>
+            </div>
+            <a href="airport-sending.html" class="popup-cta-btn" onclick="event.stopPropagation()"><i class="fas fa-plane-departure"></i> 공항 샌딩 예약하기 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const overlay = document.getElementById('page-transition-overlay');
+            overlay.style.opacity = '1'; overlay.style.transition = 'none';
+            requestAnimationFrame(() => requestAnimationFrame(() => {
+                overlay.style.transition = 'opacity 0.6s ease'; overlay.style.opacity = '0';
+            }));
+            function navigateTo(url) {
+                overlay.style.opacity = '1'; overlay.style.pointerEvents = 'all';
+                setTimeout(() => { window.location.href = url; }, 400);
+            }
+            // 투어 팝업 탭 전환
+            document.querySelectorAll('.ctab').forEach(tab => {
+                tab.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    document.querySelectorAll('.ctab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.cpanel').forEach(p => p.classList.remove('active'));
+                    this.classList.add('active');
+                    const panel = document.getElementById(this.dataset.cpanel);
+                    if (panel) {
+                        // 카드 숨기기 → 패널 전환 → 카드 등장
+                        panel.querySelectorAll('.scard').forEach(s => {
+                            s.style.opacity = '0';
+                            s.style.transform = 'translateY(20px)';
+                        });
+                        panel.classList.add('active');
+                        setTimeout(() => {
+                            panel.querySelectorAll('.scard').forEach(s => {
+                                s.style.opacity = '';
+                                s.style.transform = '';
+                            });
+                        }, 40);
+                    }
+                });
+            });
+
+            const cards = [
+                { id:'card-tour', bg:'bg-tour', bodyClass:'tour-active', href:'tour-reservation.html' },
+                { id:'card-taxi', bg:'bg-taxi', bodyClass:'taxi-active', href:'long-distance-reservation.html' },
+                { id:'card-airport', bg:'bg-airport', bodyClass:'airport-active', href:'airport-sending.html' }
+            ];
+
+            const globalClose = document.getElementById('global-popup-close');
+
+            function closeAll() {
+                cards.forEach(c => {
+                    const bgEl = document.getElementById(c.bg);
+                    const cardEl = document.getElementById(c.id);
+                    if (bgEl) bgEl.classList.remove('active');
+                    if (cardEl) cardEl.classList.remove('card-active');
+                    document.body.classList.remove(c.bodyClass);
+                });
+                document.body.classList.remove('hover-active');
+                globalClose.style.display = 'none';
+            }
+
+            cards.forEach(({ id, bg, bodyClass, href }) => {
+                const cardEl = document.getElementById(id);
+                const bgEl = document.getElementById(bg);
+                if (!cardEl || !bgEl) return;
+
+                cardEl.addEventListener('click', (e) => {
+                    const isAlreadyOpen = bgEl.classList.contains('active');
+                    closeAll();
+                    if (!isAlreadyOpen) {
+                        bgEl.classList.add('active');
+                        cardEl.classList.add('card-active');
+                        document.body.classList.add('hover-active', bodyClass);
+                        globalClose.style.display = 'flex';
+                    }
+                });
+            });
+
+            // 닫기 버튼
+            globalClose.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeAll();
+            });
+
+            // 팝업 배경(콘텐츠 외부) 클릭 시 닫힘
+            document.querySelectorAll('.bg-popup').forEach(popup => {
+                popup.addEventListener('click', (e) => {
+                    if (e.target === popup) closeAll();
+                });
+            });
+            document.addEventListener('click', (e) => {
+                const link = e.target.closest('a[href]'); if (!link) return;
+                const href = link.getAttribute('href');
+                if (!href || href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('http') || href.startsWith('#')) return;
+                e.preventDefault(); navigateTo(href);
+            });
+        });
+    </script>
+    <script src="footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://busanmemberstxi.com/long-distance-reservation.html">
+    <meta property="og:title" content="장거리 예약 | 부산 멤버스 택시">
+    <meta property="og:description" content="전국 어디든 확정 요금제로 쾌적한 이동. 출고 1년 미만 프리미엄 전기차로 서울·대구·경주 등 장거리 운행 가능.">
+    <meta property="og:site_name" content="부산 멤버스 택시">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="장거리 예약 | 부산 멤버스 택시">
+    <meta name="twitter:description" content="전국 어디든 확정 요금제로 쾌적한 이동. 출고 1년 미만 프리미엄 전기차로 서울·대구·경주 등 장거리 운행 가능.">
+    <meta name="description" content="부산 멤버스 택시 - 프리미엄 관광 투어, 장거리 콜택시, 공항·기차역 샌딩 서비스. 최고급 전기차로 안전하고 편안한 이동을 약속합니다.">
+    <title>장거리 예약 | 부산 멤버스 택시</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root{--primary:#03045E;--point:#0096C7;--point-light:#CAF0F8;--bg-main:#EAF4FB;--white:#ffffff;--text-dark:#333333;--text-gray:#666666}
+        *,*::before,*::after{box-sizing:border-box}
+        body,html{margin:0;padding:0;font-family:'Noto Sans KR',sans-serif;background-color:#EAF4FB;color:var(--text-dark);overflow-x:hidden}
+        a{text-decoration:none;color:inherit}
+
+        /* ── 히어로 ── */
+        .page-header{padding:0;position:relative;height:460px;overflow:hidden;display:flex;align-items:flex-end}
+        .page-header::before{content:'';position:absolute;inset:0;background-image:var(--bg,url('예약.png'));background-size:cover;background-position:center;filter:brightness(.58);transition:transform 20s ease-out}
+        .page-header::after{content:'';position:absolute;bottom:-2px;left:0;width:100%;height:88px;background:#EAF4FB;clip-path:polygon(0 100%,100% 0,100% 100%)}
+        .page-header:hover::before{transform:scale(1.04)}
+        .page-header-inner{position:relative;z-index:2;padding:0 64px 80px;width:100%}
+        .eyebrow{display:inline-block;border:1px solid rgba(255,255,255,.4);color:rgba(255,255,255,.7);font-size:11px;font-weight:700;letter-spacing:4px;padding:5px 18px;border-radius:30px;margin-bottom:14px}
+        .page-header h1{font-family:'Cormorant Garamond',serif!important;font-size:54px;font-weight:600;color:#fff;margin:0 0 10px;letter-spacing:2px}
+        .page-header p{font-size:16px;color:rgba(255,255,255,.65);margin:0;font-weight:300}
+
+        /* ── 컨텐츠 ── */
+        .content{max-width:1100px;margin:0 auto 100px;padding:60px 30px 0}
+
+        /* ── 특징 카드 그리드 ── */
+        .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px}
+
+        .feature-card{background:#EAF4FB;border-radius:20px;padding:40px 30px;text-align:center;box-shadow:0 8px 28px rgba(0,0,0,.05);border:1px solid rgba(0,0,0,.04);transition:transform .4s,box-shadow .4s,opacity .5s;opacity:0;transform:translateY(24px)}
+        .feature-card.visible{opacity:1;transform:translateY(0)}
+        .feature-card:hover{transform:translateY(-7px);box-shadow:0 18px 45px rgba(0,150,199,.1)}
+
+        .feature-icon-wrap{width:72px;height:72px;border-radius:50%;background:var(--point-light);display:flex;align-items:center;justify-content:center;margin:0 auto 22px}
+        .feature-icon-wrap i{font-size:30px;color:var(--point)}
+        .feature-card h3{font-size:18px;font-weight:700;color:var(--primary);margin:0 0 12px}
+        .feature-card p{font-size:14px;color:var(--text-gray);line-height:1.75;margin:0}
+
+        /* ── 목적지 카드 ── */
+        .dest-section{margin-bottom:40px}
+        .section-label{display:flex;align-items:center;gap:16px;margin-bottom:32px}
+        .section-label .line{flex:1;height:1px;background:rgba(0,150,199,.15)}
+        .section-label span{font-size:11px;font-weight:700;letter-spacing:3px;color:#0096C7;white-space:nowrap}
+
+        .dest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+        .dest-chip{background:#EAF4FB;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:16px 14px;text-align:center;font-size:14px;font-weight:600;color:var(--primary);box-shadow:0 4px 12px rgba(0,0,0,.04);transition:.3s}
+        .dest-chip:hover{border-color:var(--point);color:var(--point);box-shadow:0 6px 20px rgba(0,150,199,.12);transform:translateY(-3px)}
+        .dest-chip .dist{display:block;font-size:11px;color:var(--text-gray);font-weight:400;margin-top:4px}
+
+        /* ── CTA ── */
+        .cta-box{background:linear-gradient(135deg,#03045E,#0096C7);border-radius:24px;padding:52px 60px;display:flex;align-items:center;justify-content:space-between;gap:40px}
+        .cta-box h2{font-family:'Cormorant Garamond',serif!important;font-size:30px;font-weight:600;letter-spacing:1px;color:#fff;margin:0 0 10px}
+        .cta-box p{font-size:15px;color:rgba(255,255,255,.65);margin:0;line-height:1.7}
+        .btn-cta{display:inline-flex;align-items:center;gap:12px;padding:20px 50px;background:#fff;color:var(--primary);border-radius:40px;font-size:17px;font-weight:700;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.2);transition:.3s;flex-shrink:0}
+        .btn-cta:hover{background:var(--point);color:#fff;transform:scale(1.04)}
+
+        #page-transition-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#EAF4FB;z-index:9999;opacity:0;pointer-events:none;transition:opacity .4s ease}
+
+        @media(max-width:900px){.feature-grid{grid-template-columns:1fr}.dest-grid{grid-template-columns:repeat(2,1fr)}.cta-box{flex-direction:column;padding:40px 30px}.page-header h1{font-size:36px}.page-header-inner{padding:0 30px 60px}}
+    
+    /* ══════════════════════════════════════════
+       도로·경로 토폴로지 맵 배경 패턴 (v2)
+       타일링 없이 전체 화면 1장으로 커버
+    ══════════════════════════════════════════ */
+    body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-image:
+            radial-gradient(circle, rgba(0,150,199,0.07) 1px, transparent 1px),
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 900' preserveAspectRatio='xMidYMid slice'%3E%3Cdefs%3E%3ClinearGradient id='wg' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%230096C7' stop-opacity='0'/%3E%3Cstop offset='0.4' stop-color='%230096C7' stop-opacity='0.06'/%3E%3Cstop offset='1' stop-color='%230096C7' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='none'%3E%3Cpath stroke='url(%23wg)' stroke-width='1.5' d='M-100,650 C200,610 450,560 720,580 C990,600 1200,630 1560,590'/%3E%3Cpath stroke='url(%23wg)' stroke-width='1.2' d='M-100,520 C180,485 420,445 700,462 C960,478 1180,510 1560,475'/%3E%3Cpath stroke='url(%23wg)' stroke-width='0.9' d='M-100,390 C160,360 400,330 680,348 C940,364 1160,395 1560,360'/%3E%3Cpath stroke='url(%23wg)' stroke-width='0.7' d='M-100,260 C140,235 380,215 660,230 C920,244 1140,272 1560,242'/%3E%3Cpath stroke='url(%23wg)' stroke-width='0.5' d='M-100,140 C120,118 360,102 640,116 C900,128 1120,152 1560,126'/%3E%3C/g%3E%3C/svg%3E");
+        background-size: 28px 28px, 100% 100%;
+        background-repeat: repeat, no-repeat;
+        background-position: center, center;
+    }
+    body > * { position: relative; z-index: 1; }
+
+    </style>
+</head>
+<body>
+    <script src="header.js"></script>
+    <div id="page-transition-overlay"></div>
+    <script>
+        (function(){
+            const o=document.getElementById('page-transition-overlay');
+            o.style.opacity='1';o.style.transition='none';
+            requestAnimationFrame(()=>requestAnimationFrame(()=>{o.style.transition='opacity .5s ease';o.style.opacity='0'}));
+            document.addEventListener('click',e=>{
+                const l=e.target.closest('a[href]');if(!l)return;
+                const h=l.getAttribute('href');
+                if(!h||h.startsWith('tel:')||h.startsWith('mailto:')||h.startsWith('http')||h.startsWith('#'))return;
+                e.preventDefault();o.style.opacity='1';o.style.pointerEvents='all';
+                setTimeout(()=>{window.location.href=h},400);
+            });
+        })();
+    </script>
+
+    <div class="page-header">
+        <div class="page-header-inner">
+            <span class="eyebrow">LONG DISTANCE</span>
+            <h1>장거리 예약</h1>
+            <p>전국 어디든, 가장 편안한 이동을 약속합니다</p>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon-wrap"><i class="fas fa-map-marked-alt"></i></div>
+                <h3>전국 운행 가능</h3>
+                <p>서울, 경기, 강원 등 전국 모든 지역으로 운행합니다. 통행료 포함 투명한 확정 요금제를 제공합니다.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-wrap"><i class="fas fa-car"></i></div>
+                <h3>최신형 전기·프리미엄 차량</h3>
+                <p>출고 1년 미만의 최신형 전기차와 프리미엄 세단으로 장시간 이동에도 피로감이 없는 승차감을 제공합니다.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-wrap"><i class="fas fa-shield-alt"></i></div>
+                <h3>안전 &amp; 친절 보장</h3>
+                <p>철저한 서비스 마인드 교육을 이수한 기사님이 안전하고 정중하게 목적지까지 모셔드립니다.</p>
+            </div>
+        </div>
+
+        <div class="dest-section">
+            <div class="section-label">
+                <div class="line"></div>
+                <span>주요 운행 지역</span>
+                <div class="line"></div>
+            </div>
+            <div class="dest-grid">
+                <div class="dest-chip">서울<span class="dist">약 400km</span></div>
+                <div class="dest-chip">대구<span class="dist">약 120km</span></div>
+                <div class="dest-chip">경주<span class="dist">약 70km</span></div>
+                <div class="dest-chip">울산<span class="dist">약 70km</span></div>
+                <div class="dest-chip">거제<span class="dist">약 100km</span></div>
+                <div class="dest-chip">통영<span class="dist">약 100km</span></div>
+                <div class="dest-chip">광주<span class="dist">약 260km</span></div>
+                <div class="dest-chip">그 외 전국<span class="dist">문의 환영</span></div>
+            </div>
+        </div>
+
+        <div class="cta-box">
+            <div>
+                <h2>지금 바로 장거리 예약 상담하기</h2>
+                <p>전화 한 통으로 일정, 목적지, 차량을 한 번에 안내해 드립니다.<br>확정 요금을 미리 안내해 드리니 부담 없이 연락주세요.</p>
+            </div>
+            <a href="tel:010-4242-4767" class="btn-cta"><i class="fas fa-phone-alt"></i> 010-4242-4767</a>
+        </div>
+    </div>
+
+    <script>
+        const cards=document.querySelectorAll('.feature-card');
+        const io=new IntersectionObserver(entries=>{
+            entries.forEach((en,i)=>{if(en.isIntersecting){setTimeout(()=>en.target.classList.add('visible'),i*120);io.unobserve(en.target)}});
+        },{threshold:.15});
+        cards.forEach(c=>io.observe(c));
+    </script>
+    <script src="footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://busanmemberstxi.com/tour-reservation.html">
+    <meta property="og:title" content="관광 투어 예약 | 부산 멤버스 택시">
+    <meta property="og:description" content="부산 주요 명소를 맞춤형 투어로 안내해드립니다. 반나절 13만원, 종일 25만원. 전용 기사와 최신 전기차로 편안한 부산 여행을 즐기세요.">
+    <meta property="og:site_name" content="부산 멤버스 택시">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="관광 투어 예약 | 부산 멤버스 택시">
+    <meta name="twitter:description" content="부산 주요 명소를 맞춤형 투어로 안내해드립니다. 반나절 13만원, 종일 25만원. 전용 기사와 최신 전기차로 편안한 부산 여행을 즐기세요.">
+    <meta name="description" content="부산 멤버스 택시 - 프리미엄 관광 투어, 장거리 콜택시, 공항·기차역 샌딩 서비스. 최고급 전기차로 안전하고 편안한 이동을 약속합니다.">
+    <title>관광 투어 예약 | 부산 멤버스 택시</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        *,*::before,*::after{box-sizing:border-box}
+        body,html{margin:0;padding:0;font-family:'Noto Sans KR',sans-serif;background-color:#EAF4FB;color:#333;overflow-x:hidden}
+        a{text-decoration:none;color:inherit}
+
+        /* ── 히어로 섹션 (배경 이미지 렌더링 오류 수정) ── */
+        .page-header{
+            padding:0;position:relative;height:460px;overflow:hidden;
+            display:flex;align-items:flex-end;
+            background-color: #03045E; /* 이미지 로딩 전 기본 배경색 */
+        }
+        .page-header::before{
+            content:'';position:absolute;inset:0;
+            background-image: url('관광.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter:brightness(.58);transition:transform 20s ease-out;
+            transform: scale(1.05);
+            animation: heroZoom 20s infinite alternate;
+        }
+        @keyframes heroZoom { from { transform: scale(1.05); } to { transform: scale(1.15); } }
+        .page-header:hover::before{animation-play-state:paused}
+        
+        .page-header::after{
+            content:'';position:absolute;bottom:-2px;left:0;width:100%;height:88px;background:#EAF4FB;clip-path:polygon(0 100%,100% 0,100% 100%)
+        }
+        .page-header-inner{position:relative;z-index:2;padding:0 64px 80px;width:100%}
+        .eyebrow{
+            display:inline-block;border:1px solid rgba(255,255,255,.4);
+            color:rgba(255,255,255,.75);font-size:11px;font-weight:700;letter-spacing:4px;
+            padding:5px 18px;border-radius:30px;margin-bottom:14px;
+        }
+        .page-header h1{
+            font-family:'Cormorant Garamond',serif!important;font-size:54px;color:#fff;margin:0 0 10px;letter-spacing:2px;line-height:1.1;font-weight:600
+        }
+        .page-header p{font-size:16px;color:rgba(255,255,255,.65);margin:0;font-weight:300}
+
+        /* ── 투어 코스 섹션 ── */
+        .course-section{max-width:1200px;margin:0 auto 20px;padding:60px 30px 0}
+        .course-section-header{display:flex;align-items:center;gap:16px;margin-bottom:32px}
+        .course-section-header .line{flex:1;height:1px;background:rgba(0,150,199,.15)}
+        .course-section-header span{font-size:11px;font-weight:700;letter-spacing:3px;color:#0096C7;white-space:nowrap}
+
+        .course-tabs{display:flex;gap:12px;margin-bottom:28px;justify-content:center}
+        .course-tab{padding:10px 32px;border-radius:40px;font-size:14px;font-weight:700;cursor:pointer;border:2px solid #03045E;background:transparent;color:#03045E;transition:.3s;letter-spacing:.5px}
+        .course-tab.active{background:#03045E;color:#fff;box-shadow:0 4px 16px rgba(0,150,199,.25)}
+        .course-tab:hover:not(.active){background:rgba(0,150,199,.06)}
+
+        .course-panel{display:none}
+        .course-panel.active{display:block}
+
+        .course-cards-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-bottom:16px}
+        @media(max-width:1100px){.course-cards-grid{grid-template-columns:repeat(3,1fr)}}
+        @media(max-width:700px){.course-cards-grid{grid-template-columns:repeat(2,1fr)}}
+
+        .spot-card{
+            background:#fff;border-radius:18px;padding:24px 18px 20px;
+            border:1px solid rgba(0,150,199,.09);
+            box-shadow:0 4px 16px rgba(0,0,0,.05);
+            text-align:center;
+            opacity:0;transform:translateY(20px);
+            transition:opacity .45s ease, transform .45s ease, box-shadow .3s, border-color .3s;
+        }
+        .spot-card.visible{opacity:1;transform:translateY(0)}
+        .spot-card:hover{box-shadow:0 12px 32px rgba(0,150,199,.13);border-color:rgba(0,150,199,.3);transform:translateY(-4px)}
+        .spot-num{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#CAF0F8;color:#0096C7;font-size:13px;font-weight:700;margin-bottom:12px;font-family:'Cormorant Garamond',serif;}
+        .spot-name{font-size:15px;font-weight:700;color:#03045E;margin:0 0 5px;line-height:1.3}
+        .spot-desc{font-size:11px;color:#888;line-height:1.6;margin:0}
+
+        .course-note{text-align:center;font-size:12px;color:#888;margin-top:8px;padding:12px;background:rgba(0,150,199,.04);border-radius:10px;border:1px solid rgba(0,150,199,.08)}
+        .course-note i{color:#0096C7;margin-right:5px}
+
+        /* ── 갤러리 섹션 ── */
+        .gallery-wrap{max-width:1280px;margin:20px auto 80px;padding:0 30px}
+        .gallery-header{display:flex;align-items:center;gap:16px;margin-bottom:36px}
+        .gallery-header .line{flex:1;height:1px;background:rgba(0,150,199,.15)}
+        .gallery-header span{font-size:11px;font-weight:700;letter-spacing:3px;color:#0096C7;white-space:nowrap}
+
+        /* ── 슬라이더 컨트롤 ── */
+        .gallery-slider-wrap{position:relative;overflow:hidden}
+        .gallery-slide{
+            position:absolute;top:0;left:0;width:100%;
+            opacity:0;pointer-events:none;
+            will-change:opacity,transform;
+        }
+        .gallery-slide.active{
+            position:relative;opacity:1;pointer-events:all;
+        }
+
+        .gallery-controls{display:flex;align-items:center;justify-content:center;gap:20px;margin-top:28px}
+        .gallery-arrow{width:46px;height:46px;border-radius:50%;background:#fff;border:1.5px solid rgba(0,150,199,.18);
+            display:flex;align-items:center;justify-content:center;cursor:pointer;
+            color:#03045E;font-size:15px;transition:.25s;box-shadow:0 3px 12px rgba(0,0,0,.07)}
+        .gallery-arrow:hover{background:#03045E;color:#fff;border-color:#03045E;transform:scale(1.08);box-shadow:0 6px 20px rgba(10,61,98,.2)}
+        .gallery-arrow:disabled{opacity:.3;cursor:default;pointer-events:none}
+
+        .gallery-dots{display:none}
+        .gallery-page-num{font-size:22px;font-weight:700;color:#03045E;letter-spacing:2px;font-family:'Cormorant Garamond',serif;min-width:72px;text-align:center}
+
+        .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+        .gallery-item{
+            position:relative; border-radius:16px; overflow:hidden; cursor:pointer;
+            aspect-ratio:3/2; background:#ddd; opacity:0;
+            transform:scale(.95) translateY(20px);
+            transition:opacity .5s ease, transform .5s ease, box-shadow .3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .gallery-item.visible{opacity:1;transform:scale(1) translateY(0)}
+        .gallery-item:hover{box-shadow: 0 20px 40px rgba(0,150,199,0.2); z-index:2}
+        .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.25,.46,.45,.94);display:block;}
+        .gallery-item:hover img{transform:scale(1.08)}
+        .gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(3,4,94,.85) 0%,rgba(3,4,94,.15) 55%,transparent 100%);opacity:0;transition:opacity .4s ease;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;}
+        .gallery-item:hover .gallery-overlay{opacity:1}
+        .gallery-name{color:#fff;font-size:14px;font-weight:700;margin:0 0 4px;transform:translateY(8px);transition:transform .4s ease;}
+        .gallery-sub{color:rgba(255,255,255,.7);font-size:11px;transform:translateY(8px);transition:transform .4s ease .04s;}
+        .gallery-item:hover .gallery-name, .gallery-item:hover .gallery-sub{transform:translateY(0)}
+
+        .gallery-zoom-icon{
+            position:absolute;top:12px;right:12px;
+            width:34px;height:34px;
+            background:rgba(255,255,255,.15);
+            backdrop-filter:blur(8px);
+            border:1px solid rgba(255,255,255,.25);
+            border-radius:50%;
+            display:flex;align-items:center;justify-content:center;
+            color:#fff;font-size:13px;
+            opacity:0;
+            transform:scale(.7);
+            transition:opacity .3s ease,transform .3s ease;
+        }
+        .gallery-item:hover .gallery-zoom-icon{opacity:1;transform:scale(1)}
+
+        .gallery-ai-badge{
+            position:absolute;bottom:10px;left:10px;
+            font-size:9px;font-weight:500;letter-spacing:.4px;
+            color:rgba(255,255,255,.55);
+            background:rgba(0,0,0,.28);
+            backdrop-filter:blur(6px);
+            border:1px solid rgba(255,255,255,.12);
+            border-radius:20px;
+            padding:3px 8px;
+            pointer-events:none;
+            z-index:2;
+        }
+
+        /* ── 요금 안내 (글래스모피즘 & 하이라이트 테두리) ── */
+        .pricing-wrap{max-width:1220px;margin:0 auto 60px;padding:0 30px}
+        .pricing-header{display:flex;align-items:center;gap:16px;margin-bottom:32px}
+        .pricing-header .line{flex:1;height:1px;background:rgba(0,150,199,.15)}
+        .pricing-header span{font-size:11px;font-weight:700;letter-spacing:3px;color:#0096C7;white-space:nowrap}
+
+        .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:760px;margin:0 auto 20px}
+        .pricing-card{
+            background: rgba(255,255,255,0.7); backdrop-filter: blur(10px);
+            border-radius:24px;padding:40px 36px;
+            border:1px solid rgba(255,255,255,0.6); border-top: 2px solid #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display:flex;flex-direction:column;align-items:center;text-align:center;
+            position:relative; transition:transform .3s, box-shadow .3s;
+        }
+        .pricing-card:hover{transform:translateY(-6px); box-shadow: 0 20px 40px rgba(0,150,199,0.12);}
+        .pricing-card.featured{background:linear-gradient(150deg,#03045E,#023E8A); border-color:transparent; box-shadow:0 12px 40px rgba(0,80,200,.25);}
+        .pricing-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#0096C7;color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;padding:5px 18px;border-radius:20px;box-shadow:0 4px 12px rgba(0,150,199,.4);}
+        .pricing-icon{width:60px;height:60px;border-radius:50%;background:#CAF0F8;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+        .pricing-icon i{font-size:24px;color:#0096C7}
+        .pricing-card.featured .pricing-icon{background:rgba(255,255,255,.12)}
+        .pricing-card.featured .pricing-icon i{color:#90E0EF}
+        .pricing-label{font-size:15px;font-weight:700;color:#03045E;margin-bottom:6px}
+        .pricing-card.featured .pricing-label{color:#fff}
+        .pricing-duration{font-size:12px;color:#666;margin-bottom:20px}
+        .pricing-duration i{color:#0096C7;margin-right:4px}
+        .pricing-card.featured .pricing-duration{color:rgba(255,255,255,.55)}
+        .pricing-price{font-size:42px;font-weight:700;color:#03045E;line-height:1;margin-bottom:24px;letter-spacing:-1px;}
+        .pricing-price span{font-size:16px;font-weight:500;margin-left:2px}
+        .pricing-card.featured .pricing-price{color:#fff;}
+        .pricing-includes{list-style:none;padding:0;margin:0 0 28px;width:100%;border-top:1px solid rgba(0,0,0,.07);padding-top:20px;display:flex;flex-direction:column;gap:10px;text-align:left;}
+        .pricing-card.featured .pricing-includes{border-top-color:rgba(255,255,255,.12)}
+        .pricing-includes li{font-size:13px;color:#666;display:flex;align-items:center;gap:8px}
+        .pricing-includes li i{color:#0096C7;font-size:11px;flex-shrink:0}
+        .pricing-card.featured .pricing-includes li{color:rgba(255,255,255,.75)}
+        .pricing-card.featured .pricing-includes li i{color:#90E0EF}
+        .pricing-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:35px;font-size:14px;font-weight:700;background:#0096C7;color:#fff;box-shadow:0 4px 16px rgba(0,150,199,0.3);transition:.3s;width:100%;justify-content:center;}
+        .pricing-btn:hover{background:#0077A8;transform:scale(1.02)}
+        .pricing-card.featured .pricing-btn{background:#fff;color:#03045E;}
+        .pricing-card.featured .pricing-btn:hover{background:#CAF0F8}
+        .pricing-note{text-align:center;font-size:12px;color:#666;margin:0;line-height:1.7;}
+        .pricing-note i{color:#0096C7;margin-right:5px}
+
+        /* ── 안내 배너 (기존 누락된 내용 복구) ── */
+        .info-banner{background:linear-gradient(135deg,#03045E,#0096C7);border-radius:24px;padding:50px 60px;display:flex;align-items:center;gap:50px;color:#fff;margin:0 30px 80px;max-width:1220px;margin-left:auto;margin-right:auto}
+        .info-banner i{font-size:52px;color:#90E0EF;flex-shrink:0}
+        .info-banner h3{font-family:'Cormorant Garamond',serif!important;font-size:26px;margin:0 0 10px;color:#fff;font-weight:600;letter-spacing:1px}
+        .info-banner p{font-size:15px;color:rgba(255,255,255,.7);margin:0;line-height:1.7}
+
+        /* ── 라이트박스 ── */
+        .lightbox{position:fixed;inset:0;z-index:9000;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0;transition:opacity 0.4s;}
+        .lightbox.open{pointer-events:all;opacity:1}
+        .lb-backdrop{position:absolute;inset:0;background:rgba(8,15,26,.92);backdrop-filter:blur(16px);opacity:0;transition:opacity .4s ease;}
+        .lightbox.open .lb-backdrop{opacity:1}
+        .lb-panel{position:relative;z-index:1;display:flex;width:min(1060px,94vw);height:800px;max-height:92vh;background:#111820;border-radius:24px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.7);transform:scale(.88) translateY(30px);transition:transform .45s cubic-bezier(.34,1.3,.64,1), opacity .4s ease;opacity:0;}
+        .lightbox.open .lb-panel{transform:scale(1) translateY(0);opacity:1}
+        .lb-img-wrap{width:58%;height:100%;flex-shrink:0;position:relative;overflow:hidden;}
+        .lb-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 8s linear;}
+        .lightbox.open .lb-img-wrap img{transform:scale(1.06)}
+        .lb-img-gradient{position:absolute;inset:0;background:linear-gradient(to right,transparent 60%,#111820)}
+        .lb-content{flex:1;padding:48px 44px;display:flex;flex-direction:column;justify-content:center;overflow-y:auto;}
+        .lb-tag{display:inline-block;background:#0096C7;color:#fff;font-size:10px;font-weight:700;letter-spacing:2px;padding:5px 14px;border-radius:20px;margin-bottom:18px;}
+        .lb-title{font-family:'Playfair Display',serif;font-size:28px;color:#fff;margin:0 0 12px;line-height:1.2;}
+        .lb-desc{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.8;margin:0 0 28px;}
+        .lb-step-label{font-size:11px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,.35);margin-bottom:14px;}
+        .lb-steps{display:flex;flex-direction:column;gap:10px;margin-bottom:34px}
+        .lb-step{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px 16px;}
+        .lb-step-num{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#0096C7;min-width:28px;text-align:center;}
+        .lb-step-text{font-size:13px;color:rgba(255,255,255,.8)}
+        .lb-cta{display:flex;align-items:center;justify-content:center;gap:10px;padding:16px 32px;background:#0096C7;color:#fff;border-radius:12px;font-size:15px;font-weight:700;transition:background .3s,transform .2s;box-shadow:0 6px 20px rgba(0,150,199,.4);}
+        .lb-cta:hover{background:#0077A8;transform:scale(1.02)}
+        .lb-close{position:absolute;top:18px;right:18px;width:38px;height:38px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;z-index:10;transition:background .2s,transform .2s;}
+        .lb-close:hover{background:rgba(255,255,255,.2);transform:rotate(90deg)}
+        .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;cursor:pointer;z-index:10;transition:background .2s,transform .2s;}
+        .lb-nav:hover{background:rgba(255,255,255,.2)}
+        .lb-prev{left:16px}
+        .lb-next{right:16px}
+        .lb-nav.lb-prev:hover{transform:translateY(-50%) translateX(-2px)}
+        .lb-nav.lb-next:hover{transform:translateY(-50%) translateX(2px)}
+        .lb-counter{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);
+            font-size:12px;font-weight:600;color:rgba(255,255,255,.45);letter-spacing:2px;
+            font-family:'Cormorant Garamond',serif;}
+
+        #page-transition-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#EAF4FB;z-index:9999;opacity:0;pointer-events:none;transition:opacity .4s ease}
+
+        @media(max-width:1000px){
+            .gallery-grid{grid-template-columns:repeat(3,1fr)}
+            .lb-panel{flex-direction:column;width:min(560px,94vw);max-height:90vh}
+            .lb-img-wrap{width:100%;height:220px}
+            .lb-img-gradient{background:linear-gradient(to bottom,transparent 60%,#111820)}
+            .lb-content{padding:28px 28px 36px}
+        }
+        @media(max-width:700px){
+            .gallery-grid{grid-template-columns:repeat(2,1fr)}
+            .page-header h1{font-size:36px}
+            .page-header-inner{padding:0 30px 60px}
+            .info-banner{flex-direction:column;gap:24px;padding:36px 30px;margin:0 16px 60px}
+            .gallery-wrap{padding:0 16px}
+            .pricing-grid{grid-template-columns:1fr}
+            .pricing-wrap{padding:0 16px}
+        }
+    
+    /* ══════════════════════════════════════════
+       도로·경로 토폴로지 맵 배경 패턴 (v2)
+       타일링 없이 전체 화면 1장으로 커버
+    ══════════════════════════════════════════ */
+    body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-image:
+            radial-gradient(circle, rgba(0,150,199,0.07) 1px, transparent 1px),
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 900' preserveAspectRatio='xMidYMid slice'%3E%3Cdefs%3E%3ClinearGradient id='wg' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%230096C7' stop-opacity='0'/%3E%3Cstop offset='0.4' stop-color='%230096C7' stop-opacity='0.06'/%3E%3Cstop offset='1' stop-color='%230096C7' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='none'%3E%3Cpath stroke='url(%23wg)' stroke-width='1.5' d='M-100,650 C200,610 450,560 720,580 C990,600 1200,630 1560,590'/%3E%3Cpath stroke='url(%23wg)' stroke-width='1.2' d='M-100,520 C180,485 420,445 700,462 C960,478 1180,510 1560,475'/%3E%3Cpath stroke='url(%23wg)' stroke-width='0.9' d='M-100,390 C160,360 400,330 680,348 C940,364 1160,395 1560,360'/%3E%3Cpath stroke='url(%23wg)' stroke-width='0.7' d='M-100,260 C140,235 380,215 660,230 C920,244 1140,272 1560,242'/%3E%3Cpath stroke='url(%23wg)' stroke-width='0.5' d='M-100,140 C120,118 360,102 640,116 C900,128 1120,152 1560,126'/%3E%3C/g%3E%3C/svg%3E");
+        background-size: 28px 28px, 100% 100%;
+        background-repeat: repeat, no-repeat;
+        background-position: center, center;
+    }
+    body > * { position: relative; z-index: 1; }
+
+    </style>
+</head>
+<body>
+    <script src="header.js"></script>
+    <div id="page-transition-overlay"></div>
+    <script>
+        (function(){
+            const o=document.getElementById('page-transition-overlay');
+            o.style.opacity='1';o.style.transition='none';
+            requestAnimationFrame(()=>requestAnimationFrame(()=>{o.style.transition='opacity .5s ease';o.style.opacity='0'}));
+            document.addEventListener('click',e=>{
+                const l=e.target.closest('a[href]');if(!l)return;
+                const h=l.getAttribute('href');
+                if(!h||h.startsWith('tel:')||h.startsWith('mailto:')||h.startsWith('http')||h.startsWith('#'))return;
+                e.preventDefault();o.style.opacity='1';o.style.pointerEvents='all';
+                setTimeout(()=>{window.location.href=h},400);
+            });
+        })();
+    </script>
+
+    <div class="page-header">
+        <div class="page-header-inner">
+            <span class="eyebrow">SIGHTSEEING TOURS</span>
+            <h1>관광 투어 예약</h1>
+            <p>부산의 아름다운 명소를 프라이빗하게 즐기세요</p>
+        </div>
+    </div>
+
+    <div class="course-section">
+        <div class="course-section-header">
+            <div class="line"></div>
+            <span>TOUR COURSES</span>
+            <div class="line"></div>
+        </div>
+
+        <div class="course-tabs">
+            <button class="course-tab active" data-target="panel-a">A 코스</button>
+            <button class="course-tab" data-target="panel-b">B 코스</button>
+        </div>
+
+        <div class="course-panel active" id="panel-a">
+            <div class="course-cards-grid" id="courseGridA">
+                <div class="spot-card"><div class="spot-num">01</div><div class="spot-name">광안리 해수욕장</div><div class="spot-desc">광안대교 야경과 함께하는 부산의 대표 해변</div></div>
+                <div class="spot-card"><div class="spot-num">02</div><div class="spot-name">동백섬 누리마루</div><div class="spot-desc">APEC 정상회담장, 동백섬 산책로와 오션뷰</div></div>
+                <div class="spot-card"><div class="spot-num">03</div><div class="spot-name">해운대 해수욕장</div><div class="spot-desc">대한민국 대표 해수욕장, 에메랄드빛 바다</div></div>
+                <div class="spot-card"><div class="spot-num">04</div><div class="spot-name">엘시티 스카이라운지</div><div class="spot-desc">초고층 전망대에서 바라보는 부산 전경</div></div>
+                <div class="spot-card"><div class="spot-num">05</div><div class="spot-name">달맞이길</div><div class="spot-desc">카페와 갤러리가 즐비한 낭만적인 해안 언덕길</div></div>
+                <div class="spot-card"><div class="spot-num">06</div><div class="spot-name">해동용궁사</div><div class="spot-desc">파도 소리와 함께하는 해안 절벽 위의 사찰</div></div>
+                <div class="spot-card"><div class="spot-num">07</div><div class="spot-name">해운대 블루라인파크</div><div class="spot-desc">해안을 달리는 스카이캡슐 &amp; 해변열차</div></div>
+                <div class="spot-card"><div class="spot-num">08</div><div class="spot-name">신세계백화점 센텀</div><div class="spot-desc">세계 최대 규모의 백화점, 아이스링크 &amp; 스파</div></div>
+                <div class="spot-card"><div class="spot-num">09</div><div class="spot-name">영화의전당</div><div class="spot-desc">BIFF 개최지, 세계 최대 캐노피 지붕의 문화공간</div></div>
+                <div class="spot-card"><div class="spot-num">10</div><div class="spot-name">마린시티</div><div class="spot-desc">부산의 홍콩, 더베이101 요트 선착장 야경</div></div>
+            </div>
+            <p class="course-note"><i class="fas fa-info-circle"></i> A코스는 해운대·동부산 일대의 대표 명소 10곳을 연결하는 코스입니다. 원하시는 명소를 골라 맞춤 코스로 구성하실 수 있습니다.</p>
+        </div>
+
+        <div class="course-panel" id="panel-b">
+            <div class="course-cards-grid" id="courseGridB">
+                <div class="spot-card"><div class="spot-num">01</div><div class="spot-name">감천문화마을</div><div class="spot-desc">알록달록 벽화가 가득한 부산의 산토리니</div></div>
+                <div class="spot-card"><div class="spot-num">02</div><div class="spot-name">송도 해상케이블카</div><div class="spot-desc">국내 최장 해상케이블카, 바다 위를 나는 짜릿함</div></div>
+                <div class="spot-card"><div class="spot-num">03</div><div class="spot-name">송도 용궁구름다리</div><div class="spot-desc">해안 절벽 위 출렁다리, 짜릿한 오션뷰</div></div>
+                <div class="spot-card"><div class="spot-num">04</div><div class="spot-name">용두산 전망대</div><div class="spot-desc">부산타워에서 내려다보는 원도심 전경</div></div>
+                <div class="spot-card"><div class="spot-num">05</div><div class="spot-name">자갈치 시장</div><div class="spot-desc">부산 대표 수산시장, 살아있는 해산물과 먹거리</div></div>
+                <div class="spot-card"><div class="spot-num">06</div><div class="spot-name">국제시장</div><div class="spot-desc">부산의 역사가 살아숨쉬는 전통 시장</div></div>
+                <div class="spot-card"><div class="spot-num">07</div><div class="spot-name">보수동 책방골목</div><div class="spot-desc">헌책방이 즐비한 부산의 문화 골목</div></div>
+                <div class="spot-card"><div class="spot-num">08</div><div class="spot-name">흰여울문화마을</div><div class="spot-desc">절벽 위 영화 촬영지, 영도의 숨은 보석</div></div>
+                <div class="spot-card"><div class="spot-num">09</div><div class="spot-name">오륙도</div><div class="spot-desc">부산의 상징, 바다 위 스카이워크와 절경</div></div>
+            </div>
+            <p class="course-note"><i class="fas fa-info-circle"></i> B코스는 부산 서부 원도심과 영도 일대의 매력을 담은 코스입니다. 원하시는 명소를 골라 맞춤 코스로 구성하실 수 있습니다.</p>
+        </div>
+    </div>
+
+    <div class="gallery-wrap">
+        <div class="gallery-header">
+            <div class="line"></div>
+            <span>BUSAN TOUR GALLERY</span>
+            <div class="line"></div>
+        </div>
+        <div class="gallery-slider-wrap" id="gallerySliderWrap">
+            </div>
+        <div class="gallery-controls">
+            <button class="gallery-arrow" id="galleryPrev"><i class="fas fa-chevron-left"></i></button>
+            <div class="gallery-dots" id="galleryDots"></div>
+            <div class="gallery-page-num" id="galleryPageNum">1 / 2</div>
+            <button class="gallery-arrow" id="galleryNext"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <div class="pricing-wrap">
+        <div class="pricing-header">
+            <div class="line"></div>
+            <span>PRICING</span>
+            <div class="line"></div>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-icon"><i class="fas fa-sun"></i></div>
+                <div class="pricing-label">반나절 투어</div>
+                <div class="pricing-duration"><i class="fas fa-clock"></i> 4시간</div>
+                <div class="pricing-price">130,000<span>원</span></div>
+                <ul class="pricing-includes">
+                    <li><i class="fas fa-check"></i> 원하는 코스 자유 선택</li>
+                    <li><i class="fas fa-check"></i> 전용 차량 & 기사 포함</li>
+                    <li><i class="fas fa-check"></i> 주요 관광지 2~3곳</li>
+                </ul>
+                <a href="tel:010-4242-4767" class="pricing-btn"><i class="fas fa-phone-alt"></i> 예약 문의</a>
+            </div>
+            <div class="pricing-card featured">
+                <div class="pricing-badge">인기</div>
+                <div class="pricing-icon"><i class="fas fa-star"></i></div>
+                <div class="pricing-label">종일 투어</div>
+                <div class="pricing-duration"><i class="fas fa-clock"></i> 8시간</div>
+                <div class="pricing-price">250,000<span>원</span></div>
+                <ul class="pricing-includes">
+                    <li><i class="fas fa-check"></i> 원하는 코스 자유 선택</li>
+                    <li><i class="fas fa-check"></i> 전용 차량 & 기사 포함</li>
+                    <li><i class="fas fa-check"></i> 주요 관광지 5~6곳</li>
+                    <li><i class="fas fa-check"></i> 점심 맛집 안내 포함</li>
+                </ul>
+                <a href="tel:010-4242-4767" class="pricing-btn"><i class="fas fa-phone-alt"></i> 예약 문의</a>
+            </div>
+        </div>
+        <p class="pricing-note"><i class="fas fa-info-circle"></i> 요금은 차량 1대 기준이며, 통행료·주차비는 별도입니다. 맞춤 코스 및 추가 시간은 상담 후 조율 가능합니다.</p>
+    </div>
+
+    <div class="info-banner">
+        <i class="fas fa-route"></i>
+        <div>
+            <h3>원하는 코스로 맞춤 투어 가능합니다</h3>
+            <p>소개된 코스 외에도 고객님만의 맞춤 여행 경로를 함께 설계해 드립니다.<br>전화 상담을 통해 일정, 방문지, 차량을 자유롭게 조율해 보세요.</p>
+        </div>
+    </div>
+
+    <div class="lightbox" id="lightbox">
+        <div class="lb-backdrop" id="lbBackdrop"></div>
+        <div class="lb-panel" id="lbPanel">
+            <div class="lb-img-wrap">
+                <img id="lbImg" src="" alt="">
+                <div class="lb-img-gradient"></div>
+            </div>
+            <div class="lb-content">
+                <span class="lb-tag" id="lbTag"></span>
+                <h2 class="lb-title" id="lbTitle"></h2>
+                <p class="lb-desc" id="lbDesc"></p>
+                <div class="lb-step-label">추천 코스</div>
+                <div class="lb-steps" id="lbSteps"></div>
+                <a href="tel:010-4242-4767" class="lb-cta"><i class="fas fa-phone-alt"></i> 지금 바로 전화 예약</a>
+            </div>
+            <button class="lb-close" id="lbClose"><i class="fas fa-times"></i></button>
+            <button class="lb-nav lb-prev" id="lbPrev"><i class="fas fa-chevron-left"></i></button>
+            <button class="lb-nav lb-next" id="lbNext"><i class="fas fa-chevron-right"></i></button>
+            <div class="lb-counter" id="lbCounter"></div>
+        </div>
+    </div>
+
+    <script>
+        // ── 갤러리 SPOTS 데이터 (총 24개) ──
+        const SPOTS = [
+            // ── 1페이지 (기존 12개) ──
+            {
+                tag:'해안 명소', name:'해동용궁사', sub:'기장군 · 해안 절경',
+                img:'해동 용궁사.png',
+                desc:'파도 소리를 들으며 걷는 해안 절벽 위의 사찰. 일출 명소로도 유명하며 이른 아침 방문 시 환상적인 풍경을 감상할 수 있습니다.',
+                steps:['호텔 픽업 및 출발','해동용궁사 파도소리 길 산책','소원 빌기 & 기념 촬영','인근 카페에서 여유로운 휴식']
+            },
+            {
+                tag:'랜드마크', name:'광안대교', sub:'수영구 · 야경 명소',
+                img:'부산 광안리 야경.png',
+                desc:'부산을 대표하는 쌍둥이 현수교. 야간에는 화려한 조명쇼가 펼쳐지며 광안리 해수욕장과 함께 부산 최고의 야경 스팟입니다.',
+                steps:['광안리 해수욕장 해안 산책','광안대교 뷰포인트 촬영','해변 포차 거리 탐방','드라이브 코스 투어']
+            },
+            {
+                tag:'문화 명소', name:'감천문화마을', sub:'사하구 · 인스타 성지',
+                img:'감천문화마을.png',
+                desc:'부산의 산토리니로 불리는 알록달록 벽화마을. 좁은 골목마다 예술 작품이 숨어있어 사진 찍기 좋은 인스타그램 명소입니다.',
+                steps:['감천문화마을 골목 투어','벽화 & 조형물 포토존 순회','지역 카페에서 브레이크','마을버스로 전망대 이동']
+            },
+            {
+                tag:'전통 시장', name:'국제시장', sub:'중구 · 부산의 역사',
+                img:'국제시장.png',
+                desc:'6·25 전쟁 이후 피란민들이 일군 부산의 역사가 살아숨쉬는 시장. 씨앗호떡, 밀면 등 부산 대표 먹거리를 맛볼 수 있습니다.',
+                steps:['국제시장 먹거리 탐방','부평깡통시장 구경','BIFF 광장 씨앗호떡 체험','용두산 공원 & 부산타워 전망']
+            },
+            {
+                tag:'오션뷰', name:'해운대 해수욕장', sub:'해운대구 · 대표 관광지',
+                img:'해운대.png',
+                desc:'대한민국을 대표하는 해수욕장. 에메랄드빛 바다와 고층 빌딩이 어우러진 풍경이 독특하며, 연중 다양한 축제가 열립니다.',
+                steps:['해운대 해변 산책','동백섬 산책로 & 누리마루 전망','마린시티 더베이101 방문','해운대 맛집 저녁 식사']
+            },
+            {
+                tag:'전망 명소', name:'청사포 블루라인파크', sub:'해운대구 · 해안 열차',
+                img:'청사포.png',
+                desc:'해안선을 따라 달리는 스카이캡슐과 해변열차가 인기인 명소. 탁 트인 동해 바다와 함께 특별한 추억을 만들 수 있습니다.',
+                steps:['청사포 전망 포인트 도착','스카이캡슐 또는 해변열차 탑승','청사포 등대 & 해안 산책','인근 카페에서 오션뷰 즐기기']
+            },
+            {
+                tag:'자연 절경', name:'태종대', sub:'영도구 · 절벽과 등대',
+                img:'태종대.png',
+                desc:'부산 최남단의 절벽과 등대가 있는 자연공원. 깎아지른 절벽 아래로 펼쳐지는 남해의 절경은 탄성을 자아냅니다.',
+                steps:['태종대 자연공원 입장','다누비열차 탑승','신선바위 & 전망대 절경 감상','영도 흰여울문화마을 연계 방문']
+            },
+            {
+                tag:'야경 투어', name:'황령산 봉수대', sub:'연제구 · 360° 파노라마',
+                img:'황령산 봉수대.png',
+                desc:'부산 시내를 한눈에 내려다볼 수 있는 야경 명소. 해질 무렵 방문하면 노을과 야경을 동시에 감상할 수 있는 최고의 뷰포인트입니다.',
+                steps:['일몰 1시간 전 호텔 픽업','황령산 정상 봉수대 도착','노을 감상 & 파노라마 사진 촬영','부산 야경 드라이브 코스']
+            },
+            {
+                tag:'낙조 명소', name:'다대포 해수욕장', sub:'사하구 · 낙조 명소',
+                img:'다대포.png',
+                desc:'부산 최고의 낙조 명소. 광활한 백사장과 함께 매일 저녁 펼쳐지는 다대포 낙조분수쇼는 절대 놓쳐서는 안 될 장관입니다.',
+                steps:['아미산 전망대 뷰 감상','다대포 해수욕장 산책','낙조 감상 황금시간 대기','다대포 낙조분수쇼 관람']
+            },
+            {
+                tag:'프리미엄', name:'마린시티 야경', sub:'해운대구 · 부산의 홍콩',
+                img:'마린시티.png',
+                desc:'부산의 홍콩이라 불리는 초고층 빌딩 야경 명소. 더베이101 요트 선착장과 함께 부산 최고의 럭셔리 야경을 자랑합니다.',
+                steps:['황령산 파노라마 야경 시작','마린시티 드라이브','더베이101 야경 포토타임','광안대교 라이트쇼 감상']
+            },
+            {
+                tag:'케이블카', name:'송도 해상케이블카', sub:'서구 · 바다 위를 나는 짜릿함',
+                img:'송도해상케이블카.png',
+                desc:'국내 최장 해상 케이블카로 바다 위를 가로지르는 짜릿한 경험을 선사합니다. 투명 바닥 크리스탈 캐빈은 스릴 만점입니다.',
+                steps:['송도 해수욕장 도착','해상케이블카 탑승 (크리스탈/일반)','해안산책로 & 용궁구름다리','인근 해산물 레스토랑 추천']
+            },
+            {
+                tag:'역사 탐방', name:'영도 흰여울문화마을', sub:'영도구 · 영화 속 그 길',
+                img:'흰여울문화마을.png',
+                desc:'절벽 위에 다닥다닥 붙어있는 집들이 만들어내는 독특한 풍경의 마을. 영화 "변호인"의 촬영지로 유명하며 바다 전망이 일품입니다.',
+                steps:['영도 흰여울문화마을 입장','절영해안산책로 걷기','전망 카페에서 커피 한 잔','영도 봉래산 전망대 연계']
+            },
+            // ── 2페이지 (새 12개) ──
+            {
+                tag:'수산 명소', name:'자갈치 시장', sub:'중구 · 부산의 맛',
+                img:'자갈치.png',
+                desc:'부산을 대표하는 수산시장. 싱싱한 해산물을 직접 고르고 즉석에서 맛볼 수 있어 여행자들에게 가장 인기 있는 먹거리 명소입니다.',
+                steps:['자갈치 시장 도착','신선한 해산물 쇼핑 & 시식','2층 식당에서 해산물 코스','남포동 BIFF 광장 산책']
+            },
+            {
+                tag:'전통 사찰', name:'범어사', sub:'금정구 · 천년 고찰',
+                img:'범어사.png',
+                desc:'신라 문무왕 때 창건된 천년 고찰. 금정산 자락에 위치해 단풍철과 설경이 특히 아름다우며 템플스테이 체험도 가능합니다.',
+                steps:['범어사 일주문 입장','대웅전 & 사찰 경내 관람','금정산 등산로 입구 산책','인근 전통 찻집에서 휴식']
+            },
+            {
+                tag:'오션뷰', name:'동백섬 누리마루', sub:'해운대구 · APEC 정상회담장',
+                img:'누리마루.png',
+                desc:'2005년 APEC 정상회담이 열렸던 유서 깊은 장소. 동백섬 산책로를 따라 걸으며 해운대와 광안대교를 한눈에 조망할 수 있는 부산의 명소입니다.',
+                steps:['동백섬 입구 도착','동백숲 산책로 트레킹','누리마루 APEC하우스 외관 관람','해운대 & 광안대교 오션뷰 촬영']
+            },
+            {
+                tag:'초고층 전망', name:'엘시티 스카이라운지', sub:'해운대구 · 부산 최고 전망대',
+                img:'엘시티.png',
+                desc:'해운대 엘시티 랜드마크타워 꼭대기에 위치한 초고층 전망대. 지상 100층 높이에서 해운대, 광안대교, 부산 전경을 360도로 감상할 수 있습니다.',
+                steps:['엘시티 랜드마크타워 도착','스카이라운지 전망대 입장','부산 전경 360° 파노라마 감상','라운지에서 음료와 함께 야경 즐기기']
+            },
+            {
+                tag:'낭만 드라이브', name:'달맞이길', sub:'해운대구 · 카페와 갤러리의 언덕',
+                img:'달맞이길.png',
+                desc:'해운대에서 송정으로 이어지는 아름다운 해안 언덕길. 개성 있는 카페와 갤러리가 즐비하며 벚꽃 시즌에는 부산 최고의 드라이브 코스로 손꼽힙니다.',
+                steps:['달맞이 고개 입구 출발','카페 & 갤러리 거리 산책','전망 포인트에서 해운대 뷰 감상','문탠로드 야간 드라이브 코스']
+            },
+            {
+                tag:'문화 명소', name:'영화의전당', sub:'해운대구 · BIFF의 성지',
+                img:'영화의전당.png',
+                desc:'부산국제영화제(BIFF)의 메인 개최지. 세계 최대 규모의 캐노피 지붕이 압도적인 랜드마크로, 야간 조명이 켜진 모습은 그 자체로 예술 작품입니다.',
+                steps:['영화의전당 야외광장 도착','세계 최대 캐노피 지붕 감상','씨네마운틴 & 비프힐 탐방','센텀시티 연계 나이트 투어']
+            },
+            {
+                tag:'쇼핑 & 레저', name:'신세계백화점 센텀', sub:'해운대구 · 세계 최대 백화점',
+                img:'신세계백화점.png',
+                desc:'기네스북에 등재된 세계 최대 규모의 백화점. 아이스링크, 스파, 골프레인지까지 갖춘 복합 쇼핑 리조트로 쇼핑과 여가를 한 번에 즐길 수 있습니다.',
+                steps:['센텀시티 신세계백화점 도착','아이스링크 & 스파랜드 체험','프리미엄 브랜드 쇼핑','영화의전당 야경 연계 방문']
+            },
+            {
+                tag:'항구 투어', name:'영도대교', sub:'영도구 · 도개교의 상징',
+                img:'영도대교.png',
+                desc:'1934년 건설된 부산의 역사적인 도개교. 매일 낮 2시에 다리가 열리는 장관을 볼 수 있으며 인근 깡통시장, 자갈치와 연계하기 좋습니다.',
+                steps:['영도대교 도개 시간 맞춰 도착','도개 퍼포먼스 관람 & 촬영','영도 해안 드라이브','보수동 책방골목 & 남포동 탐방']
+            },
+            {
+                tag:'해양 체험', name:'씨라이프 부산아쿠아리움', sub:'해운대구 · 국내 최대 해저 수족관',
+                img:'아쿠아리움.png',
+                desc:'해운대 해수욕장 바로 앞에 위치한 국내 최대 해저 테마 수족관. 250종 1만여 마리의 해양 생물과 80m 해저 터널, 상어 먹이주기 공연까지 온 가족이 즐길 수 있습니다.',
+                steps:['해운대 씨라이프 아쿠아리움 입장','80m 해저 터널 & 상어 수조 관람','펭귄·수달 먹이주기 공연 관람','해운대 해수욕장 연계 산책']
+            },
+            {
+                tag:'문화 거리', name:'전포 카페거리', sub:'부산진구 · 힙한 로컬 카페',
+                img:'전포카페거리.png',
+                desc:'개성 넘치는 로컬 카페와 빈티지 숍이 즐비한 부산의 힙스터 거리. 골목마다 숨어있는 특색 있는 카페들이 젊은 여행자들의 발길을 사로잡습니다.',
+                steps:['전포역 도착','메인 카페거리 탐방','히든 골목 로컬 카페 방문','빈티지 & 편집숍 쇼핑']
+            },
+            {
+                tag:'야시장', name:'부산 야시장', sub:'해운대구 · 밤의 활기',
+                img:'야시장.png',
+                desc:'해운대 해변가에서 펼쳐지는 활기찬 야시장. 다양한 길거리 음식과 공연이 어우러져 부산의 밤을 더욱 풍성하게 만들어 줍니다.',
+                steps:['해운대 야시장 입장','다양한 먹거리 탐방','버스킹 & 문화공연 관람','해변 산책으로 마무리']
+            },
+            {
+                tag:'문화 공간', name:'F1963', sub:'수영구 · 복합문화공간',
+                img:'f1963.png',
+                desc:'1963년부터 2008년까지 운영된 고려제강 수영공장을 리모델링한 복합문화공간. 서점, 카페, 갤러리가 어우러진 부산의 힙플레이스입니다.',
+                steps:['F1963 복합문화공간 도착','현대모터스튜디오 & 갤러리 관람','YES24 중고서점 탐방','인스타그램 포토존 촬영']
+            },
+            {
+                tag:'케이블카', name:'송도 용궁구름다리', sub:'서구 · 해안 절벽 출렁다리',
+                img:'용궁구름다리.png',
+                desc:'송도 해안 절벽 끝에 매달린 127m 길이의 출렁다리. 발아래로 펼쳐지는 쪽빛 바다와 기암괴석의 절경이 압도적이며 송도 해상케이블카와 연계하기 좋습니다.',
+                steps:['송도 해수욕장 도착','용궁구름다리 입장','출렁다리 위 오션뷰 포토타임','인근 해안산책로 산책']
+            },
+            {
+                tag:'전망 명소', name:'용두산 전망대', sub:'중구 · 부산타워',
+                img:'용두산전망대.png',
+                desc:'원도심 한복판에 우뚝 선 부산타워가 있는 용두산 공원. 120m 높이의 전망대에서 부산항과 영도, 남포동 일대를 한눈에 조망할 수 있는 원도심의 상징입니다.',
+                steps:['용두산 공원 에스컬레이터 탑승','부산타워 전망대 입장','부산항 & 원도심 파노라마 감상','남포동 & 국제시장 연계 탐방']
+            },
+            {
+                tag:'책방 문화', name:'보수동 책방골목', sub:'중구 · 부산의 인문 골목',
+                img:'보수동책방골목.png',
+                desc:'6·25 전쟁 이후 헌책 장수들이 모여들며 형성된 유서 깊은 골목. 미로처럼 이어진 책방들 사이를 거닐며 세월의 흔적을 느낄 수 있는 부산만의 문화 공간입니다.',
+                steps:['보수동 책방골목 입구 도착','헌책방 골목 투어','원하는 책 구경 & 구매','국제시장 & 깡통시장 연계 방문']
+            },
+            {
+                tag:'해양 절경', name:'오륙도', sub:'남구 · 부산의 상징',
+                img:'스카이워크.png',
+                desc:'조선시대부터 부산의 관문으로 여겨온 여섯 개의 바위섬. 스카이워크 유리 전망대 아래로 남해의 쪽빛 바다가 펼쳐지며, 해파랑길의 시작점으로도 유명합니다.',
+                steps:['오륙도 스카이워크 입장','유리 바닥 전망대 스릴 체험','오륙도 섬 전경 & 남해 조망','이기대 해안산책로 연계']
+            }
+        ];
+
+        const ITEMS_PER_PAGE = 12;
+        const TOTAL_PAGES = Math.ceil(SPOTS.length / ITEMS_PER_PAGE);
+        let currentPage = 0;
+        let lbIdx = 0;
+        let isAnimating = false;
+
+        const sliderWrap = document.getElementById('gallerySliderWrap');
+        const dotsWrap   = document.getElementById('galleryDots');
+        const pageNum    = document.getElementById('galleryPageNum');
+        const prevBtn    = document.getElementById('galleryPrev');
+        const nextBtn    = document.getElementById('galleryNext');
+
+        // 슬라이드 페이지 생성
+        function buildSlides() {
+            sliderWrap.innerHTML = '';
+            dotsWrap.innerHTML  = '';
+            for (let p = 0; p < TOTAL_PAGES; p++) {
+                const slide = document.createElement('div');
+                slide.className = 'gallery-slide' + (p === 0 ? ' active' : '');
+                slide.id = 'slide-' + p;
+                const grid = document.createElement('div');
+                grid.className = 'gallery-grid';
+                const pageSpots = SPOTS.slice(p * ITEMS_PER_PAGE, (p + 1) * ITEMS_PER_PAGE);
+                pageSpots.forEach((spot, i) => {
+                    const globalIdx = p * ITEMS_PER_PAGE + i;
+                    const item = document.createElement('div');
+                    item.className = 'gallery-item';
+                    item.innerHTML = `
+                        <img src="${spot.img}" alt="${spot.name}" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="gallery-name">${spot.name}</p>
+                            <p class="gallery-sub">${spot.sub}</p>
+                        </div>
+                        <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+                        <span class="gallery-ai-badge">AI 생성 이미지</span>`;
+                    item.addEventListener('click', () => openLightbox(globalIdx));
+                    grid.appendChild(item);
+                });
+                slide.appendChild(grid);
+                sliderWrap.appendChild(slide);
+
+                // dot
+                const dot = document.createElement('button');
+                dot.className = 'gallery-dot' + (p === 0 ? ' active' : '');
+                dot.setAttribute('aria-label', (p + 1) + '페이지');
+                dot.addEventListener('click', () => goToPage(p));
+                dotsWrap.appendChild(dot);
+            }
+        }
+
+        const DUR = 400; // 애니메이션 duration(ms)
+
+        function animateSlide(fromPage, toPage) {
+            if (fromPage === toPage || isAnimating) return;
+            isAnimating = true;
+
+            const forward   = toPage > fromPage;
+            const fromSlide = document.getElementById('slide-' + fromPage);
+            const toSlide   = document.getElementById('slide-' + toPage);
+            const startX    = forward ? 56 : -56;
+            const endX      = forward ? -56 : 56;
+
+            // 래퍼 높이를 현재 슬라이드 높이로 고정 (레이아웃 점프 방지)
+            sliderWrap.style.height = fromSlide.offsetHeight + 'px';
+
+            // fromSlide: in-flow 유지하되 absolute로 전환하여 위에 겹치기
+            fromSlide.style.cssText = `position:absolute;top:0;left:0;width:100%;opacity:1;transform:translateX(0);transition:none;pointer-events:none;`;
+
+            // toSlide: 시작 위치에 배치 (보이지 않는 상태)
+            toSlide.style.cssText = `position:absolute;top:0;left:0;width:100%;opacity:0;transform:translateX(${startX}px);transition:none;pointer-events:none;`;
+            toSlide.classList.remove('active');
+
+            // 한 프레임 후 transition 시작
+            requestAnimationFrame(() => requestAnimationFrame(() => {
+                const t = `opacity ${DUR}ms ease, transform ${DUR}ms cubic-bezier(.4,0,.2,1)`;
+
+                fromSlide.style.transition = t;
+                fromSlide.style.opacity    = '0';
+                fromSlide.style.transform  = `translateX(${endX}px)`;
+
+                toSlide.style.transition = t;
+                toSlide.style.opacity    = '1';
+                toSlide.style.transform  = 'translateX(0)';
+
+                setTimeout(() => {
+                    // 정리: inline style 제거 후 클래스로 복귀
+                    fromSlide.style.cssText = '';
+                    fromSlide.classList.remove('active');
+
+                    toSlide.style.cssText = '';
+                    toSlide.classList.add('active');
+
+                    // 래퍼 높이 해제
+                    sliderWrap.style.height = '';
+
+                    isAnimating = false;
+
+                    // 새 슬라이드 아이템 등장 애니메이션
+                    toSlide.querySelectorAll('.gallery-item').forEach((el, i) => {
+                        el.classList.remove('visible');
+                        setTimeout(() => el.classList.add('visible'), i * 50);
+                    });
+                }, DUR + 20);
+            }));
+        }
+
+        function updateControls() {
+            pageNum.textContent = (currentPage + 1) + ' / ' + TOTAL_PAGES;
+            prevBtn.disabled = currentPage === 0;
+            nextBtn.disabled = currentPage === TOTAL_PAGES - 1;
+            document.querySelectorAll('.gallery-dot').forEach((d, i) => d.classList.toggle('active', i === currentPage));
+        }
+
+        function goToPage(p) {
+            if (p === currentPage || isAnimating) return;
+            const prev = currentPage;
+            currentPage = p;
+            animateSlide(prev, currentPage);
+            updateControls();
+        }
+
+        prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
+        nextBtn.addEventListener('click', () => goToPage(currentPage + 1));
+
+        buildSlides();
+        updateControls();
+
+        // 첫 페이지 등장 애니메이션
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(en => {
+                if (en.isIntersecting) {
+                    const items = [...document.querySelectorAll('#slide-0 .gallery-item')];
+                    items.forEach((el, i) => setTimeout(() => el.classList.add('visible'), i * 60));
+                    io.unobserve(en.target);
+                }
+            });
+        }, {threshold: .05});
+        io.observe(sliderWrap);
+
+        // 라이트박스 로직
+        const lb      = document.getElementById('lightbox');
+        const lbImg   = document.getElementById('lbImg');
+        const lbTag   = document.getElementById('lbTag');
+        const lbTitle = document.getElementById('lbTitle');
+        const lbDesc  = document.getElementById('lbDesc');
+        const lbSteps = document.getElementById('lbSteps');
+        const lbCounter = document.getElementById('lbCounter');
+
+        function buildCounter(){
+            lbCounter.textContent = (lbIdx + 1).toString().padStart(2,'0') + ' / ' + SPOTS.length.toString().padStart(2,'0');
+        }
+
+        function openLightbox(idx){
+            lbIdx = idx;
+            renderLightbox();
+            lb.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(){
+            lb.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function renderLightbox(){
+            const spot = SPOTS[lbIdx];
+            lbImg.style.opacity = '0';
+            lbImg.style.transition = 'opacity .25s';
+            setTimeout(() => {
+                lbImg.src = spot.img;
+                lbImg.alt = spot.name;
+                lbImg.style.opacity = '1';
+            }, 200);
+
+            lbTag.textContent   = spot.tag;
+            lbTitle.textContent = spot.name;
+            lbDesc.textContent  = spot.desc;
+            lbSteps.innerHTML = '';
+            spot.steps.forEach((s, i) => {
+                const el = document.createElement('div');
+                el.className = 'lb-step';
+                el.innerHTML = `<span class="lb-step-num">0${i+1}</span><span class="lb-step-text">${s}</span>`;
+                lbSteps.appendChild(el);
+            });
+            buildCounter();
+        }
+
+        function navigate(dir){
+            lbIdx = (lbIdx + dir + SPOTS.length) % SPOTS.length;
+            renderLightbox();
+        }
+
+        document.getElementById('lbClose').addEventListener('click', closeLightbox);
+        document.getElementById('lbBackdrop').addEventListener('click', closeLightbox);
+        document.getElementById('lbPrev').addEventListener('click', () => navigate(-1));
+        document.getElementById('lbNext').addEventListener('click', () => navigate(1));
+
+        document.addEventListener('keydown', e => {
+            if(!lb.classList.contains('open')) return;
+            if(e.key === 'Escape') closeLightbox();
+            if(e.key === 'ArrowLeft') navigate(-1);
+            if(e.key === 'ArrowRight') navigate(1);
+        });
+
+        let touchStartX = 0;
+        document.getElementById('lbPanel').addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+        document.getElementById('lbPanel').addEventListener('touchend', e => {
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            if(Math.abs(dx) > 50) navigate(dx < 0 ? 1 : -1);
+        });
+    </script>
+    <script>
+        // 코스 탭 전환
+        document.querySelectorAll('.course-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.course-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.course-panel').forEach(p => p.classList.remove('active'));
+                this.classList.add('active');
+                document.getElementById(this.dataset.target).classList.add('active');
+                // 카드 등장 애니메이션 재실행
+                const cards = document.querySelectorAll('#' + this.dataset.target + ' .spot-card');
+                cards.forEach((c, i) => {
+                    c.classList.remove('visible');
+                    setTimeout(() => c.classList.add('visible'), i * 60 + 50);
+                });
+            });
+        });
+        // 초기 A코스 카드 애니메이션
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelectorAll('#panel-a .spot-card').forEach((c, i) => {
+                    setTimeout(() => c.classList.add('visible'), i * 60);
+                });
+            }, 200);
+        });
+    </script>
+    <script src="footer.js"></script>
+</body>
+</html>

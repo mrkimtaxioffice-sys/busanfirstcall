@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://busanmemberstxi.com/fleet.html">
+    <meta property="og:title" content="보유 차량 | 부산 멤버스 택시">
+    <meta property="og:description" content="아이오닉5·6, EV6, 그랜저, 테슬라 모델Y 등 최신 프리미엄 전기차로 쾌적하고 안락한 이동을 제공합니다.">
+    <meta property="og:site_name" content="부산 멤버스 택시">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="보유 차량 | 부산 멤버스 택시">
+    <meta name="twitter:description" content="아이오닉5·6, EV6, 그랜저, 테슬라 모델Y 등 최신 프리미엄 전기차로 쾌적하고 안락한 이동을 제공합니다.">
+    <meta name="description" content="부산 멤버스 택시 - 프리미엄 관광 투어, 장거리 콜택시, 공항·기차역 샌딩 서비스. 최고급 전기차로 안전하고 편안한 이동을 약속합니다.">
+    <title>보유 차량 | 부산 멤버스 택시</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        *,*::before,*::after{box-sizing:border-box}
+        body,html{margin:0;padding:0;background-color:#EAF4FB;overflow-x:hidden}
+        a{text-decoration:none;color:inherit}
+        ul{list-style:none;margin:0;padding:0}
+
+
+        /* ══ 공통 페이지 헤더 ══ */
+        .page-header{padding:0;position:relative;height:460px;overflow:hidden;display:flex;align-items:flex-end}
+        .page-header::before{content:'';position:absolute;inset:0;background-image:var(--bg,none);background-size:cover;background-position:center;filter:brightness(.58);transition:transform 20s ease-out}
+        .page-header:hover::before{transform:scale(1.04)}
+        .page-header::after{content:'';position:absolute;bottom:-2px;left:0;width:100%;height:88px;background:#EAF4FB;clip-path:polygon(0 100%,100% 0,100% 100%)}
+        .page-header-inner{position:relative;z-index:2;padding:0 64px 80px;width:100%}
+        .eyebrow{display:inline-block;border:1px solid rgba(255,255,255,.38);color:rgba(255,255,255,.72);font-size:11px;font-weight:700;letter-spacing:4px;padding:5px 18px;border-radius:30px;margin-bottom:16px}
+        .page-header h1{font-family:'Cormorant Garamond',serif!important;font-size:54px;color:#fff;margin:0 0 10px;letter-spacing:2px;line-height:1.1;font-weight:600}
+        .page-header p{font-size:15px;color:rgba(255,255,255,.62);margin:0;font-weight:300;letter-spacing:.3px}
+        @media(max-width:900px){.page-header{height:340px}.page-header-inner{padding:0 30px 60px}.page-header h1{font-size:38px}}
+        @media(max-width:600px){.page-header h1{font-size:30px}}
+
+        /* ══ 공통 섹션 라벨 ══ */
+        .section-label{display:flex;align-items:center;gap:16px;margin-bottom:32px}
+        .section-label .line{flex:1;height:1px;background:rgba(0,150,199,.15)}
+        .section-label span{font-size:11px;font-weight:700;letter-spacing:3px;color:#0096C7;white-space:nowrap}
+
+        /* ══ 공통 CTA 박스 ══ */
+        .cta-box{background:linear-gradient(135deg,#03045E,#0096C7);border-radius:24px;padding:52px 60px;display:flex;align-items:center;justify-content:space-between;gap:40px}
+        .cta-box h2{font-family:'Cormorant Garamond',serif!important;font-size:30px;color:#fff;margin:0 0 10px;font-weight:600;letter-spacing:1px}
+        .cta-box p{font-size:14px;color:rgba(255,255,255,.62);margin:0;line-height:1.75}
+        .btn-cta{display:inline-flex;align-items:center;gap:12px;padding:18px 48px;background:#fff;color:#03045E;border-radius:40px;font-size:16px;font-weight:700;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.18);transition:.3s;flex-shrink:0}
+        .btn-cta:hover{background:#90E0EF;color:#03045E;transform:scale(1.04)}
+        @media(max-width:900px){.cta-box{flex-direction:column;padding:40px 30px;text-align:center}}
+
+        /* ── 차량 섹션 ── */
+        .fleet-section{max-width:1200px;margin:0 auto 100px;padding:60px 30px 0}
+
+
+        /* ── 카드 그리드: 균일 3열 ── */
+        .fleet-grid{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:24px;
+        }
+
+        /* ── 카드 ── */
+        .fleet-card{
+            display:flex;
+            flex-direction:column;
+            background:#fff;
+            border-radius:20px;
+            overflow:hidden;
+            box-shadow:0 2px 12px rgba(0,40,100,.07);
+            border:1px solid rgba(0,80,200,.07);
+            transition:transform .38s cubic-bezier(0.22,1,0.36,1), box-shadow .38s ease, opacity .5s ease;
+            opacity:0;
+            transform:translateY(28px);
+        }
+        .fleet-card.visible{opacity:1;transform:translateY(0)}
+        .fleet-card:hover{
+            transform:translateY(-8px);
+            box-shadow:0 20px 48px rgba(0,100,220,.13), 0 4px 12px rgba(0,0,0,.05);
+        }
+
+        /* ── 이미지 영역 ── */
+        .fleet-img{
+            position:relative;
+            width:100%;
+            aspect-ratio:4/3;
+            overflow:hidden;
+            flex-shrink:0;
+            /* 모든 카드 동일한 다크 배경 */
+            background:linear-gradient(160deg,#0b1220 0%,#0d1a2e 60%,#091525 100%);
+        }
+
+        /* 모든 차량 이미지 동일한 규격으로 통일 */
+        .fleet-img img{
+            width:100%;
+            height:100%;
+            object-fit:contain;
+            object-position:center 60%;
+            display:block;
+            padding:6px 8px 0;
+            filter:drop-shadow(0 8px 24px rgba(0,0,0,.6));
+            transition:transform .6s cubic-bezier(0.165,0.84,0.44,1), filter .4s ease;
+        }
+        .fleet-card:hover .fleet-img img{
+            transform:scale(1.06) translateY(-5px);
+            filter:drop-shadow(0 16px 36px rgba(0,120,255,.25)) drop-shadow(0 6px 16px rgba(0,0,0,.6));
+        }
+
+        /* 하위 호환: is-dark / is-cutout 클래스 무력화 (배경 이미 통일) */
+        .fleet-img.is-dark,.fleet-img.is-cutout{
+            background:linear-gradient(160deg,#0b1220 0%,#0d1a2e 60%,#091525 100%);
+        }
+        .fleet-img.is-dark img,.fleet-img.is-cutout img{
+            mix-blend-mode:normal;
+        }
+
+        /* ── 차량 타입 뱃지 ── */
+        .fleet-badge{
+            position:absolute; top:12px; left:12px;
+            background:rgba(0,0,0,.52);
+            backdrop-filter:blur(10px);
+            -webkit-backdrop-filter:blur(10px);
+            border:1px solid rgba(255,255,255,.18);
+            color:#fff; font-size:9px; font-weight:700; letter-spacing:2px;
+            padding:4px 11px; border-radius:3px;
+            z-index:3; text-transform:uppercase;
+        }
+
+        /* ── 정보 영역 ── */
+        .fleet-info{
+            padding:20px 22px 22px;
+            display:flex;
+            flex-direction:column;
+            flex-grow:1;
+            border-top:1px solid #D0EAF4;
+        }
+
+        /* 브랜드 + 차명 한 줄 */
+        .fleet-header{
+            display:flex;
+            align-items:baseline;
+            gap:8px;
+            margin-bottom:8px;
+        }
+        .fleet-brand{
+            font-size:10px;font-weight:700;letter-spacing:2.5px;
+            color:#0096C7;flex-shrink:0;
+        }
+        .fleet-name{
+            font-family:'Playfair Display',serif;
+            font-size:19px;font-weight:700;
+            color:#03045E;margin:0;letter-spacing:-.2px;line-height:1.2;
+        }
+
+        .fleet-desc{
+            color:#6680A0;font-size:12.5px;line-height:1.75;
+            margin-bottom:14px;flex-grow:1;
+        }
+
+        /* 스펙 태그 */
+        .fleet-specs{
+            display:flex;gap:6px;flex-wrap:wrap;
+            margin-bottom:14px;
+        }
+        .fleet-specs span{
+            display:inline-flex;align-items:center;gap:4px;
+            background:#EAF4FB;color:#1B6A8A;
+            font-size:11px;font-weight:500;
+            padding:4px 10px;border-radius:20px;
+            border:1px solid rgba(0,100,200,.08);
+        }
+        .fleet-specs i{color:#0096C7;font-size:10px}
+
+        /* ── 예약 버튼 ── */
+        .btn-group{display:flex;gap:7px}
+        .btn-reserve{
+            flex:1;padding:9px 0;border-radius:10px;
+            font-size:12px;font-weight:700;
+            transition:.28s cubic-bezier(0.22,1,0.36,1);
+            display:inline-flex;align-items:center;justify-content:center;gap:5px;
+            white-space:nowrap;
+        }
+        .btn-reserve.tour{
+            background:#03045E;color:#fff;
+        }
+        .btn-reserve.tour:hover{background:#005fa3;transform:translateY(-1px)}
+        .btn-reserve.long{
+            background:#EAF4FB;color:#03045E;
+            border:1.5px solid rgba(10,61,98,.18);
+        }
+        .btn-reserve.long:hover{background:#B3E5F5;transform:translateY(-1px)}
+
+        /* 카드별 미묘한 배경 색조 */
+        .bg-ev6   { background:linear-gradient(160deg,#0c1a1a 0%,#0d2020 60%,#091a1a 100%) !important; }
+        .bg-ioniq5{ background:linear-gradient(160deg,#0a1525 0%,#0d1e35 60%,#091520 100%) !important; }
+        .bg-ioniq6{ background:linear-gradient(160deg,#0d1525 0%,#111c30 60%,#0c1628 100%) !important; }
+        .bg-granjer{ background:linear-gradient(160deg,#160e08 0%,#1a1205 60%,#150e06 100%) !important; }
+        .bg-tesla { background:linear-gradient(160deg,#0c1020 0%,#0e1530 60%,#0b1020 100%) !important; }
+        #page-transition-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#EAF4FB;z-index:9999;opacity:0;pointer-events:none;transition:opacity .4s ease}
+
+        /* ── 요금 배너 ── */
+        .fleet-pricing-banner{max-width:1200px;margin:0 auto 80px;padding:0 30px}
+        .fpb-inner{
+            background:linear-gradient(135deg,#03045E,#0096C7);
+            border-radius:20px;padding:36px 44px;
+            box-shadow:0 12px 30px rgba(0,0,0,0.1);
+        }
+        .fpb-title{color:#fff;font-size:13px;font-weight:700;letter-spacing:2px;margin-bottom:24px;opacity:.8}
+        .fpb-title i{margin-right:8px;color:#90E0EF}
+        .fpb-items{display:flex;align-items:center;gap:0;flex-wrap:wrap;margin-bottom:16px}
+        .fpb-item{flex:1;min-width:160px;padding:0 20px}
+        .fpb-divider{width:1px;height:40px;background:rgba(255,255,255,.15)}
+        .fpb-item:first-child{padding-left:0}
+        .fpb-service{font-size:12px;color:rgba(255,255,255,.7);margin-bottom:6px}
+        .fpb-service i{margin-right:5px;color:#90E0EF}
+        .fpb-price{font-size:26px;font-weight:700;color:#fff;letter-spacing:-0.5px;line-height:1}
+        .fpb-price span{font-size:13px;font-weight:500;margin-left:2px;opacity:.8}
+        .fpb-note{font-size:12px;color:rgba(255,255,255,.5);margin:0}
+        .fpb-note i{margin-right:5px;color:#90E0EF}
+
+        /* ── 반응형 ── */
+        @media(max-width:960px){.fleet-grid{grid-template-columns:repeat(2,1fr)}}
+        @media(max-width:600px){
+            .fleet-grid{grid-template-columns:1fr}
+            .page-header h1{font-size:38px}
+            .fpb-inner{padding:28px 24px}
+            .fpb-items{gap:16px}
+            .fpb-divider{display:none}
+            .fpb-item{padding:0;min-width:140px}
+        }
+    
+    /* ══════════════════════════════════════════
+       도로·경로 토폴로지 맵 배경 패턴 (v2)
+       타일링 없이 전체 화면 1장으로 커버
+    ══════════════════════════════════════════ */
+    body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-image:
+            radial-gradient(circle, rgba(0,150,199,0.07) 1px, transparent 1px),
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 900' preserveAspectRatio='xMidYMid slice'%3E%3Cdefs%3E%3ClinearGradient id='wg' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%230096C7' stop-opacity='0'/%3E%3Cstop offset='0.4' stop-color='%230096C7' stop-opacity='0.06'/%3E%3Cstop offset='1' stop-color='%230096C7' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='none'%3E%3Cpath stroke='url(%23wg)' stroke-width='1.5' d='M-100,650 C200,610 450,560 720,580 C990,600 1200,630 1560,590'/%3E%3Cpath stroke='url(%23wg)' stroke-width='1.2' d='M-100,520 C180,485 420,445 700,462 C960,478 1180,510 1560,475'/%3E%3Cpath stroke='url(%23wg)' stroke-width='0.9' d='M-100,390 C160,360 400,330 680,348 C940,364 1160,395 1560,360'/%3E%3Cpath stroke='url(%23wg)' stroke-width='0.7' d='M-100,260 C140,235 380,215 660,230 C920,244 1140,272 1560,242'/%3E%3Cpath stroke='url(%23wg)' stroke-width='0.5' d='M-100,140 C120,118 360,102 640,116 C900,128 1120,152 1560,126'/%3E%3C/g%3E%3C/svg%3E");
+        background-size: 28px 28px, 100% 100%;
+        background-repeat: repeat, no-repeat;
+        background-position: center, center;
+    }
+    body > * { position: relative; z-index: 1; }
+
+    </style>
+</head>
+<body>
+    <script src="header.js"></script>
+    <div id="page-transition-overlay"></div>
+    <script>
+        (function(){
+            const o=document.getElementById('page-transition-overlay');
+            o.style.opacity='1';o.style.transition='none';
+            requestAnimationFrame(()=>requestAnimationFrame(()=>{o.style.transition='opacity .5s ease';o.style.opacity='0'}));
+            document.addEventListener('click',e=>{
+                const l=e.target.closest('a[href]');if(!l)return;
+                const h=l.getAttribute('href');
+                if(!h||h.startsWith('tel:')||h.startsWith('mailto:')||h.startsWith('http')||h.startsWith('#'))return;
+                e.preventDefault();o.style.opacity='1';o.style.pointerEvents='all';
+                setTimeout(()=>{window.location.href=h},400);
+            });
+        })();
+    </script>
+
+    <div class="page-header" style="--bg:url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1920')">
+        <div class="page-header-inner">
+            <span class="eyebrow">OUR FLEET</span>
+            <h1>보유 차량</h1>
+            <p>설레는 여행을 함께할 최고급 차량 라인업</p>
+        </div>
+    </div>
+
+    <div class="fleet-section">
+        <div class="section-label">
+            <div class="line"></div>
+            <span>ELECTRIC &amp; PREMIUM LINE-UP</span>
+            <div class="line"></div>
+        </div>
+
+        <div class="fleet-grid">
+
+            <div class="fleet-card">
+                <div class="fleet-img is-dark bg-ev6">
+                    <img src="ev6.png" alt="기아 EV6">
+                    <span class="fleet-badge">ELECTRIC CROSSOVER</span>
+                </div>
+                <div class="fleet-info">
+                    <div class="fleet-header">
+                        <span class="fleet-brand">KIA</span>
+                        <h3 class="fleet-name">EV6</h3>
+                    </div>
+                    <p class="fleet-desc">혁신적인 디자인의 친환경 전기차. 조용한 실내와 부드러운 승차감으로 여행의 피로를 덜어드립니다.</p>
+                    <div class="fleet-specs">
+                        <span><i class="fas fa-user"></i> 최대 4인</span>
+                        <span><i class="fas fa-suitcase"></i> 수하물 3개</span>
+                    </div>
+                    <div class="btn-group">
+                        <a href="tour-reservation.html" class="btn-reserve tour"><i class="fas fa-map-marked-alt"></i> 관광 투어</a>
+                        <a href="long-distance-reservation.html" class="btn-reserve long"><i class="fas fa-road"></i> 장거리</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fleet-card">
+                <div class="fleet-img is-dark bg-ioniq5">
+                    <img src="ioniq5.png" alt="아이오닉 5">
+                    <span class="fleet-badge">ELECTRIC SUV</span>
+                </div>
+                <div class="fleet-info">
+                    <div class="fleet-header">
+                        <span class="fleet-brand">HYUNDAI</span>
+                        <h3 class="fleet-name">아이오닉 5</h3>
+                    </div>
+                    <p class="fleet-desc">전기차 전용 플랫폼의 혁신적으로 넓은 실내 공간. 여유로운 공간을 원하시는 분께 적극 추천합니다.</p>
+                    <div class="fleet-specs">
+                        <span><i class="fas fa-user"></i> 최대 4인</span>
+                        <span><i class="fas fa-suitcase"></i> 수하물 4개</span>
+                    </div>
+                    <div class="btn-group">
+                        <a href="tour-reservation.html" class="btn-reserve tour"><i class="fas fa-map-marked-alt"></i> 관광 투어</a>
+                        <a href="long-distance-reservation.html" class="btn-reserve long"><i class="fas fa-road"></i> 장거리</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fleet-card">
+                <div class="fleet-img is-dark bg-ioniq6">
+                    <img src="ioniq6.png" alt="아이오닉 6">
+                    <span class="fleet-badge">ELECTRIC SEDAN</span>
+                </div>
+                <div class="fleet-info">
+                    <div class="fleet-header">
+                        <span class="fleet-brand">HYUNDAI</span>
+                        <h3 class="fleet-name">아이오닉 6</h3>
+                    </div>
+                    <p class="fleet-desc">미래지향적인 유선형 디자인의 전기 세단. 흔들림 없는 안락한 고속 주행 성능을 자랑합니다.</p>
+                    <div class="fleet-specs">
+                        <span><i class="fas fa-user"></i> 최대 4인</span>
+                        <span><i class="fas fa-suitcase"></i> 수하물 3개</span>
+                    </div>
+                    <div class="btn-group">
+                        <a href="tour-reservation.html" class="btn-reserve tour"><i class="fas fa-map-marked-alt"></i> 관광 투어</a>
+                        <a href="long-distance-reservation.html" class="btn-reserve long"><i class="fas fa-road"></i> 장거리</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fleet-card">
+                <div class="fleet-img is-dark bg-granjer">
+                    <img src="grandeur.png" alt="현대 그랜저">
+                    <span class="fleet-badge">PREMIUM SEDAN</span>
+                </div>
+                <div class="fleet-info">
+                    <div class="fleet-header">
+                        <span class="fleet-brand">HYUNDAI</span>
+                        <h3 class="fleet-name">그랜저</h3>
+                    </div>
+                    <p class="fleet-desc">대한민국을 대표하는 프리미엄 세단. 비즈니스 의전 및 품격 있는 여행에 최적화된 고급스러운 편안함을 제공합니다.</p>
+                    <div class="fleet-specs">
+                        <span><i class="fas fa-user"></i> 최대 4인</span>
+                        <span><i class="fas fa-suitcase"></i> 수하물 4개</span>
+                        <span><i class="fas fa-star"></i> VIP 의전</span>
+                    </div>
+                    <div class="btn-group">
+                        <a href="tour-reservation.html" class="btn-reserve tour"><i class="fas fa-map-marked-alt"></i> 관광 투어</a>
+                        <a href="long-distance-reservation.html" class="btn-reserve long"><i class="fas fa-road"></i> 장거리</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fleet-card">
+                <div class="fleet-img is-cutout bg-tesla">
+                    <img src="Y Juniper.png" alt="테슬라 모델Y 주니퍼">
+                    <span class="fleet-badge">ELECTRIC SUV</span>
+                </div>
+                <div class="fleet-info">
+                    <div class="fleet-header">
+                        <span class="fleet-brand">TESLA</span>
+                        <h3 class="fleet-name">Model Y Juniper</h3>
+                    </div>
+                    <p class="fleet-desc">2026년 완전 변경된 주니퍼 에디션. 세련된 신형 인테리어와 앰비언트 라이트, 탁월한 주행거리로 장거리도 편안하게 이동합니다.</p>
+                    <div class="fleet-specs">
+                        <span><i class="fas fa-user"></i> 최대 4인</span>
+                        <span><i class="fas fa-suitcase"></i> 수하물 4개</span>
+                        <span><i class="fas fa-bolt"></i> 완전 전기차</span>
+                    </div>
+                    <div class="btn-group">
+                        <a href="tour-reservation.html" class="btn-reserve tour"><i class="fas fa-map-marked-alt"></i> 관광 투어</a>
+                        <a href="long-distance-reservation.html" class="btn-reserve long"><i class="fas fa-road"></i> 장거리</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="fleet-pricing-banner">
+        <div class="fpb-inner">
+            <div class="fpb-title"><i class="fas fa-tags"></i> 이용 요금 안내</div>
+            <div class="fpb-items">
+                <div class="fpb-item">
+                    <div class="fpb-service"><i class="fas fa-sun"></i> 관광 투어 반나절 (4h)</div>
+                    <div class="fpb-price">130,000<span>원</span></div>
+                </div>
+                <div class="fpb-divider"></div>
+                <div class="fpb-item">
+                    <div class="fpb-service"><i class="fas fa-star"></i> 관광 투어 종일 (8h)</div>
+                    <div class="fpb-price">250,000<span>원</span></div>
+                </div>
+                <div class="fpb-divider"></div>
+                <div class="fpb-item">
+                    <div class="fpb-service"><i class="fas fa-plane"></i> 김해공항 샌딩</div>
+                    <div class="fpb-price">50,000<span>원</span></div>
+                </div>
+                <div class="fpb-divider"></div>
+                <div class="fpb-item">
+                    <div class="fpb-service"><i class="fas fa-train"></i> 부산역 KTX 샌딩</div>
+                    <div class="fpb-price">40,000<span>원</span></div>
+                </div>
+            </div>
+            <p class="fpb-note"><i class="fas fa-info-circle"></i> 차량 1대 기준 · 통행료·주차비 별도 · 장거리 요금은 전화 상담</p>
+        </div>
+    </div>
+
+    <script>
+        const cards=document.querySelectorAll('.fleet-card');
+        const io=new IntersectionObserver(entries=>{
+            entries.forEach((en,i)=>{
+                if(en.isIntersecting){setTimeout(()=>en.target.classList.add('visible'),i*120);io.unobserve(en.target)}
+            });
+        },{threshold:.12});
+        cards.forEach(c=>io.observe(c));
+    </script>
+    <script src="footer.js"></script>
+</body>
+</html>

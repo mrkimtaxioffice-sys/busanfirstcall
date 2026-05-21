@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="부산 멤버스 택시 - 프리미엄 관광 투어, 장거리 콜택시, 공항·기차역 샌딩 서비스. 최고급 전기차로 안전하고 편안한 이동을 약속합니다.">
+  <title>개인정보처리방침 | 부산 멤버스 택시</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root{--primary:#03045E;--point:#0096C7;--point-light:#CAF0F8;--bg-main:#EAF4FB;--text-dark:#333;--text-gray:#555}
+    *,*::before,*::after{box-sizing:border-box}
+    body,html{margin:0;padding:0;font-family:'Noto Sans KR',sans-serif;background:#EAF4FB;color:var(--text-dark);overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+
+    /* 히어로 */
+    .page-header{position:relative;height:320px;overflow:hidden;display:flex;align-items:flex-end}
+    .page-header::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#03045E 0%,#0096C7 100%);filter:brightness(.9)}
+    .page-header::after{content:'';position:absolute;bottom:-2px;left:0;width:100%;height:72px;background:#EAF4FB;clip-path:polygon(0 100%,100% 0,100% 100%)}
+    .page-header-inner{position:relative;z-index:2;padding:0 64px 72px;width:100%}
+    .eyebrow{display:inline-block;border:1px solid rgba(255,255,255,.4);color:rgba(255,255,255,.75);font-size:11px;font-weight:700;letter-spacing:4px;padding:5px 18px;border-radius:30px;margin-bottom:14px}
+    .page-header h1{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:600;color:#fff;margin:0 0 8px;letter-spacing:2px}
+    .page-header p{font-size:14px;color:rgba(255,255,255,.62);margin:0;font-weight:300}
+
+    /* 본문 */
+    .content{max-width:860px;margin:0 auto 100px;padding:56px 30px 0}
+
+    .policy-section{background:#fff;border-radius:20px;padding:40px 48px;margin-bottom:20px;box-shadow:0 6px 24px rgba(0,0,0,.05);border:1px solid rgba(0,0,0,.04)}
+    .policy-section h2{font-size:17px;font-weight:700;color:var(--primary);margin:0 0 18px;padding-bottom:14px;border-bottom:2px solid var(--point-light);display:flex;align-items:center;gap:10px}
+    .policy-section h2 i{color:var(--point);font-size:16px}
+    .policy-section p,.policy-section li{font-size:14px;line-height:1.9;color:var(--text-gray);margin:0 0 10px}
+    .policy-section ul,.policy-section ol{padding-left:20px;margin:8px 0 14px}
+    .policy-section ul li{list-style:disc}
+    .policy-section ol li{list-style:decimal}
+    .policy-section table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0}
+    .policy-section table th{background:#EAF4FB;color:var(--primary);font-weight:700;padding:10px 14px;text-align:left;border:1px solid rgba(0,150,199,.15)}
+    .policy-section table td{padding:10px 14px;border:1px solid rgba(0,0,0,.07);color:var(--text-gray);vertical-align:top}
+
+    .info-box{background:#EAF4FB;border-left:3px solid var(--point);border-radius:0 10px 10px 0;padding:16px 20px;margin:16px 0;font-size:13px;line-height:1.8;color:var(--text-gray)}
+
+    .effective-date{text-align:center;font-size:13px;color:rgba(0,0,0,.35);margin-top:48px;padding-top:24px;border-top:1px solid rgba(0,0,0,.07)}
+
+    @media(max-width:700px){
+      .policy-section{padding:28px 24px}
+      .page-header h1{font-size:34px}
+      .page-header-inner{padding:0 28px 60px}
+    }
+  </style>
+</head>
+<body>
+  <script src="header.js"></script>
+  <div id="page-transition-overlay" style="position:fixed;inset:0;background:#EAF4FB;z-index:9999;opacity:0;pointer-events:none;transition:opacity .4s"></div>
+  <script>
+    (function(){
+      const o=document.getElementById('page-transition-overlay');
+      o.style.opacity='1';o.style.transition='none';
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{o.style.transition='opacity .5s ease';o.style.opacity='0'}));
+      document.addEventListener('click',e=>{
+        const l=e.target.closest('a[href]');if(!l)return;
+        const h=l.getAttribute('href');
+        if(!h||h.startsWith('tel:')||h.startsWith('mailto:')||h.startsWith('http')||h.startsWith('#'))return;
+        e.preventDefault();o.style.opacity='1';o.style.pointerEvents='all';
+        setTimeout(()=>{window.location.href=h},400);
+      });
+    })();
+  </script>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <span class="eyebrow">PRIVACY POLICY</span>
+      <h1>개인정보처리방침</h1>
+      <p>부산 멤버스 택시는 고객의 개인정보를 소중히 여깁니다</p>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="policy-section">
+      <h2><i class="fas fa-info-circle"></i> 제1조 개인정보의 처리 목적</h2>
+      <p>개인택시 부산37바4767(이하 "당사")은 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 별도의 동의를 받는 등 필요한 조치를 이행합니다.</p>
+      <ul>
+        <li>택시 예약 접수 및 배차 서비스 제공</li>
+        <li>예약 확인 및 이용 일정 안내</li>
+        <li>고객 문의 응대 및 불만 처리</li>
+        <li>서비스 품질 향상을 위한 사후 관리</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2><i class="fas fa-list-alt"></i> 제2조 처리하는 개인정보의 항목 및 보유 기간</h2>
+      <table>
+        <thead>
+          <tr><th>수집 항목</th><th>수집 방법</th><th>보유 기간</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>성명, 연락처(전화번호)</td>
+            <td>전화·문자 예약 접수</td>
+            <td>서비스 제공 완료 후 1년</td>
+          </tr>
+          <tr>
+            <td>출발지·목적지, 탑승 일시</td>
+            <td>예약 접수 시 직접 수집</td>
+            <td>서비스 제공 완료 후 1년</td>
+          </tr>
+          <tr>
+            <td>이메일 주소</td>
+            <td>이메일 문의 시 수집</td>
+            <td>문의 처리 완료 후 6개월</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="info-box">
+        관련 법령에 따라 일정 기간 보관이 필요한 경우에는 해당 기간 동안 보관 후 지체 없이 파기합니다.<br>
+        (예: 전자상거래 등에서의 소비자보호에 관한 법률 – 계약·청약철회 기록 5년)
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <h2><i class="fas fa-share-alt"></i> 제3조 개인정보의 제3자 제공</h2>
+      <p>당사는 원칙적으로 이용자의 개인정보를 제3자에게 제공하지 않습니다. 다만, 아래의 경우에는 예외로 합니다.</p>
+      <ul>
+        <li>이용자가 사전에 동의한 경우</li>
+        <li>법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2><i class="fas fa-trash-alt"></i> 제4조 개인정보의 파기</h2>
+      <p>당사는 개인정보 보유 기간의 경과, 처리 목적 달성 등 개인정보가 불필요하게 되었을 때에는 지체 없이 해당 개인정보를 파기합니다.</p>
+      <ul>
+        <li><strong>전자적 파일</strong> : 복구 및 재생되지 않도록 기술적 방법을 사용하여 완전 삭제</li>
+        <li><strong>종이 문서</strong> : 분쇄기로 분쇄하거나 소각</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2><i class="fas fa-user-shield"></i> 제5조 정보주체의 권리·의무 및 행사 방법</h2>
+      <p>이용자는 개인정보 주체로서 아래와 같은 권리를 행사할 수 있습니다.</p>
+      <ol>
+        <li>개인정보 처리 현황 열람 요청</li>
+        <li>오류 등이 있을 경우 정정 요청</li>
+        <li>개인정보 삭제 요청</li>
+        <li>개인정보 처리 정지 요청</li>
+      </ol>
+      <p>위 권리 행사는 전화(010-4242-4767) 또는 이메일(mrkim_calltaxi@naver.com)로 연락하시면 지체 없이 조치하겠습니다.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2><i class="fas fa-lock"></i> 제6조 개인정보의 안전성 확보 조치</h2>
+      <p>당사는 개인정보의 안전성 확보를 위해 다음과 같은 조치를 취하고 있습니다.</p>
+      <ul>
+        <li>개인정보에 대한 접근 제한 (담당자 외 접근 불허)</li>
+        <li>개인정보 파일의 잠금장치 및 비밀번호 설정</li>
+        <li>수집한 개인정보의 최소화 원칙 준수</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2><i class="fas fa-headset"></i> 제7조 개인정보 보호 책임자</h2>
+      <table>
+        <tbody>
+          <tr><th style="width:140px">성명</th><td>남현진</td></tr>
+          <tr><th>직책</th><td>대표</td></tr>
+          <tr><th>전화</th><td><a href="tel:010-4242-4767" style="color:var(--point)">010-4242-4767</a></td></tr>
+          <tr><th>이메일</th><td><a href="mailto:mrkim_calltaxi@naver.com" style="color:var(--point)">mrkim_calltaxi@naver.com</a></td></tr>
+        </tbody>
+      </table>
+      <div class="info-box">
+        개인정보 침해에 관한 신고·상담은 아래 기관에 문의하실 수 있습니다.<br>
+        • 개인정보 침해신고센터 : <a href="https://privacy.kisa.or.kr" style="color:var(--point)" target="_blank">privacy.kisa.or.kr</a> / (국번없이) 118<br>
+        • 개인정보 분쟁조정위원회 : <a href="https://www.kopico.go.kr" style="color:var(--point)" target="_blank">www.kopico.go.kr</a> / 1833-6972
+      </div>
+    </div>
+
+    <p class="effective-date">본 개인정보처리방침은 <strong>2025년 1월 1일</strong>부터 시행됩니다.</p>
+
+  </div>
+
+  <script src="footer.js"></script>
+</body>
+</html>
