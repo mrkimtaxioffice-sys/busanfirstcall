@@ -222,10 +222,15 @@
         @media(max-width:600px){
             .fleet-grid{grid-template-columns:1fr}
             .page-header h1{font-size:38px}
-            .fpb-inner{padding:28px 24px}
-            .fpb-items{gap:16px}
+            .fpb-inner{padding:24px 18px}
+            .fpb-items{flex-direction:column;gap:14px}
             .fpb-divider{display:none}
-            .fpb-item{padding:0;min-width:140px}
+            .fpb-item{padding:0;min-width:unset;display:flex;justify-content:space-between;align-items:center}
+            .fpb-service{margin-bottom:0;font-size:13px}
+            .fpb-price{font-size:22px}
+            .cta-box{flex-direction:column;padding:36px 20px;text-align:center}
+            .btn-cta{width:100%;justify-content:center;padding:14px 20px;font-size:15px}
+            .page-header-inner{padding:0 20px 60px}
         }
     
     /* ══════════════════════════════════════════
