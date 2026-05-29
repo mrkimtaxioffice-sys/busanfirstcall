@@ -91,9 +91,11 @@
         align-self: flex-end; white-space: nowrap;
       }
       @media(max-width: 900px) {
-        .bmt-footer-inner { grid-template-columns: 1fr; gap: 36px; padding: 0 24px 40px; }
-        .bmt-footer-bottom { padding: 20px 24px; }
-        .bmt-biz-info .bmt-biz-row { flex-direction: column; gap: 0; }
+        .bmt-footer-inner { grid-template-columns: 1fr; gap: 28px; padding: 0 20px 36px; }
+        .bmt-footer-bottom { padding: 18px 20px; }
+        .bmt-biz-info .bmt-biz-row { flex-direction: column; gap: 2px; }
+        .bmt-f-phone { font-size: 14px; padding: 10px 22px; }
+        .bmt-copyright { align-self: auto; white-space: normal; margin-top: 8px; }
       }
     `;
 
