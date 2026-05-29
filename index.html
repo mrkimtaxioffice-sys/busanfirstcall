@@ -265,32 +265,60 @@
 
         /* ── 모바일 반응형 ── */
         @media (max-width: 768px) {
-            .hero { padding: 80px 20px 100px; justify-content: flex-end; }
+            .hero { padding: 80px 20px 160px; justify-content: flex-end; }
             .hero-title { font-size: clamp(28px, 7vw, 48px); margin-bottom: 16px; }
-            .hero-sub { font-size: 13px; margin-bottom: 32px; }
-            .services { flex-direction: column; align-items: center; gap: 12px; width: 100%; }
-            .svc-card { width: 100% !important; max-width: 360px; height: 200px; }
-            .svc-card:hover { width: 100% !important; transform: translateY(-4px); }
-            .svc-desc { max-height: 80px !important; opacity: 1 !important; }
+            .hero-sub { font-size: 13px; margin-bottom: 28px; }
+            .services { flex-direction: column; align-items: stretch; gap: 10px; width: 100%; max-width: 400px; margin: 0 auto; }
+            .svc-card { width: 100% !important; max-width: 100%; height: 110px; border-radius: 16px; }
+            .svc-card:hover { width: 100% !important; transform: none; }
+            /* 모바일: 항상 설명 표시 */
+            .svc-desc { max-height: 60px !important; opacity: 1 !important; font-size: 12px !important; }
             .svc-arrow { opacity: 1 !important; transform: translateX(0) !important; }
-            .bottom-bar { padding: 12px 20px; flex-wrap: wrap; gap: 10px; }
-            .bottom-stat .stat-num { font-size: 20px; }
+            .svc-body { padding: 14px 16px; flex-direction: row; align-items: center; gap: 12px; justify-content: flex-start; }
+            .svc-icon { width: 40px; height: 40px; font-size: 16px; margin-bottom: 0; flex-shrink: 0; border-radius: 10px; }
+            .svc-num { position: static; font-size: 10px; display: none; }
+            .svc-title { font-size: 15px; margin-bottom: 4px; }
+            .svc-text-col { display: flex; flex-direction: column; }
+            /* bottom bar */
+            .bottom-bar { padding: 10px 16px; flex-wrap: wrap; gap: 8px; justify-content: space-between; }
+            .bottom-stat .stat-num { font-size: 18px; }
+            .bottom-stat .stat-label { font-size: 10px; }
+            .bottom-divider { height: 20px; }
+            .cta-phone { padding: 8px 18px; font-size: 13px; }
             .scroll-hint { display: none; }
             /* 팝업 모바일 */
-            .tour-overlay-content { padding: 0 12px; }
-            .spot-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 8px; }
+            .tour-overlay-content { padding: 0 12px; top: 56px; transform: translateX(-50%); }
+            .overlay-title { font-size: 18px; letter-spacing: 2px; }
+            .spot-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 6px; }
+            .scard { padding: 10px 6px 8px; border-radius: 10px; }
+            .scard-icon { font-size: 18px; }
+            .scard-name { font-size: 10px; }
             .cpanel { max-width: 100%; }
-            .cinfo-bar { flex-wrap: wrap; gap: 10px; padding: 10px 16px; }
-            .taxi-info-container { width: 100%; padding: 0 16px; }
-            .taxi-features { grid-template-columns: 1fr !important; }
-            .timeline-container { flex-direction: column; align-items: center; width: 100%; padding: 0 16px; gap: 8px; }
+            .cinfo-bar { flex-wrap: wrap; gap: 8px; padding: 8px 14px; font-size: 11px; }
+            .cib-sep { display: none; }
+            .taxi-info-container { width: 100%; padding: 0 12px; margin-top: 12px; }
+            .taxi-features { grid-template-columns: 1fr !important; gap: 10px; }
+            .glass-box { padding: 20px 16px; }
+            .coverage-header h3 { font-size: 18px; }
+            .route-visual { margin: 16px 0; }
+            .route-visual span { font-size: 14px; padding: 7px 14px; }
+            .feature-box h4 { font-size: 16px; }
+            .timeline-container { flex-direction: column; align-items: center; width: 100%; padding: 0 12px; gap: 8px; }
+            .timeline-step { width: 100%; max-width: 340px; padding: 20px 16px; }
             .timeline-arrow { transform: rotate(90deg); }
-            .guarantees-container { flex-direction: column; width: 100%; padding: 0 16px; gap: 12px; }
-            .popup-close { top: 16px; right: 16px; }
+            .guarantees-container { flex-direction: column; width: 100%; padding: 0 12px; gap: 10px; }
+            .guarantee-box { padding: 14px; }
+            .popup-close { top: 14px; right: 14px; width: 38px; height: 38px; font-size: 15px; }
+            .popup-cta-btn { margin-top: 14px; padding: 12px 24px; font-size: 13px; }
+            .taxi-overlay-content { top: 56px; }
+            .airport-overlay-content { top: 56px; }
+            .ctab { padding: 7px 18px; font-size: 11px; }
+            .ctab-wrap { gap: 6px; margin-bottom: 14px; }
         }
         @media (max-width: 480px) {
             .spot-grid { grid-template-columns: repeat(2, 1fr) !important; }
             .hero-eyebrow { font-size: 9px; letter-spacing: 3px; }
+            .services { max-width: 100%; }
         }
 
         /* ── 팝업 닫기 버튼 ── */
@@ -347,9 +375,11 @@
                     <div class="svc-body">
                         <span class="svc-num">01</span>
                         <div class="svc-icon"><i class="fas fa-map-marked-alt"></i></div>
-                        <div class="svc-title">부산 관광 투어</div>
-                        <p class="svc-desc">부산 주요 명소 맞춤 투어<br>반나절 13만 · 종일 25만원</p>
-                        <span class="svc-arrow">EXPLORE <i class="fas fa-arrow-right"></i></span>
+                        <div class="svc-text-col">
+                            <div class="svc-title">부산 관광 투어</div>
+                            <p class="svc-desc">부산 주요 명소 맞춤 투어<br>반나절 13만 · 종일 25만원</p>
+                            <span class="svc-arrow">EXPLORE <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                 </div>
                 <div class="svc-card" id="card-taxi">
@@ -357,9 +387,11 @@
                     <div class="svc-body">
                         <span class="svc-num">02</span>
                         <div class="svc-icon"><i class="fas fa-road"></i></div>
-                        <div class="svc-title">장거리 콜택시</div>
-                        <p class="svc-desc">전국 어디든 쾌적한 이동<br>확정 요금제 · 전기 프리미엄 차량</p>
-                        <span class="svc-arrow">EXPLORE <i class="fas fa-arrow-right"></i></span>
+                        <div class="svc-text-col">
+                            <div class="svc-title">장거리 콜택시</div>
+                            <p class="svc-desc">전국 어디든 쾌적한 이동<br>확정 요금제 · 전기 프리미엄 차량</p>
+                            <span class="svc-arrow">EXPLORE <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                 </div>
                 <div class="svc-card" id="card-airport">
@@ -367,9 +399,11 @@
                     <div class="svc-body">
                         <span class="svc-num">03</span>
                         <div class="svc-icon"><i class="fas fa-plane-departure"></i></div>
-                        <div class="svc-title">공항·기차역 샌딩</div>
-                        <p class="svc-desc">김해공항 5만 · 부산역 4만원<br>실시간 항공편 모니터링</p>
-                        <span class="svc-arrow">EXPLORE <i class="fas fa-arrow-right"></i></span>
+                        <div class="svc-text-col">
+                            <div class="svc-title">공항·기차역 샌딩</div>
+                            <p class="svc-desc">김해공항 5만 · 부산역 4만원<br>실시간 항공편 모니터링</p>
+                            <span class="svc-arrow">EXPLORE <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                 </div>
             </div>
