@@ -88,6 +88,11 @@
       margin: 0 !important; padding: 0 !important;
     }
 
+    .bmt-nav-right-links {
+      display: flex; align-items: center; gap: 2px;
+      margin: 0 !important; padding: 0 !important;
+    }
+
     .bmt-nav-link {
       font-family: 'Noto Sans KR', sans-serif !important;
       font-size: 13px !important;
@@ -150,7 +155,7 @@
         padding: 0 24px;
       }
       .bmt-nav-center { display: none !important; }
-      .bmt-nav-right  { display: none !important; }
+      .bmt-nav-right-links  { display: none !important; }
       .bmt-hamburger  { display: flex !important; }
     }
   `;
@@ -166,12 +171,12 @@
   header.innerHTML = `
     <a href="index.html" class="bmt-logo">Busan <em>Members</em> Taxi</a>
     <nav class="bmt-nav-center">${makeLinks(centerLinks)}</nav>
-    <nav class="bmt-nav-right">
-      ${makeLinks(rightLinks)}
+    <div class="bmt-nav-right">
+      <nav class="bmt-nav-right-links">${makeLinks(rightLinks)}</nav>
       <button class="bmt-hamburger" id="bmt-ham" aria-label="메뉴 열기">
         <span></span><span></span><span></span>
       </button>
-    </nav>
+    </div>
   `;
   document.body.insertBefore(header, document.body.firstChild);
 
