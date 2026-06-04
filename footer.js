@@ -102,10 +102,10 @@
     const html = `
       <div class="bmt-footer-inner">
         <div class="bmt-f-brand">
-          <a href="index.html" class="bmt-f-logo">Busan <em>Members</em> Taxi</a>
+          <a href="index.html" class="bmt-f-logo">Busan <em>Firstcall</em> Taxi</a>
           <p class="bmt-f-tagline">
             설레는 여행의 시작, 쾌적하고 즐거운 이동<br>
-            부산 멤버스 택시가 완벽한 하루를 만들어 드립니다.
+            부산 퍼스트콜 택시가 완벽한 하루를 만들어 드립니다.
           </p>
           <a href="tel:010-4242-4767" class="bmt-f-phone">
             <i class="fas fa-phone-alt"></i> 010-4242-4767
@@ -146,7 +146,7 @@
               <span><strong>이메일</strong> mrkim_calltaxi@naver.com</span>
             </div>
           </div>
-          <p class="bmt-copyright">© ${new Date().getFullYear()} 부산 멤버스 택시. All rights reserved.</p>
+          <p class="bmt-copyright">© ${new Date().getFullYear()} 부산 퍼스트콜 택시. All rights reserved.</p>
         </div>
       </div>
     `;
