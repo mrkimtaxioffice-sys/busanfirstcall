@@ -46,14 +46,14 @@
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
       padding: 0 40px;
-      background: rgba(3,4,94,0.72);
+      background: rgba(14,14,14,0.72);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255,255,255,0.10);
       transition: background .35s, box-shadow .35s;
       box-sizing: border-box;
     }
     #bmt-header.scrolled {
-      background: rgba(3,4,94,0.96);
+      background: rgba(14,14,14,0.96);
       box-shadow: 0 4px 28px rgba(0,0,0,0.25);
     }
 
@@ -70,7 +70,7 @@
       display: inline-block !important;
     }
     .bmt-logo em {
-      color: #90E0EF !important;
+      color: #E8D49A !important;
       font-style: normal !important;
       font-size: 18px !important;
       font-family: 'Cormorant Garamond', Georgia, serif !important;
@@ -108,7 +108,7 @@
       display: inline-block !important;
     }
     .bmt-nav-link:hover    { color: #fff !important; background: rgba(255,255,255,0.10) !important; }
-    .bmt-nav-link.bmt-active { color: #90E0EF !important; background: rgba(0,150,199,0.18) !important; }
+    .bmt-nav-link.bmt-active { color: #E8D49A !important; background: rgba(201,166,70,0.18) !important; }
 
     /* ── 햄버거 ── */
     .bmt-hamburger {
@@ -130,7 +130,7 @@
       font-size: 16px !important;
       display: none; position: fixed;
       top: var(--bmt-h); left: 0; right: 0;
-      background: rgba(3,4,94,0.97); backdrop-filter: blur(20px);
+      background: rgba(14,14,14,0.97); backdrop-filter: blur(20px);
       padding: 20px 24px 28px; z-index: 999;
       border-bottom: 1px solid rgba(255,255,255,0.10);
       flex-direction: column; gap: 4px;
@@ -169,11 +169,11 @@
   const header = document.createElement('header');
   header.id = 'bmt-header';
   header.innerHTML = `
-    <a href="index.html" class="bmt-logo">Busan <em>Firstcall</em> Taxi</a>
+    <a href="index.html" class="bmt-logo" aria-label="부산 장거리 전문 퍼스트 콜택시 홈">Busan <em>Firstcall</em> Taxi</a>
     <nav class="bmt-nav-center">${makeLinks(centerLinks)}</nav>
     <div class="bmt-nav-right">
       <nav class="bmt-nav-right-links">${makeLinks(rightLinks)}</nav>
-      <button class="bmt-hamburger" id="bmt-ham" aria-label="메뉴 열기">
+      <button class="bmt-hamburger" id="bmt-ham" aria-label="메뉴 열기" aria-expanded="false" aria-controls="bmt-mobile-nav">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -188,8 +188,9 @@
 
   /* ── 햄버거 토글 ── */
   document.getElementById('bmt-ham').addEventListener('click', function () {
-    this.classList.toggle('open');
-    mobileNav.classList.toggle('open');
+    const isOpen = mobileNav.classList.toggle('open');
+    this.classList.toggle('open', isOpen);
+    this.setAttribute('aria-expanded', String(isOpen));
   });
 
   /* ── 모바일 메뉴 열렸을 때 바깥 클릭으로 닫기 ── */
@@ -201,6 +202,7 @@
     ) {
       mobileNav.classList.remove('open');
       document.getElementById('bmt-ham').classList.remove('open');
+      document.getElementById('bmt-ham').setAttribute('aria-expanded', 'false');
     }
   });
 
