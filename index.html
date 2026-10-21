@@ -1,677 +1,526 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="theme-color" content="#0E0E0E">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://busanfirstcall.com/index.html">
-    <meta property="og:title" content="부산 장거리 전문 퍼스트 콜택시 | 장거리·공항·관광 콜택시">
-    <meta property="og:description" content="부산 장거리 전문 퍼스트 콜택시 - 부산 출발 전국 장거리 콜택시, 김해공항·부산역 픽업/샌딩, 부산 관광 투어. 요금은 전화 상담으로 상세히 안내해 드립니다.">
-    <meta property="og:image" content="https://busanfirstcall.com/og-image.jpg">
-    <meta property="og:site_name" content="부산 장거리 전문 퍼스트 콜택시">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="부산 장거리 전문 퍼스트 콜택시 | 장거리·공항·관광 콜택시">
-    <meta name="twitter:description" content="부산 장거리 전문 퍼스트 콜택시 - 부산 출발 전국 장거리 콜택시, 김해공항·부산역 픽업/샌딩, 부산 관광 투어. 요금은 전화 상담으로 상세히 안내해 드립니다.">
-    <meta name="description" content="부산 장거리 전문 퍼스트 콜택시 - 부산 출발 전국 장거리 콜택시, 김해공항·부산역 픽업/샌딩, 부산 관광 투어. 요금은 전화 상담으로 상세히 안내해 드립니다.">
-    <title>부산 장거리 전문 퍼스트 콜택시 | 장거리·공항·관광 콜택시</title>
-    <link rel="canonical" href="https://busanfirstcall.com/">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body, html {
-            background: #F4F4F6; color: #ffffff;
-            overflow-x: hidden;
-        }
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>김군 개인택시 상담소 | 부산 개인택시 양도·양수 상담</title>
+  <meta name="description" content="부산 개인택시 번호판 양도·양수 상담소. 상담 예약, 양수교육 안내, 인가 서류와 조합 가입까지 순서대로 챙겨 드립니다. 기본 상담 무료." />
+  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:site_name" content="김군 개인택시 상담소" />
+  <meta property="og:title" content="김군 개인택시 상담소 | 부산 개인택시 양도·양수 상담" />
+  <meta property="og:description" content="상담 예약부터 양수교육 안내까지 — 부산 개인택시 양도·양수 무료 상담" />
+  <meta property="og:image" content="og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- ⚠ 카카오톡은 절대주소가 필요합니다: content="https://내도메인/og-image.jpg" 로 바꿔주세요 -->
 
-        /* ── 히어로 래퍼 ── */
-        .hero-section {
-            position: relative; height: 100vh; overflow: hidden;
-        }
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
 
-        /* ── 배경 및 메인 ── */
-        .bg-ocean { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
-        .bg-ocean img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; transform: scale(1.05); animation: slowDrift 30s ease-in-out infinite alternate; filter: brightness(0.78) saturate(0.95); }
-        @keyframes slowDrift { from { transform: scale(1.05) translate(0, 0); } to { transform: scale(1.1) translate(-1%, 1%); } }
-        .bg-overlay-top { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(14,14,14,0.50) 0%, rgba(28,28,28,0.10) 35%, rgba(201,166,70,0.05) 55%, rgba(14,14,14,0.45) 100%); }
-
-        .hero { position: relative; z-index: 10; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 80px 40px 140px; }
-        .hero-eyebrow { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 5px; color: rgba(255,255,255,0.88); opacity: 0; transform: translateY(12px); animation: fadeUp 0.9s ease 0.3s forwards; margin-bottom: 22px; display: flex; align-items: center; gap: 14px; }
-        .hero-eyebrow::before, .hero-eyebrow::after { content: ''; width: 40px; height: 1px; background: rgba(232,212,154,0.6); }
-        .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(38px, 5.5vw, 76px); font-weight: 300; line-height: 1.15; letter-spacing: -1px; color: #fff; text-align: center; opacity: 0; animation: fadeUp 1s ease 0.55s forwards; margin-bottom: 30px; }
-        .hero-title em { font-style: italic; font-weight: 600; color: #E8D49A; }
-        .hero-title .title-line { display: block; }
-        .hero-title, .hero-sub { word-break: keep-all; }
-        .hero-sub { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.72); letter-spacing: 0.3px; line-height: 1.8; text-align: center; opacity: 0; animation: fadeUp 1s ease 0.75s forwards; margin-bottom: 64px; }
-
-        /* ── 서비스 카드 (글래스모피즘 반영) ── */
-        .services { display: flex; gap: 16px; opacity: 0; animation: fadeUp 1s ease 1s forwards; }
-        .svc-card {
-            position: relative; width: 220px; height: 300px; border-radius: 20px; overflow: hidden; cursor: pointer;
-            transition: width 0.55s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s ease, transform 0.4s ease, border-color 0.4s;
-            border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.05); backdrop-filter: blur(8px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1); flex-shrink: 0;
-        }
-        .svc-card:hover { width: 360px; border-color: #E8D49A; box-shadow: 0 20px 50px rgba(201,166,70,0.2), 0 10px 20px rgba(0,0,0,0.1); transform: translateY(-6px); }
-        .svc-card .svc-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.6s ease; filter: brightness(0.62) saturate(1.15); }
-        .svc-card:hover .svc-bg { transform: scale(1.06); filter: brightness(0.67) saturate(1.35); }
-        .svc-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,8,8,0.88) 0%, rgba(24,24,24,0.22) 50%, transparent 100%); z-index: 1; }
-        .svc-body { position: absolute; inset: 0; z-index: 2; padding: 24px 22px; display: flex; flex-direction: column; justify-content: flex-end; }
-        .svc-num { position: absolute; top: 20px; left: 22px; font-family: 'Cormorant Garamond', serif; font-size: 13px; font-weight: 600; color: rgba(232,212,154,0.85); letter-spacing: 2px; }
-        .svc-icon { width: 52px; height: 52px; border-radius: 14px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center; font-size: 22px; color: #fff; margin-bottom: 16px; backdrop-filter: blur(6px); transition: background 0.3s, border-color 0.3s; }
-        .svc-card:hover .svc-icon { background: rgba(201,166,70,0.28); border-color: #E8D49A; color: #E8D49A; }
-        .svc-title { font-family: 'Noto Sans KR', sans-serif; font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 10px; line-height: 1.3; white-space: nowrap; }
-        .svc-desc { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.75); line-height: 1.75; max-height: 0; overflow: hidden; transition: max-height 0.55s ease, opacity 0.45s ease; opacity: 0; }
-        .svc-card:hover .svc-desc { max-height: 120px; opacity: 1; }
-        .svc-arrow { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 13px; font-weight: 700; color: #E8D49A; letter-spacing: 1.5px; opacity: 0; transform: translateX(-8px); transition: opacity 0.35s ease 0.1s, transform 0.35s ease 0.1s; }
-        .svc-card:hover .svc-arrow, .svc-card.card-active .svc-arrow { opacity: 1; transform: translateX(0); }
-        .svc-card:hover .svc-arrow i, .svc-card.card-active .svc-arrow i { animation: slideArrow 1.5s infinite ease-in-out; }
-        @keyframes slideArrow { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(4px); } }
-
-        /* ── 하단 바 & 스크롤 힌트 ── */
-        .bottom-bar { position: absolute; bottom: 0; left: 0; right: 0; z-index: 20; padding: 18px 50px; display: flex; align-items: center; justify-content: space-between; background: rgba(14,14,14, 0.50); backdrop-filter: blur(15px); border-top: 1px solid rgba(255,255,255,0.15); opacity: 0; animation: fadeIn 1.2s ease 1.4s forwards; }
-        .bottom-stat { display: flex; align-items: baseline; gap: 6px; }
-        .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: #E8D49A; line-height: 1; }
-        .stat-label { font-size: 11px; font-weight: 300; color: rgba(255,255,255,0.52); letter-spacing: 1px; }
-        .bottom-divider { width: 1px; height: 28px; background: rgba(255,255,255,0.15); }
-        .bottom-cta { display: flex; align-items: center; gap: 12px; }
-        .cta-label { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.52); letter-spacing: 1.5px; }
-        .cta-phone { display: inline-flex; align-items: center; gap: 9px; padding: 10px 24px; background: #C9A646; color:#111111; border-radius: 40px; font-size: 14px; font-weight: 700; letter-spacing: 0.5px; transition: background 0.3s, transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 20px rgba(201,166,70,0.40); }
-        .cta-phone:hover { background: #B08D35; transform: scale(1.04); box-shadow: 0 6px 28px rgba(201,166,70,0.55); }
-
-        .scroll-hint { position: absolute; right: 40px; top: 50%; transform: translateY(-50%); z-index: 20; display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0; animation: fadeIn 1.2s ease 1.6s forwards; }
-        .scroll-hint span { font-size: 9px; letter-spacing: 3px; font-weight: 500; color: rgba(255,255,255,0.38); writing-mode: vertical-rl; }
-        .scroll-line { width: 1px; height: 50px; background: linear-gradient(to bottom, rgba(232,212,154,0.55), transparent); animation: scrollPulse 2s ease-in-out infinite; }
-        @keyframes scrollPulse { 0%, 100% { opacity: 0.4; transform: scaleY(1); } 50% { opacity: 0.9; transform: scaleY(0.6); } }
-
-        /* ── 호버 팝업 (기존 복구 완료) ── */
-        .bg-popup { position: fixed; inset: 0; z-index: 1050; opacity: 0; visibility: hidden; transition: opacity 0.5s ease, visibility 0.5s ease; background: rgba(8,8,8,0.92); pointer-events: none; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .bg-popup.active { pointer-events: all; opacity: 1; visibility: visible; }
-        body.hover-active .hero-eyebrow, body.hover-active .hero-title, body.hover-active .hero-sub, body.hover-active .bottom-bar, body.hover-active .scroll-hint { opacity: 0.05; pointer-events: none; transition: opacity 0.5s; }
-        body.hover-active #main-header { opacity: 0.15; transition: opacity 0.5s; }
-        body.tour-active .svc-card:not(#card-tour), body.taxi-active .svc-card:not(#card-taxi), body.airport-active .svc-card:not(#card-airport) { opacity: 0.1; filter: blur(4px); pointer-events: none; }
-        
-        .overlay-title { font-family: 'Cormorant Garamond', serif; color: #fff; font-size: 28px; font-weight: 300; letter-spacing: 6px; text-transform: uppercase; opacity: 0; transform: translateY(-16px); transition: all 0.9s ease; margin-bottom: 4px; }
-        .overlay-title em { font-style: italic; color: #E8D49A; }
-        .bg-tour.active .overlay-title, .bg-taxi.active .overlay-title, .bg-airport.active .overlay-title { transform: translateY(0); opacity: 1; }
-
-        /* 투어 팝업 애니메이션 & 카드 */
-        .marquee-wrapper { position: absolute; inset: 0; z-index: 1; opacity: 0.2; display: flex; align-items: center; overflow: hidden; }
-        .marquee-track { display: flex; gap: 24px; width: max-content; animation: scrollLeft 120s linear infinite; }
-        .bg-tour:not(.active) .marquee-track { animation-play-state: paused; }
-        .bg-tour.active .marquee-track { animation-play-state: running; }
-        .marquee-item { width: 380px; height: 520px; border-radius: 16px; overflow: hidden; flex-shrink: 0; }
-        .marquee-item img { width: 100%; height: 100%; object-fit: cover; }
-        @keyframes scrollLeft { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-        /* ── 투어 팝업 오버레이 ── */
-        .tour-overlay-content {
-            position: absolute; top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10; display: flex; flex-direction: column;
-            align-items: center; width: 100%; padding: 0 20px;
-        }
-
-        /* 탭 버튼 */
-        .ctab-wrap { display: flex; gap: 8px; margin-bottom: 22px; }
-        .ctab {
-            padding: 9px 26px; border-radius: 40px; font-size: 12px;
-            font-weight: 700; letter-spacing: 1.5px; cursor: pointer;
-            border: 1.5px solid rgba(255,255,255,0.28);
-            background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.6);
-            backdrop-filter: blur(8px); transition: all 0.3s;
-            font-family: 'Noto Sans KR', sans-serif;
-        }
-        .ctab.active { background: #C9A646; border-color: #E8D49A; color:#111111; box-shadow: 0 4px 18px rgba(201,166,70,0.5); }
-        .ctab:hover:not(.active) { background: rgba(255,255,255,0.14); color: #fff; }
-
-        /* 코스 패널 */
-        .cpanel { display: none; width: 100%; max-width: 1020px; }
-        .cpanel.active { display: block; }
-
-        /* 명소 카드 가로 그리드 */
-        .spot-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 10px;
-            width: 100%;
-        }
-
-
-        .scard {
-            background: rgba(20,20,20, 0.55);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(220,220,226,0.15);
-            border-radius: 16px;
-            padding: 18px 10px 14px;
-            text-align: center;
-            opacity: 0; transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease,
-                        border-color 0.3s, background 0.3s, box-shadow 0.3s;
-            cursor: default;
-        }
-        .bg-tour.active .cpanel.active .scard { opacity: 1; transform: translateY(0); }
-        .scard:hover {
-            background: rgba(201,166,70,0.35);
-            border-color: rgba(201,166,70,0.55);
-            box-shadow: 0 8px 28px rgba(201,166,70,0.25);
-            transform: translateY(-4px) !important;
-        }
-        .scard-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 10px; font-weight: 600;
-            color: #D9B95E; letter-spacing: 2px;
-            margin-bottom: 8px;
-        }
-        .scard-icon { font-size: 26px; line-height: 1; margin-bottom: 8px; }
-        .scard-name {
-            font-size: 12px; font-weight: 700; color: #fff;
-            line-height: 1.4; word-break: keep-all;
-        }
-        /* 카드마다 지연 */
-        .scard:nth-child(1)  { transition-delay: 0.10s; }
-        .scard:nth-child(2)  { transition-delay: 0.17s; }
-        .scard:nth-child(3)  { transition-delay: 0.24s; }
-        .scard:nth-child(4)  { transition-delay: 0.31s; }
-        .scard:nth-child(5)  { transition-delay: 0.38s; }
-        .scard:nth-child(6)  { transition-delay: 0.45s; }
-        .scard:nth-child(7)  { transition-delay: 0.52s; }
-        .scard:nth-child(8)  { transition-delay: 0.59s; }
-        .scard:nth-child(9)  { transition-delay: 0.66s; }
-        .scard:nth-child(10) { transition-delay: 0.73s; }
-
-        /* B코스 임시 배지 */
-        .temp-badge {
-            display: inline-flex; align-items: center; gap: 6px;
-            background: rgba(255,180,0,0.12); border: 1px solid rgba(255,180,0,0.35);
-            color: #FFD060; font-size: 10px; font-weight: 700;
-            padding: 4px 14px; border-radius: 20px; letter-spacing: 1px;
-            margin-bottom: 14px;
-        }
-
-        /* 하단 정보 바 */
-        .cinfo-bar {
-            display: flex; align-items: center; justify-content: center;
-            gap: 22px; margin-top: 16px;
-            background: rgba(0,0,0,0.5); backdrop-filter: blur(12px);
-            border: 1px solid rgba(220,220,226,0.1);
-            border-radius: 40px; padding: 10px 28px;
-        }
-        .cib { display: flex; align-items: center; gap: 7px; font-size: 12px; color: rgba(255,255,255,0.7); white-space: nowrap; }
-        .cib i { color: #D9B95E; font-size: 12px; }
-        .cib strong { color: #fff; }
-        .cib-sep { width: 1px; height: 14px; background: rgba(255,255,255,0.15); }
-
-        /* 택시 팝업 애니메이션 & 카드 */
-        .taxi-img-box { position: absolute; inset: 0; z-index: 0; }
-        .taxi-img-box img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.45); transition: transform 20s cubic-bezier(0.25,0.1,0.25,1); }
-        .bg-taxi.active .taxi-img-box img { transform: scale(1.3); }
-        .taxi-overlay-content { position: absolute; top: 10vh; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; flex-direction: column; align-items: center; width: 100%; }
-        .taxi-info-container { width: 820px; max-width: 92vw; margin-top: 22px; display: flex; flex-direction: column; gap: 18px; }
-        .glass-box { background: rgba(18,18,18,0.65); backdrop-filter: blur(14px); border: 1px solid rgba(220,220,226,0.14); border-radius: 18px; padding: 32px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.4); opacity: 0; transform: translateY(24px); transition: all 0.8s ease; }
-        .bg-taxi.active .glass-box { opacity: 1; transform: translateY(0); }
-        .bg-taxi.active .coverage-box { transition-delay: 0.1s; }
-        .bg-taxi.active .feature-box:nth-child(1) { transition-delay: 0.3s; }
-        .bg-taxi.active .feature-box:nth-child(2) { transition-delay: 0.4s; }
-        .coverage-header h3 { color: #fff; font-size: 24px; margin: 0 0 4px; font-weight: 700; }
-        .coverage-header .sub-text { color: rgba(255,255,255,0.5); font-size: 13px; }
-        .route-visual { display: flex; align-items: center; justify-content: space-between; margin: 28px 0; padding: 0 10px; }
-        .route-visual span { color: #fff; font-weight: 700; font-size: 17px; background: rgba(201,166,70,0.2); padding: 9px 22px; border-radius: 30px; border: 1px solid rgba(201,166,70,0.4); letter-spacing: 1px; }
-        .route-line { flex-grow: 1; height: 2px; background: repeating-linear-gradient(90deg,rgba(255,255,255,0.25) 0,rgba(255,255,255,0.25) 8px,transparent 8px,transparent 18px); margin: 0 18px; position: relative; }
-        .moving-car { position: absolute; top: -13px; left: 0; color: #D9B95E; font-size: 24px; animation: drive 3.5s ease-in-out infinite; }
-        @keyframes drive { 0%{left:0;opacity:0} 10%{opacity:1} 85%{opacity:1} 100%{left:95%;opacity:0} }
-        .region-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
-        .region-tags span { color: rgba(255,255,255,0.85); font-size: 13px; background: rgba(255,255,255,0.08); padding: 7px 16px; border-radius: 20px; transition: all 0.3s; }
-        .region-tags span:hover { background: #C9A646; color:#111111; }
-        .taxi-features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-        .feature-box { padding: 26px 20px; }
-        .feature-box i { font-size: 36px; color: #D9B95E; margin-bottom: 16px; }
-        .feature-box h4 { color: #fff; font-size: 20px; margin: 0 0 10px; font-weight: 700; }
-        .feature-box p { color: rgba(255,255,255,0.65); font-size: 14px; line-height: 1.6; margin: 0; }
-
-        /* 공항 팝업 애니메이션 & 카드 */
-        .airport-img-box { position: absolute; inset: 0; z-index: 0; }
-        .airport-img-box img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.45); transition: transform 15s ease-out; }
-        .bg-airport.active .airport-img-box img { transform: translate(-5%,5%) scale(1.15); }
-        .airport-overlay-content { position: absolute; top: 12vh; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; flex-direction: column; align-items: center; width: 100%; }
-        .timeline-container { display: flex; justify-content: center; align-items: center; gap: 16px; width: 1060px; max-width: 95vw; margin-top: 28px; }
-        .timeline-step { background: rgba(18,18,18,0.70); backdrop-filter: blur(14px); border: 1px solid rgba(220,220,226,0.14); border-radius: 18px; padding: 36px 18px; width: 230px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.35); opacity: 0; transform: translateY(24px); transition: all 0.8s ease; position: relative; overflow: hidden; }
-        .bg-airport.active .timeline-step:nth-child(1) { opacity:1; transform:translateY(0); transition-delay:0.2s; }
-        .bg-airport.active .timeline-step:nth-child(3) { opacity:1; transform:translateY(0); transition-delay:0.4s; }
-        .bg-airport.active .timeline-step:nth-child(5) { opacity:1; transform:translateY(0); transition-delay:0.6s; }
-        .bg-airport.active .timeline-step:nth-child(7) { opacity:1; transform:translateY(0); transition-delay:0.8s; }
-        .timeline-arrow { color: rgba(255,255,255,0.25); font-size: 18px; opacity: 0; transition: all 0.8s ease; }
-        .bg-airport.active .timeline-arrow:nth-child(2) { opacity:1; transition-delay:0.3s; }
-        .bg-airport.active .timeline-arrow:nth-child(4) { opacity:1; transition-delay:0.5s; }
-        .bg-airport.active .timeline-arrow:nth-child(6) { opacity:1; transition-delay:0.7s; }
-        .step-icon { width: 64px; height: 64px; background: rgba(201,166,70,0.10); border: 1px solid #C9A646; color: rgba(255,255,255,0.85); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; margin: 0 auto 18px; transition: all 0.4s; }
-        .timeline-step:hover .step-icon { background: #C9A646; color:#111111; }
-        .step-num { position: absolute; top: 8px; left: 14px; color: rgba(255,255,255,0.04); font-size: 52px; font-weight: 900; font-family: 'Cormorant Garamond', serif; line-height: 1; }
-        .timeline-step h4 { color: #fff; font-size: 17px; margin: 0 0 10px; font-weight: 700; }
-        .timeline-step p { color: rgba(255,255,255,0.65); font-size: 13px; line-height: 1.6; margin: 0; }
-        .guarantees-container { display: flex; justify-content: center; gap: 18px; width: 1060px; max-width: 95vw; margin-top: 30px; }
-        .guarantee-box { background: rgba(255,255,255,0.04); backdrop-filter: blur(8px); border: 1px solid rgba(220,220,226,0.10); border-radius: 14px; padding: 22px; display: flex; align-items: center; gap: 18px; flex: 1; opacity: 0; transform: translateY(16px); transition: all 0.8s ease; }
-        .bg-airport.active .guarantee-box:nth-child(1) { transition-delay:1.0s; opacity:1; transform:translateY(0); }
-        .bg-airport.active .guarantee-box:nth-child(2) { transition-delay:1.2s; opacity:1; transform:translateY(0); }
-        .bg-airport.active .guarantee-box:nth-child(3) { transition-delay:1.4s; opacity:1; transform:translateY(0); }
-        .guarantee-icon { font-size: 28px; color: #D9B95E; }
-        .guarantee-text h5 { color: #fff; font-size: 15px; margin: 0 0 5px; font-weight: 700; }
-        .guarantee-text p { color: rgba(255,255,255,0.6); font-size: 12px; line-height: 1.5; margin: 0; }
-
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        #page-transition-overlay { position: fixed; inset: 0; background: #F4F4F6; z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
-
-        /* ── 모바일 반응형 ── */
-        @media (max-width: 768px) {
-            .hero { padding: 80px 20px 160px; justify-content: flex-end; }
-            .hero-title { font-size: clamp(28px, 7vw, 48px); margin-bottom: 16px; }
-            .hero-sub { font-size: 13px; margin-bottom: 28px; }
-            .services { flex-direction: column; align-items: stretch; gap: 10px; width: 100%; max-width: 400px; margin: 0 auto; }
-            .svc-card { width: 100% !important; max-width: 100%; height: 110px; border-radius: 16px; }
-            .svc-card:hover { width: 100% !important; transform: none; }
-            /* 모바일: 항상 설명 표시 */
-            .svc-desc { max-height: 60px !important; opacity: 1 !important; font-size: 12px !important; }
-            .svc-arrow { opacity: 1 !important; transform: translateX(0) !important; }
-            .svc-body { padding: 14px 16px; flex-direction: row; align-items: center; gap: 12px; justify-content: flex-start; }
-            .svc-icon { width: 40px; height: 40px; font-size: 16px; margin-bottom: 0; flex-shrink: 0; border-radius: 10px; }
-            .svc-num { position: static; font-size: 10px; display: none; }
-            .svc-title { font-size: 15px; margin-bottom: 4px; }
-            .svc-text-col { display: flex; flex-direction: column; }
-            /* bottom bar */
-            .bottom-bar { padding: 10px 16px; flex-wrap: wrap; gap: 8px; justify-content: space-between; }
-            .bottom-stat .stat-num { font-size: 18px; }
-            .bottom-stat .stat-label { font-size: 10px; }
-            .bottom-divider { height: 20px; }
-            .cta-phone { padding: 8px 18px; font-size: 13px; }
-            .scroll-hint { display: none; }
-            /* 팝업 모바일 */
-            .tour-overlay-content { padding: 0 12px; top: 56px; transform: translateX(-50%); }
-            .overlay-title { font-size: 18px; letter-spacing: 2px; }
-            .spot-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 6px; }
-            .scard { padding: 10px 6px 8px; border-radius: 10px; }
-            .scard-icon { font-size: 18px; }
-            .scard-name { font-size: 10px; }
-            .cpanel { max-width: 100%; }
-            .cinfo-bar { flex-wrap: wrap; gap: 8px; padding: 8px 14px; font-size: 11px; }
-            .cib-sep { display: none; }
-            .taxi-info-container { width: 100%; padding: 0 12px; margin-top: 12px; }
-            .taxi-features { grid-template-columns: 1fr !important; gap: 10px; }
-            .glass-box { padding: 20px 16px; }
-            .coverage-header h3 { font-size: 18px; }
-            .route-visual { margin: 16px 0; }
-            .route-visual span { font-size: 14px; padding: 7px 14px; }
-            .feature-box h4 { font-size: 16px; }
-            .timeline-container { flex-direction: column; align-items: center; width: 100%; padding: 0 12px; gap: 8px; }
-            .timeline-step { width: 100%; max-width: 340px; padding: 20px 16px; }
-            .timeline-arrow { transform: rotate(90deg); }
-            .guarantees-container { flex-direction: column; width: 100%; padding: 0 12px; gap: 10px; }
-            .guarantee-box { padding: 14px; }
-            .popup-close { top: 14px; right: 14px; width: 38px; height: 38px; font-size: 15px; }
-            .popup-cta-btn { margin-top: 14px; padding: 12px 24px; font-size: 13px; }
-            .taxi-overlay-content { top: 56px; }
-            .airport-overlay-content { top: 56px; }
-            .ctab { padding: 7px 18px; font-size: 11px; }
-            .ctab-wrap { gap: 6px; margin-bottom: 14px; }
-        }
-        /* 모바일: 팝업 내용이 화면보다 길 때 스크롤 가능 */
-        @media (max-width: 768px) {
-            .bg-popup { overflow-y: auto; -webkit-overflow-scrolling: touch; justify-content: flex-start; }
-            .tour-overlay-content, .taxi-overlay-content, .airport-overlay-content {
-                position: relative !important; top: auto !important; left: auto !important;
-                transform: none !important; padding: 72px 12px 40px !important; }
-        }
-        .svc-card:focus-visible { outline: 2px solid #E8D49A; outline-offset: 3px; }
-        @media (max-width: 480px) {
-            .bottom-bar > div:first-child { gap: 12px !important; width: 100%; justify-content: space-between; }
-            .bottom-stat { flex-direction: column; align-items: flex-start; gap: 2px; }
-            .bottom-stat .stat-num { font-size: 16px; white-space: nowrap; }
-            .bottom-stat .stat-label { font-size: 9.5px; white-space: nowrap; }
-            .bottom-cta { width: 100%; justify-content: space-between; }
-            .spot-grid { grid-template-columns: repeat(2, 1fr) !important; }
-            .hero-eyebrow { font-size: 9px; letter-spacing: 3px; }
-            .services { max-width: 100%; }
-        }
-
-        /* ── 팝업 닫기 버튼 ── */
-        .popup-close {
-            position: fixed; top: 24px; right: 32px; z-index: 1100;
-            width: 44px; height: 44px; border-radius: 50%;
-            background: rgba(255,255,255,0.1); border: 1.5px solid rgba(255,255,255,0.25);
-            color: rgba(255,255,255,0.8); font-size: 18px;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; backdrop-filter: blur(8px);
-            transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
-        }
-        .popup-close:hover { background: rgba(255,60,60,0.45); border-color: rgba(255,100,100,0.6); color: #fff; transform: scale(1.1); }
-
-        /* 활성 카드 테두리 강조 */
-        .svc-card.card-active { border-color: #C9A646 !important; box-shadow: 0 20px 50px rgba(201,166,70,0.25), 0 10px 20px rgba(0,0,0,0.1) !important; }
-
-        /* ── 팝업 하단 CTA 버튼 ── */
-        .popup-cta-btn {
-            display: inline-flex; align-items: center; gap: 10px;
-            margin-top: 24px; padding: 14px 36px;
-            background: #C9A646; color:#111111;
-            border-radius: 40px; font-size: 15px; font-weight: 700;
-            letter-spacing: 0.3px; text-decoration: none;
-            box-shadow: 0 6px 24px rgba(201,166,70,0.45);
-            transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
-            position: relative; z-index: 20;
-        }
-        .popup-cta-btn:hover { background: #B08D35; transform: scale(1.04); box-shadow: 0 8px 32px rgba(201,166,70,0.6); }
-    </style>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "TaxiService",
-      "name": "부산 장거리 전문 퍼스트 콜택시",
-      "url": "https://busanfirstcall.com/",
-      "telephone": "+82-10-4242-4767",
-      "areaServed": ["부산광역시", "대한민국"],
-      "provider": {
-        "@type": "LocalBusiness",
-        "name": "부산 장거리 전문 퍼스트 콜택시",
-        "telephone": "+82-10-4242-4767",
-        "email": "mrkim_calltaxi@naver.com",
-        "address": { "@type": "PostalAddress", "addressRegion": "부산광역시", "addressLocality": "사하구", "addressCountry": "KR" }
-      }
-    }
-    </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;800&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- 글자 크기 설정을 화면이 그려지기 전에 적용 (깜빡임 방지) -->
+  <script>try{var f=localStorage.getItem("kg_fs");if(f)document.documentElement.style.setProperty("--fs",f);}catch(e){}</script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
-<body class="is-fullscreen">
-    <script src="header.js"></script>
+<body id="top" class="page-home">
 
-    <div class="hero-section">
-        <div class="bg-ocean">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=90&w=2160" alt="부산 바다">
-        </div>
-        <div class="bg-overlay-top"></div>
+  <div id="header"></div>
 
-        <div class="hero">
-            <p class="hero-eyebrow">부산 출발 프리미엄 장거리 이동</p>
-            <h1 class="hero-title">
-                <span class="title-line">설레는 여행의 시작</span>
-                <span class="title-line"><em>부산 장거리 전문 퍼스트 콜택시</em></span>
-            </h1>
-            <p class="hero-sub">
-                부산에서 전국 어디든, 쾌적하고 편안한 이동<br>
-                공항·기차역 샌딩부터 부산 관광 투어까지 함께합니다
-            </p>
-            <div class="services">
-                <div class="svc-card" id="card-tour" role="button" tabindex="0">
-                    <div class="svc-bg" style="background-image:url('해동 용궁사.png')"></div>
-                    <div class="svc-body">
-                        <span class="svc-num">01</span>
-                        <div class="svc-icon"><i class="fas fa-map-marked-alt"></i></div>
-                        <div class="svc-text-col">
-                            <div class="svc-title">부산 관광 투어</div>
-                            <p class="svc-desc">부산 주요 명소 맞춤 투어<br>요금은 전화 상담 시 안내</p>
-                            <span class="svc-arrow">EXPLORE <i class="fas fa-arrow-right"></i></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="svc-card" id="card-taxi" role="button" tabindex="0">
-                    <div class="svc-bg" style="background-image:url('예약.png')"></div>
-                    <div class="svc-body">
-                        <span class="svc-num">02</span>
-                        <div class="svc-icon"><i class="fas fa-road"></i></div>
-                        <div class="svc-text-col">
-                            <div class="svc-title">장거리 콜택시</div>
-                            <p class="svc-desc">전국 어디든 쾌적한 이동<br>최신형 차량 · 전화 상담 요금 안내</p>
-                            <span class="svc-arrow">EXPLORE <i class="fas fa-arrow-right"></i></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="svc-card" id="card-airport" role="button" tabindex="0">
-                    <div class="svc-bg" style="background-image:url('샌딩.png')"></div>
-                    <div class="svc-body">
-                        <span class="svc-num">03</span>
-                        <div class="svc-icon"><i class="fas fa-plane-departure"></i></div>
-                        <div class="svc-text-col">
-                            <div class="svc-title">공항·기차역 샌딩</div>
-                            <p class="svc-desc">김해공항 · 부산역 픽업/샌딩<br>항공편·열차 일정 맞춤 배차</p>
-                            <span class="svc-arrow">EXPLORE <i class="fas fa-arrow-right"></i></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <main>
+    <!-- ① 히어로 — 계절 안내·바로가기를 한곳에 모음 -->
+    <section class="home-hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <!-- 계절 안내 (계절이 바뀌면 이 한 줄만 교체) -->
+          <a href="education.html" class="season-pill">
+            <span class="season-leaf" aria-hidden="true"><i class="fa-solid fa-leaf"></i></span>
+            가을 상담 시즌 · 양수교육 신청 기간 확인하기
+          </a>
+          <h1>부산 개인택시 번호판,<br>사고팔 때는 김군과 상의하세요.</h1>
+          <p class="hero-lead">상담부터 인가 서류, 조합 가입, 운행 준비까지 순서대로 챙겨 드립니다. 시세는 매일 달라지니 연락 주시면 오늘 기준으로 안내해 드립니다.</p>
+          <div class="hero-actions">
+            <a href="#consult" class="btn-ink">상담 예약하기</a>
+            <a href="tel:01055559156" class="btn-line"><i class="fa-solid fa-phone" aria-hidden="true"></i> 010-5555-9156</a>
+          </div>
+          <div class="hero-links">
+            <a href="https://open.kakao.com/o/sWi4vySh" target="_blank" rel="noopener"><span class="hl-icon kakao"><i class="fa-solid fa-comment" aria-hidden="true"></i></span>카카오톡 상담</a>
+            <a href="education.html"><span class="hl-icon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span>양수교육 안내</a>
+            <a href="faq.html"><span class="hl-icon"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span>자주 묻는 질문</a>
+          </div>
+          <ul class="hero-facts">
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> 기본 상담 무료</li>
+            <li><i class="fa-regular fa-clock" aria-hidden="true"></i> 평일 09:00–18:00</li>
+            <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> 동래구 충렬사로 (명장역 인근)</li>
+          </ul>
         </div>
 
-        <div class="bottom-bar">
-            <div style="display:flex;align-items:center;gap:28px">
-                <div class="bottom-stat"><span class="stat-num">EV</span><span class="stat-label">전기차 운행</span></div>
-                <div class="bottom-divider"></div>
-                <div class="bottom-stat"><span class="stat-num">24H</span><span class="stat-label">사전 예약 운행</span></div>
-                <div class="bottom-divider"></div>
-                <div class="bottom-stat"><span class="stat-num">ON TIME</span><span class="stat-label">정시 픽업 원칙</span></div>
+        <div class="hero-visual">
+          <!-- 번호판(빈 판) 위에 글자는 HTML로 얹음 → 문구 수정이 쉽고 검색에도 읽힘 -->
+          <div class="hero-stage">
+            <div class="plate-wrap">
+              <img src="plate-blank.webp" class="plate-base" width="1200" height="432" alt="" />
+              <span class="plate-shine" aria-hidden="true"></span>
+              <p class="plate-text"><small>부산 양도양수 전문 매매상사</small><strong>김군 개인택시 상담소</strong></p>
             </div>
-            <div class="bottom-cta">
-                <span class="cta-label">CALL NOW</span>
-                <a href="tel:010-4242-4767" class="cta-phone"><i class="fas fa-phone-alt"></i> 010-4242-4767</a>
-            </div>
+            <button type="button" class="hero-taxi" aria-label="택시 (눌러 보세요)">
+              <img src="taxi-3d.webp" width="720" height="491" alt="" />
+            </button>
+            <span class="stage-shadow" aria-hidden="true"></span>
+          </div>
+          <p class="plate-caption">정직과 신뢰로 함께하는<br>개인택시 양도양수</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ② 진행 방식 — 벤토 그리드 (기존 '일하는 방식' + '4단계' + '가을 띠' 통합) -->
+    <section class="section how">
+      <div class="container">
+        <div class="how-head">
+          <h2 class="title">상담부터 운행까지,<br>보통 15~20일</h2>
+          <p class="lead">번호판 거래는 한 번 하면 몇 년을 좌우합니다. 서두르지 않고, 단계마다 확인하며 갑니다.</p>
         </div>
 
-    </div><!-- /.hero-section -->
+        <div class="bento">
+          <!-- 큰 카드: 4단계 도로 -->
+          <div class="bento-card bento-road">
+            <p class="bento-kicker">진행 순서</p>
+            <ol class="road-steps">
+              <li><span class="step-no">1</span><h3>상담</h3><p>자격·예산·시기 확인</p></li>
+              <li><span class="step-no">2</span><h3>매칭·계약</h3><p>조건에 맞는 상대 연결</p></li>
+              <li><span class="step-no">3</span><h3>인가·조합 가입</h3><p>필요 서류 준비 안내</p></li>
+              <li><span class="step-no">4</span><h3>운행 시작</h3><p>장비 설치 업체 연계</p></li>
+            </ol>
+          </div>
 
-    <div id="page-transition-overlay"></div>
-    <button id="global-popup-close" class="popup-close" style="display:none" aria-label="닫기"><i class="fas fa-times"></i></button>
-
-    <div class="bg-popup bg-tour" id="bg-tour">
-        <div class="marquee-wrapper"><div class="marquee-track">
-            <div class="marquee-item"><img src="해동 용궁사.png" alt="해동용궁사"></div>
-            <div class="marquee-item"><img src="감천문화마을.png" alt="감천문화마을"></div>
-            <div class="marquee-item"><img src="부산 광안리 야경.png" alt="광안대교"></div>
-            <div class="marquee-item"><img src="태종대.png" alt="태종대"></div>
-            <div class="marquee-item"><img src="해운대.png" alt="해운대"></div>
-            <div class="marquee-item"><img src="해동 용궁사.png" alt="해동용궁사"></div>
-            <div class="marquee-item"><img src="감천문화마을.png" alt="감천문화마을"></div>
-            <div class="marquee-item"><img src="부산 광안리 야경.png" alt="광안대교"></div>
-            <div class="marquee-item"><img src="태종대.png" alt="태종대"></div>
-            <div class="marquee-item"><img src="해운대.png" alt="해운대"></div>
-        </div></div>
-        <div class="tour-overlay-content">
-            <h2 class="overlay-title">RECOMMENDED <em>COURSES</em></h2>
-
-            <div class="ctab-wrap">
-                <button class="ctab active" data-cpanel="cpanel-a">A 코스</button>
-                <button class="ctab" data-cpanel="cpanel-b">B 코스</button>
+          <!-- 계절 카드: 영상 대신 CSS 낙엽 (계절이 바뀌면 문구와 --leaf 색만 교체) -->
+          <div class="bento-card bento-season">
+            <div class="leaf-fall" aria-hidden="true">
+              <span style="--x:8%;--d:0s;--t:9s;--s:16px"></span>
+              <span style="--x:22%;--d:3s;--t:11s;--s:12px"></span>
+              <span style="--x:38%;--d:1.5s;--t:8s;--s:18px"></span>
+              <span style="--x:55%;--d:5s;--t:10s;--s:13px"></span>
+              <span style="--x:70%;--d:2s;--t:12s;--s:17px"></span>
+              <span style="--x:84%;--d:6s;--t:9.5s;--s:14px"></span>
+              <span style="--x:94%;--d:4s;--t:11s;--s:11px"></span>
             </div>
-
-            <div class="cpanel active" id="cpanel-a">
-                <div class="spot-grid">
-                    <div class="scard"><div class="scard-num">01</div><div class="scard-icon">🌊</div><div class="scard-name">광안리<br>해수욕장</div></div>
-                    <div class="scard"><div class="scard-num">02</div><div class="scard-icon">🏛️</div><div class="scard-name">동백섬<br>누리마루</div></div>
-                    <div class="scard"><div class="scard-num">03</div><div class="scard-icon">🏖️</div><div class="scard-name">해운대<br>해수욕장</div></div>
-                    <div class="scard"><div class="scard-num">04</div><div class="scard-icon">🏙️</div><div class="scard-name">엘시티<br>스카이라운지</div></div>
-                    <div class="scard"><div class="scard-num">05</div><div class="scard-icon">🌿</div><div class="scard-name">달맞이길</div></div>
-                    <div class="scard"><div class="scard-num">06</div><div class="scard-icon">⛩️</div><div class="scard-name">해동<br>용궁사</div></div>
-                    <div class="scard"><div class="scard-num">07</div><div class="scard-icon">🚡</div><div class="scard-name">블루라인<br>파크</div></div>
-                    <div class="scard"><div class="scard-num">08</div><div class="scard-icon">🛍️</div><div class="scard-name">신세계<br>백화점</div></div>
-                    <div class="scard"><div class="scard-num">09</div><div class="scard-icon">🎬</div><div class="scard-name">영화의<br>전당</div></div>
-                    <div class="scard"><div class="scard-num">10</div><div class="scard-icon">🌃</div><div class="scard-name">마린시티</div></div>
-                </div>
+            <div class="season-copy">
+              <p class="bento-kicker"><i class="fa-solid fa-leaf" aria-hidden="true"></i> 가을 상담 시즌</p>
+              <h3>연말 전에 운행하려면<br>양수교육 신청 기간부터</h3>
+              <p>양수교육은 신청 기간 안에 신청한 뒤 추첨으로 정해집니다. 교육 회차와 매물 시기는 김군이 맞춰 드립니다.</p>
+              <a href="education.html" class="btn-yellow">양수교육 안내 보기</a>
             </div>
+          </div>
 
-            <div class="cpanel" id="cpanel-b">
-                <div class="spot-grid">
-                    <div class="scard"><div class="scard-num">01</div><div class="scard-icon">🎨</div><div class="scard-name">감천<br>문화마을</div></div>
-                    <div class="scard"><div class="scard-num">02</div><div class="scard-icon">🚠</div><div class="scard-name">송도<br>해상케이블카</div></div>
-                    <div class="scard"><div class="scard-num">03</div><div class="scard-icon">🌉</div><div class="scard-name">송도<br>용궁구름다리</div></div>
-                    <div class="scard"><div class="scard-num">04</div><div class="scard-icon">🗼</div><div class="scard-name">용두산<br>전망대</div></div>
-                    <div class="scard"><div class="scard-num">05</div><div class="scard-icon">🐟</div><div class="scard-name">자갈치<br>시장</div></div>
-                    <div class="scard"><div class="scard-num">06</div><div class="scard-icon">🏪</div><div class="scard-name">국제시장</div></div>
-                    <div class="scard"><div class="scard-num">07</div><div class="scard-icon">📚</div><div class="scard-name">보수동<br>책방골목</div></div>
-                    <div class="scard"><div class="scard-num">08</div><div class="scard-icon">🏘️</div><div class="scard-name">흰여울<br>문화마을</div></div>
-                    <div class="scard"><div class="scard-num">09</div><div class="scard-icon">🌊</div><div class="scard-name">오륙도</div></div>
-                </div>
-            </div>
-
-            <div class="cinfo-bar">
-                <div class="cib"><i class="fas fa-phone-alt"></i> 요금 <strong>전화 상담 시 상세 안내</strong></div>
-                <div class="cib-sep"></div>
-                <div class="cib"><i class="fas fa-clock"></i> 반나절 · 종일 선택</div>
-                <div class="cib-sep"></div>
-                <div class="cib"><i class="fas fa-car"></i> 전용 차량 &amp; 기사 포함</div>
-                <div class="cib-sep"></div>
-                <div class="cib"><i class="fas fa-sliders-h"></i> 명소 자유 조합 가능</div>
-            </div>
-            <a href="tour-reservation.html" class="popup-cta-btn" onclick="event.stopPropagation()"><i class="fas fa-map-marked-alt"></i> 관광 투어 예약하기 <i class="fas fa-arrow-right"></i></a>
+          <!-- 작은 카드 3개 (3D 이미지) -->
+          <div class="bento-card bento-mini">
+            <span class="bento-img"><img src="calendar-3d.webp" width="480" height="441" alt="" loading="lazy" /></span>
+            <div><h3>기사님별 진행표</h3><p>자격·예산·희망 시기에 맞춰 계약부터 운행까지 날짜별로 짭니다.</p></div>
+          </div>
+          <div class="bento-card bento-mini">
+            <span class="bento-img"><img src="document-3d.webp" width="480" height="632" alt="" loading="lazy" /></span>
+            <div><h3>서류·인가 꼼꼼히</h3><p>인가 서류부터 조합 가입까지, 단계가 넘어갈 때마다 먼저 연락드립니다.</p></div>
+          </div>
+          <div class="bento-card bento-mini">
+            <span class="bento-img"><img src="taxi-3d.webp" width="720" height="491" alt="" loading="lazy" /></span>
+            <div><h3>운행 시작까지 동행</h3><p>미터기·카드단말기·블랙박스 업체 연계까지 마지막 단계도 챙깁니다.</p></div>
+          </div>
         </div>
-    </div>
+      </div>
+    </section>
 
-    <div class="bg-popup bg-taxi" id="bg-taxi">
-        <div class="taxi-img-box"><img src="예약.png" alt="야간 주행"></div>
-        <div class="taxi-overlay-content">
-            <h2 class="overlay-title">LONG DISTANCE <em>SERVICE</em></h2>
-            <div class="taxi-info-container">
-                <div class="coverage-box glass-box">
-                    <div class="coverage-header"><h3>전국 어디든 운행 가능</h3><span class="sub-text">(단, 제주도 및 울릉도 제외)</span></div>
-                    <div class="route-visual">
-                        <span class="origin">부산</span>
-                        <div class="route-line"><i class="fas fa-car-side moving-car"></i></div>
-                        <span class="destination">목적지</span>
-                    </div>
-                    <div class="region-tags"><span>#서울</span><span>#경기</span><span>#인천</span><span>#강원</span><span>#충청</span><span>#전라</span><span>#경상</span></div>
-                </div>
-                <div class="taxi-features">
-                    <div class="feature-box glass-box"><i class="fas fa-bolt"></i><h4>전기차 & 프리미엄 차량</h4><p>정숙한 최신형 차량으로 소음과 진동을 최소화.<br>장거리 이동에도 피로감이 덜합니다.</p></div>
-                    <div class="feature-box glass-box"><i class="fas fa-user-tie"></i><h4>친절한 택시 기사</h4><p>철저한 서비스 마인드 교육 이수.<br>안전하고 정중하게 VIP로 모십니다.</p></div>
-                </div>
-            </div>
-            <a href="long-distance-reservation.html" class="popup-cta-btn" onclick="event.stopPropagation()"><i class="fas fa-road"></i> 장거리 예약하기 <i class="fas fa-arrow-right"></i></a>
+    <!-- ③ 후기 — ⚠ 실제 고객이 작성(또는 동의)한 내용만 게재. 근거 보관 -->
+    <section class="section reviews">
+      <div class="container">
+        <div class="reviews-head">
+          <h2 class="title">거래를 마친 기사님들의 이야기</h2>
+          <p class="swipe-hint" aria-hidden="true">옆으로 넘겨 보세요 <i class="fa-solid fa-arrow-right"></i></p>
         </div>
-    </div>
-
-    <div class="bg-popup bg-airport" id="bg-airport">
-        <div class="airport-img-box"><img src="샌딩.png" alt="공항 활주로"></div>
-        <div class="airport-overlay-content">
-            <h2 class="overlay-title">AIRPORT TRANSFER <em>PROCESS</em></h2>
-            <div class="timeline-container">
-                <div class="timeline-step"><span class="step-num">01</span><div class="step-icon"><i class="fas fa-clock"></i></div><h4>예약 & 스케줄 확인</h4><p>비행 시간에 맞춘<br>여유로운 픽업 시간 조율</p></div>
-                <i class="fas fa-chevron-right timeline-arrow"></i>
-                <div class="timeline-step"><span class="step-num">02</span><div class="step-icon"><i class="fas fa-suitcase-rolling"></i></div><h4>자택 앞 픽업</h4><p>도어 투 도어 서비스<br>수하물 적재 지원</p></div>
-                <i class="fas fa-chevron-right timeline-arrow"></i>
-                <div class="timeline-step"><span class="step-num">03</span><div class="step-icon"><i class="fas fa-couch"></i></div><h4>안락한 이동</h4><p>최적 경로로 정시성 확보<br>비행 전 피로 없는 주행</p></div>
-                <i class="fas fa-chevron-right timeline-arrow"></i>
-                <div class="timeline-step"><span class="step-num">04</span><div class="step-icon"><i class="fas fa-plane-departure"></i></div><h4>공항 출국장 하차</h4><p>해당 항공사 게이트<br>가장 가까운 곳에 하차</p></div>
-            </div>
-            <div class="guarantees-container">
-                <div class="guarantee-box"><i class="fas fa-plane-arrival guarantee-icon"></i><div class="guarantee-text"><h5>실시간 항공편 트래킹</h5><p>지연·연착 시에도 걱정 마세요.<br>비행 스케줄에 맞춰 유동적으로 대기합니다.</p></div></div>
-                <div class="guarantee-box"><i class="fas fa-check-circle guarantee-icon"></i><div class="guarantee-text"><h5>정시 픽업 원칙</h5><p>비행·열차 일정에 맞춰<br>여유 있게 배차합니다.</p></div></div>
-                <div class="guarantee-box"><i class="fas fa-receipt guarantee-icon"></i><div class="guarantee-text"><h5>전화 상담 요금 안내</h5><p>출발지·일정에 맞춰<br>요금을 미리 상세히 안내해 드립니다.</p></div></div>
-            </div>
-            <a href="airport-sending.html" class="popup-cta-btn" onclick="event.stopPropagation()"><i class="fas fa-plane-departure"></i> 공항 샌딩 예약하기 <i class="fas fa-arrow-right"></i></a>
+        <div class="review-grid">
+          <figure class="review">
+            <blockquote>처음이라 막막했는데 서류부터 조합 가입까지 하나하나 챙겨주셔서 편했습니다.</blockquote>
+            <figcaption>부산진구 박*철 사장님 · 양수</figcaption>
+          </figure>
+          <figure class="review">
+            <blockquote>급하게 차를 내놔야 했는데, 김군 상담소 덕분에 좋은 가격에 빨리 거래했습니다.</blockquote>
+            <figcaption>해운대구 이*석 사장님 · 양도</figcaption>
+          </figure>
+          <figure class="review">
+            <blockquote>다른 곳보다 친절하고 강요가 없어서 좋았습니다. 좋은 넘버 감사합니다.</blockquote>
+            <figcaption>사하구 최*민 사장님 · 양수</figcaption>
+          </figure>
         </div>
-    </div>
+      </div>
+    </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const overlay = document.getElementById('page-transition-overlay');
-            overlay.style.opacity = '1'; overlay.style.transition = 'none';
-            requestAnimationFrame(() => requestAnimationFrame(() => {
-                overlay.style.transition = 'opacity 0.6s ease'; overlay.style.opacity = '0';
-            }));
-            function navigateTo(url) {
-                overlay.style.opacity = '1'; overlay.style.pointerEvents = 'all';
-                setTimeout(() => { window.location.href = url; }, 400);
-            }
-            // 투어 팝업 탭 전환
-            document.querySelectorAll('.ctab').forEach(tab => {
-                tab.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    document.querySelectorAll('.ctab').forEach(t => t.classList.remove('active'));
-                    document.querySelectorAll('.cpanel').forEach(p => p.classList.remove('active'));
-                    this.classList.add('active');
-                    const panel = document.getElementById(this.dataset.cpanel);
-                    if (panel) {
-                        // 카드 숨기기 → 패널 전환 → 카드 등장
-                        panel.querySelectorAll('.scard').forEach(s => {
-                            s.style.opacity = '0';
-                            s.style.transform = 'translateY(20px)';
-                        });
-                        panel.classList.add('active');
-                        setTimeout(() => {
-                            panel.querySelectorAll('.scard').forEach(s => {
-                                s.style.opacity = '';
-                                s.style.transform = '';
-                            });
-                        }, 40);
-                    }
-                });
-            });
+    <!-- ④ 상담 예약 -->
+    <section id="consult" class="section consult">
+      <div class="container consult-grid">
+        <div class="form-card">
+          <h2 class="title">상담 예약</h2>
+          <p class="lead">편한 방식과 날짜를 골라주시면 그때 맞춰 연락드립니다.</p>
 
-            const cards = [
-                { id:'card-tour', bg:'bg-tour', bodyClass:'tour-active', href:'tour-reservation.html' },
-                { id:'card-taxi', bg:'bg-taxi', bodyClass:'taxi-active', href:'long-distance-reservation.html' },
-                { id:'card-airport', bg:'bg-airport', bodyClass:'airport-active', href:'airport-sending.html' }
-            ];
+          <div class="toggle-container" role="group" aria-label="상담 종류 선택">
+            <button type="button" id="btnSell" class="toggle-btn active" aria-pressed="true">팔고 싶어요 (양도)</button>
+            <button type="button" id="btnBuy" class="toggle-btn" aria-pressed="false">사고 싶어요 (양수)</button>
+          </div>
 
-            const globalClose = document.getElementById('global-popup-close');
+          <form id="consultForm" novalidate>
+            <div id="formContent"></div>
 
-            function closeAll() {
-                cards.forEach(c => {
-                    const bgEl = document.getElementById(c.bg);
-                    const cardEl = document.getElementById(c.id);
-                    if (bgEl) bgEl.classList.remove('active');
-                    if (cardEl) cardEl.classList.remove('card-active');
-                    document.body.classList.remove(c.bodyClass);
-                });
-                document.body.classList.remove('hover-active');
-                globalClose.style.display = 'none';
-            }
+            <fieldset class="booking-box">
+              <legend>상담 방식과 날짜</legend>
+              <div class="input-group">
+                <span class="group-label" id="methodLabel">상담 방식</span>
+                <div class="chip-group" role="radiogroup" aria-labelledby="methodLabel">
+                  <label class="chip"><input type="radio" name="method" value="전화 상담" checked /><span><i class="fa-solid fa-phone" aria-hidden="true"></i> 전화</span></label>
+                  <label class="chip"><input type="radio" name="method" value="방문 상담" /><span><i class="fa-solid fa-store" aria-hidden="true"></i> 방문</span></label>
+                  <label class="chip"><input type="radio" name="method" value="카카오톡 상담" /><span><i class="fa-solid fa-comment" aria-hidden="true"></i> 카톡</span></label>
+                </div>
+              </div>
 
-            cards.forEach(({ id, bg, bodyClass, href }) => {
-                const cardEl = document.getElementById(id);
-                const bgEl = document.getElementById(bg);
-                if (!cardEl || !bgEl) return;
+              <div class="input-group">
+                <span class="group-label" id="dateLabel">희망 날짜</span>
+                <!-- 평일·공휴일 제외 날짜 버튼은 아래 스크립트가 자동으로 만듭니다 -->
+                <div class="chip-group date-chips" id="dateChips" role="radiogroup" aria-labelledby="dateLabel"></div>
+                <div class="date-custom" id="dateCustom" hidden>
+                  <label for="visitDate" class="sr-only">다른 날짜 고르기</label>
+                  <input type="date" id="visitDate" />
+                </div>
+              </div>
 
-                cardEl.addEventListener('click', (e) => {
-                    const isAlreadyOpen = bgEl.classList.contains('active');
-                    closeAll();
-                    if (!isAlreadyOpen) {
-                        bgEl.classList.add('active');
-                        cardEl.classList.add('card-active');
-                        document.body.classList.add('hover-active', bodyClass);
-                        globalClose.style.display = 'flex';
-                    }
-                });
-            });
+              <div class="input-group">
+                <label for="visitTime">희망 시간대</label>
+                <select id="visitTime">
+                  <option value="시간 무관">시간 무관</option>
+                  <option value="오전 (09~12시)">오전 (09~12시)</option>
+                  <option value="점심 이후 (13~15시)">점심 이후 (13~15시)</option>
+                  <option value="오후 (15~18시)">오후 (15~18시)</option>
+                </select>
+              </div>
+            </fieldset>
 
-            // 키보드: Enter/Space로 카드 열기, ESC로 팝업 닫기
-            cards.forEach(({ id }) => {
-                const el = document.getElementById(id);
-                if (el) el.addEventListener('keydown', e => {
-                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
-                });
-            });
-            document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
+            <div class="hp-field" aria-hidden="true">
+              <label for="website">웹사이트</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
 
-            // 닫기 버튼
-            globalClose.addEventListener('click', (e) => {
-                e.stopPropagation();
-                closeAll();
-            });
+            <div class="captcha-box">
+              <input type="text" id="captchaInput" placeholder="오른쪽 보안코드 입력" maxlength="4" autocomplete="off" aria-label="보안코드 입력" required />
+              <div class="captcha-code" id="captchaText" aria-live="polite"></div>
+            </div>
 
-            // 팝업 배경(콘텐츠 외부) 클릭 시 닫힘
-            document.querySelectorAll('.bg-popup').forEach(popup => {
-                popup.addEventListener('click', (e) => {
-                    if (e.target === popup) closeAll();
-                });
-            });
-            document.addEventListener('click', (e) => {
-                const link = e.target.closest('a[href]'); if (!link) return;
-                const href = link.getAttribute('href');
-                if (!href || href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('http') || href.startsWith('#')) return;
-                e.preventDefault(); navigateTo(href);
-            });
-        });
-    </script>
-    <script src="footer.js"></script>
+            <label class="privacy">
+              <input type="checkbox" id="privacyAgree" required /> [필수] 개인정보 수집·이용 동의
+            </label>
+            <details class="privacy-detail">
+              <summary>수집·이용 내용 보기</summary>
+              <ul>
+                <li>수집 목적: 상담 예약 확인 및 회신 연락</li>
+                <li>수집 항목: 이름, 연락처, 상담 방식·희망 일시 / (양도) 차량모델·차량번호 / (양수) 양수교육 이수 여부</li>
+                <li>보유 기간: 상담 종료 후 1년까지 보관 후 파기</li>
+                <li>동의를 거부하실 수 있으며, 거부 시 온라인 예약만 제한됩니다. (전화·카카오톡 상담은 가능)</li>
+                <li>접수 내용은 이메일 발송 서비스(EmailJS)를 통해 상담소 메일로 전달됩니다. 자세한 내용은 <a href="privacy.html">개인정보처리방침</a>을 확인해 주세요.</li>
+              </ul>
+            </details>
+
+            <button type="submit" class="btn-ink btn-block" id="submitBtn">상담 예약하기</button>
+            <p id="submitMsg" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <aside class="consult-aside">
+          <div class="aside-block">
+            <h3>바로 통화하고 싶다면</h3>
+            <a href="tel:01055559156" class="aside-tel">010-5555-9156</a>
+            <p>평일 09:00–18:00 · 주말·공휴일 휴무</p>
+            <a href="https://open.kakao.com/o/sWi4vySh" target="_blank" rel="noopener" class="btn-kakao"><i class="fa-solid fa-comment" aria-hidden="true"></i> 카카오톡으로 상담하기</a>
+          </div>
+          <div class="aside-block">
+            <h3>예약하면 이렇게 연락드려요</h3>
+            <ul class="contact-flow">
+              <li><i class="fa-regular fa-calendar-check" aria-hidden="true"></i> 날짜를 고르셨다면 그 시간에 맞춰</li>
+              <li><i class="fa-solid fa-bolt" aria-hidden="true"></i> '가장 빠른 시간'이면 평일 업무 시간 내 1시간 안에</li>
+              <li><i class="fa-regular fa-moon" aria-hidden="true"></i> 야간·주말 신청은 다음 영업일 오전에</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ⑤ FAQ + 채널 (2단) — ⚠ 유튜브 채널 주소를 받으면 href 교체 -->
+    <section class="section home-faq">
+      <div class="container faq-split">
+        <div>
+          <h2 class="title">자주 묻는 질문</h2>
+          <div class="faq-item">
+            <button class="faq-question"><span>개인택시 양수 자격 조건은?</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+            <div class="faq-answer"><p>무사고 운전경력 5년, 한국교통안전공단 양수교육(5일) 이수, 택시운전자격이 기본 요건입니다. 양수교육은 신청 기간 안에 신청한 뒤 추첨으로 정해집니다. 자세한 내용은 <a href="education.html" class="text-link">양수교육 안내</a>에서 확인하세요.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>양도 시세는 어떻게 결정되나요?</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+            <div class="faq-answer"><p>번호판 시세(면허 권리금)와 차량 가액을 더해 정해지며, 수요·공급에 따라 수시로 바뀝니다. 그래서 홈페이지에 고정 숫자를 올리지 않고, 연락 주시면 오늘 기준으로 안내해 드립니다.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>상담 비용이 있나요?</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+            <div class="faq-answer"><p>시세·자격 확인 등 기본 상담은 <strong>무료</strong>입니다. 실제 거래가 성사된 경우에만 중개 수수료가 발생하며, 금액은 <strong>계약 전에 미리</strong> 안내해 드립니다.</p></div>
+          </div>
+          <a href="faq.html" class="more-link">질문 더 보기</a>
+        </div>
+
+        <div class="channel-card" id="channels">
+          <h2>상담 전, 김군 채널에서<br>먼저 알아보세요</h2>
+          <p>시세 흐름과 절차를 미리 보고 오시면 상담이 훨씬 빨라집니다.</p>
+          <ul class="ch-list">
+            <li><a href="https://blog.naver.com/mrkim_taxioffice" target="_blank" rel="noopener" style="--ch:#03c75a"><span class="ch-icon"><i class="fa-solid fa-blog" aria-hidden="true"></i></span><span><strong>김군 블로그</strong><em>부산 시세 흐름 · 절차와 서류</em></span><i class="fa-solid fa-arrow-right ch-go" aria-hidden="true"></i></a></li>
+            <li><a href="https://blog.naver.com/mrkim_taxikimyang" target="_blank" rel="noopener" style="--ch:#00a19a"><span class="ch-icon"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i></span><span><strong>김양 블로그</strong><em>차량 선택 · 창업 비용 · 보험</em></span><i class="fa-solid fa-arrow-right ch-go" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.youtube.com/results?search_query=%EB%B6%80%EC%82%B0%EA%B0%9C%EC%9D%B8%ED%83%9D%EC%8B%9C%EC%83%81%EB%8B%B4%EC%86%8C" target="_blank" rel="noopener" style="--ch:#e62117"><span class="ch-icon"><i class="fa-brands fa-youtube" aria-hidden="true"></i></span><span><strong>유튜브</strong><em>부산 시세·양수 이야기 · Q&amp;A</em></span><i class="fa-solid fa-arrow-right ch-go" aria-hidden="true"></i></a></li>
+            <li><a href="https://cafe.naver.com/busantaximembers" target="_blank" rel="noopener" style="--ch:#2db400"><span class="ch-icon"><i class="fa-solid fa-mug-hot" aria-hidden="true"></i></span><span><strong>기사님 카페</strong><em>정보 교류 · 운행 노하우</em></span><i class="fa-solid fa-arrow-right ch-go" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+  <script src="script.js"></script>
+  <script>
+    /* ===== 상담 예약 폼 (index.html 전용) ===== */
+
+    // 0) EmailJS 초기화 — 스크립트를 defer로 불러오므로 load 이후 초기화
+    //    ※ 공개키는 원래 노출되는 값입니다. 대신 EmailJS 대시보드 > Account > Security 에서
+    //      'Allowed Origins'에 내 도메인만 등록해 두세요(타 사이트에서 무단 발송 방지).
+    const EMAILJS_PUBLIC_KEY = "2iseJXtljrKVXtYDP";
+    // defer 스크립트는 DOMContentLoaded 직전에 실행되므로 이 시점에 초기화 (이미지 로딩을 기다리지 않음)
+    document.addEventListener("DOMContentLoaded", () => {
+      if (window.emailjs) emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    });
+
+    // 0-1) 공휴일 (주말 외 휴무일) — ⚠ 매년 12월에 다음 해 날짜를 추가해 주세요 (형식 "YYYY-MM-DD")
+    const HOLIDAYS = [
+      "2026-10-05", // 개천절 대체공휴일
+      "2026-10-09", // 한글날
+      "2026-12-25", // 성탄절
+      "2027-01-01", // 신정
+    ];
+
+    // 1) 양도/양수 폼 전환
+    const formContent = document.getElementById("formContent");
+    const btnSell = document.getElementById("btnSell");
+    const btnBuy = document.getElementById("btnBuy");
+
+    const commonFields = `
+      <div class="input-group"><label for="name">이름</label><input type="text" id="name" placeholder="성함" autocomplete="name" maxlength="20" required /></div>
+      <div class="input-group"><label for="phone">연락처</label><input type="tel" id="phone" placeholder="010-0000-0000" inputmode="numeric" autocomplete="tel" maxlength="13" required /></div>
+    `;
+
+    const sellHTML = `
+      <input type="hidden" id="type" value="양도 신청" />
+      ${commonFields}
+      <div class="booking-row">
+        <div class="input-group"><label for="carModel">차량모델 <small>(선택)</small></label><input type="text" id="carModel" placeholder="예: 그랜저IG" maxlength="30" /></div>
+        <div class="input-group"><label for="carNumber">차량번호 <small>(선택)</small></label><input type="text" id="carNumber" placeholder="예: 36바 1234" maxlength="15" /></div>
+      </div>
+    `;
+
+    const buyHTML = `
+      <input type="hidden" id="type" value="양수 신청" />
+      ${commonFields}
+      <div class="input-group"><label for="eduStatus">양수교육</label>
+        <select id="eduStatus">
+          <option value="이수 완료">이수 완료</option>
+          <option value="이수 전 (일정 안내 필요)">이수 전 (일정 안내 필요)</option>
+          <option value="잘 모르겠음">잘 모르겠음</option>
+        </select>
+      </div>
+    `;
+
+    function setMode(mode) {
+      const isSell = mode === "sell";
+      // 입력하던 이름/연락처는 전환해도 유지
+      const keepName = document.getElementById("name")?.value || "";
+      const keepPhone = document.getElementById("phone")?.value || "";
+      formContent.innerHTML = isSell ? sellHTML : buyHTML;
+      document.getElementById("name").value = keepName;
+      document.getElementById("phone").value = keepPhone;
+      btnSell.classList.toggle("active", isSell);
+      btnBuy.classList.toggle("active", !isSell);
+      btnSell.setAttribute("aria-pressed", String(isSell));
+      btnBuy.setAttribute("aria-pressed", String(!isSell));
+    }
+    btnSell.addEventListener("click", () => setMode("sell"));
+    btnBuy.addEventListener("click", () => setMode("buy"));
+
+    // 다른 페이지에서 index.html?type=buy#consult 로 들어오면 '양수'로 시작
+    const params0 = new URLSearchParams(location.search);
+    setMode(params0.get("type") === "buy" ? "buy" : "sell");
+
+    // 연락처 자동 하이픈
+    formContent.addEventListener("input", (e) => {
+      if (e.target.id !== "phone") return;
+      const d = e.target.value.replace(/\D/g, "").slice(0, 11);
+      e.target.value = d.length < 4 ? d : d.length < 8 ? `${d.slice(0, 3)}-${d.slice(3)}` : `${d.slice(0, 3)}-${d.slice(3, 7)}-${d.slice(7)}`;
+    });
+
+    // 2) 희망 날짜: 버튼으로 고르기 (평일·공휴일 제외) + '다른 날' 직접 선택
+    const visitDate = document.getElementById("visitDate");
+    const dateChips = document.getElementById("dateChips");
+    const dateCustom = document.getElementById("dateCustom");
+    const DOW = ["일", "월", "화", "수", "목", "금", "토"];
+    const toYMD = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+    const isOffDay = (ymd) => {
+      const dow = new Date(ymd + "T00:00:00").getDay();
+      return dow === 0 || dow === 6 || HOLIDAYS.includes(ymd);
+    };
+    const today = new Date();
+    visitDate.min = toYMD(today);
+    visitDate.max = toYMD(new Date(today.getTime() + 60 * 86400000));
+
+    function buildDateChips() {
+      const chips = [{ value: "", label: "가장<br>빠른 시간" }];
+      const d = new Date(today);
+      if (today.getHours() >= 15) d.setDate(d.getDate() + 1); // 오후 3시 이후엔 오늘 제외
+      while (chips.length < 5) {
+        const ymd = toYMD(d);
+        if (!isOffDay(ymd)) {
+          const diff = Math.round((new Date(ymd + "T00:00:00") - new Date(toYMD(today) + "T00:00:00")) / 86400000);
+          const rel = diff === 0 ? "<small>오늘</small>" : diff === 1 ? "<small>내일</small>" : "";
+          chips.push({ value: ymd, label: `${rel}${d.getMonth() + 1}/${d.getDate()}(${DOW[d.getDay()]})` });
+        }
+        d.setDate(d.getDate() + 1);
+      }
+      chips.push({ value: "custom", label: "다른 날<br>고르기" });
+      dateChips.innerHTML = chips.map((c, i) =>
+        `<label class="chip"><input type="radio" name="dateChoice" value="${c.value}"${i === 0 ? " checked" : ""} /><span>${c.label}</span></label>`
+      ).join("");
+    }
+    buildDateChips();
+
+    dateChips.addEventListener("change", (e) => {
+      const v = e.target.value;
+      const custom = v === "custom";
+      dateCustom.hidden = !custom;
+      visitDate.value = custom ? "" : v;
+      if (custom) visitDate.focus();
+    });
+
+    // 3) 보안코드 (사람 확인용 간이 장치 — 강력한 스팸 차단은 EmailJS 도메인 제한과 함께 사용)
+    const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    function generateCaptcha() {
+      let c = "";
+      for (let i = 0; i < 4; i++) c += chars.charAt(Math.floor(Math.random() * chars.length));
+      document.getElementById("captchaText").innerText = c;
+      document.getElementById("captchaInput").value = "";
+    }
+    generateCaptcha();
+
+    // 4) 제출
+    const msgBox = document.getElementById("submitMsg");
+    const submitBtn = document.getElementById("submitBtn");
+    const showMsg = (text, color) => { msgBox.innerText = text; msgBox.style.color = color; };
+    const ERR = "#b3261e";
+
+    document.getElementById("consultForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // 봇 차단: 숨김 필드가 채워졌으면 조용히 종료
+      if (document.getElementById("website").value) return;
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      if (!name) { showMsg("성함을 입력해 주세요.", ERR); return; }
+      if (!/^01[016789]-?\d{3,4}-?\d{4}$/.test(phone)) { showMsg("연락처를 다시 확인해 주세요. (예: 010-1234-5678)", ERR); return; }
+
+      // 예약 날짜 검사: 과거·주말·공휴일 불가
+      const dateVal = visitDate.value;
+      if (!dateCustom.hidden && !dateVal) { showMsg("'다른 날'을 고르셨다면 날짜를 선택해 주세요.", ERR); return; }
+      if (dateVal) {
+        if (dateVal < visitDate.min || dateVal > visitDate.max) { showMsg("희망 날짜는 오늘부터 60일 이내로 골라주세요.", ERR); return; }
+        if (isOffDay(dateVal)) { showMsg("주말·공휴일은 휴무입니다. 평일 날짜로 골라주세요.", ERR); return; }
+      }
+
+      if (!document.getElementById("privacyAgree").checked) { showMsg("개인정보 수집·이용에 동의해 주셔야 예약할 수 있습니다.", ERR); return; }
+
+      const userCode = document.getElementById("captchaInput").value.trim().toUpperCase();
+      if (userCode !== document.getElementById("captchaText").innerText) {
+        showMsg("보안코드가 일치하지 않습니다. 새 코드로 다시 입력해 주세요.", ERR);
+        generateCaptcha();
+        return;
+      }
+
+      if (!window.emailjs) { showMsg("❌ 전송 모듈을 불러오지 못했습니다. 010-5555-9156으로 전화 주세요.", ERR); return; }
+
+      const type = document.getElementById("type").value;
+      const isSell = type === "양도 신청";
+      const method = document.querySelector('input[name="method"]:checked').value;
+      const timeVal = document.getElementById("visitTime").value;
+      const dateText = dateVal ? dateVal.slice(5).replace("-", "/") : "날짜 무관";
+
+      // ── 메일에 보기 좋게 넣을 값 정리 ──
+      const digits = phone.replace(/\D/g, "");
+      const phoneFmt = digits.length === 11 ? `${digits.slice(0, 3)}-${digits.slice(3, 7)}-${digits.slice(7)}`
+                     : digits.length === 10 ? `${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6)}` : phone;
+      const dateLabel = dateVal ? `${dateText}(${DOW[new Date(dateVal + "T00:00:00").getDay()]})` : "날짜 무관";
+      const timeShort = timeVal === "시간 무관" ? "" : " " + timeVal.split(" ")[0];   // "오전 (09~12시)" → " 오전"
+      const typeShort = isSell ? "양도" : "양수";
+      const carModel = isSell ? document.getElementById("carModel").value.trim() : "";
+      const carNumber = isSell ? document.getElementById("carNumber").value.trim() : "";
+      const eduStatus = isSell ? "" : document.getElementById("eduStatus").value;
+      const detailText = isSell
+        ? `차량: ${carModel || "미입력"} / 번호: ${carNumber || "미입력"}`
+        : `양수교육: ${eduStatus}`;
+      const submittedAt = new Intl.DateTimeFormat("ko-KR", {
+        timeZone: "Asia/Seoul", year: "numeric", month: "2-digit", day: "2-digit",
+        weekday: "short", hour: "2-digit", minute: "2-digit", hour12: false,
+      }).format(new Date());
+
+      const params = {
+        // ▼ 새 메일 양식(EmailJS 템플릿)에서 쓰는 값
+        type_short: typeShort,
+        name: name,
+        phone: phoneFmt,
+        phone_digits: digits,
+        method: method,
+        booking: `${dateLabel} · ${timeVal} · ${method}`,
+        booking_short: dateVal ? `${dateLabel}${timeShort} ${method}` : `가장 빠른 시간 ${method}`,
+        detail_text: detailText,
+        submitted_at: submittedAt,
+        // ▼ 예전 템플릿 호환용
+        title: `${type} · ${method} · ${dateText} ${timeVal}`,
+        type: type,
+        carModel: carModel,
+        carNumber: carNumber,
+        region: "",
+        eduStatus: eduStatus,
+        visitDate: dateVal || "날짜 무관",
+        visitTime: timeVal,
+      };
+
+      submitBtn.disabled = true;
+      showMsg("전송 중...", "#7b665b");
+
+      emailjs.send("service_kimtaxi", "template_4yu2gna", params, { publicKey: EMAILJS_PUBLIC_KEY }) // 초기화가 늦어도 전송되도록 키를 함께 전달
+        .then(() => {
+          const when = dateVal ? `${dateLabel} ${timeVal === "시간 무관" ? "" : timeVal}`.trim() : "가장 빠른 시간";
+          showMsg(`✅ 예약 접수 완료! ${when}에 ${method === "방문 상담" ? "방문 일정 확인 연락을" : "연락을"} 드리겠습니다.`, "#2e7d32");
+          document.getElementById("consultForm").reset();
+          setMode(isSell ? "sell" : "buy");
+          formContent.querySelectorAll("input").forEach((el) => { if (el.type !== "hidden") el.value = ""; });
+          dateCustom.hidden = true;
+          visitDate.value = "";
+          generateCaptcha();
+        })
+        .catch((err) => {
+          console.error(err);
+          showMsg("❌ 전송에 실패했습니다. 010-5555-9156으로 전화 주세요.", ERR);
+        })
+        .finally(() => { submitBtn.disabled = false; });
+    });
+  </script>
 </body>
 </html>
