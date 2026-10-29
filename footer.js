@@ -58,6 +58,18 @@
         transition: background .25s, transform .25s;
       }
       .bmt-f-phone:hover { background: #B08D35; transform: scale(1.04); }
+      .bmt-f-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+      .bmt-f-blog {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 10px 22px; border-radius: 30px;
+        border: 1px solid rgba(201,166,70,0.55); color: #E8D49A;
+        font-size: 14px; font-weight: 600; text-decoration: none;
+        background: rgba(201,166,70,0.06);
+        transition: background .25s, color .25s, border-color .25s, transform .25s;
+      }
+      .bmt-f-blog i { font-size: 14px; }
+      .bmt-f-blog .bmt-ext { font-size: 10px; opacity: .6; }
+      .bmt-f-blog:hover { background: #C9A646; color: #111111; border-color: #C9A646; transform: scale(1.04); }
       .bmt-f-col h4 {
         font-size: 11px; font-weight: 700; letter-spacing: 3px;
         color: rgba(255,255,255, 0.35); text-transform: uppercase;
@@ -96,6 +108,7 @@
         .bmt-footer-bottom { padding: 18px 20px; }
         .bmt-biz-info .bmt-biz-row { flex-direction: column; gap: 2px; }
         .bmt-f-phone { font-size: 14px; padding: 10px 22px; }
+        .bmt-f-blog { font-size: 13px; padding: 9px 20px; }
         .bmt-copyright { align-self: auto; white-space: normal; margin-top: 8px; }
       }
     `;
@@ -109,9 +122,14 @@
             부산에서 전국 어디든, 편안한 장거리 이동<br>
             요금은 전화 상담 시 상세히 안내해 드립니다.
           </p>
-          <a href="tel:010-4242-4767" class="bmt-f-phone">
-            <i class="fas fa-phone-alt"></i> 010-4242-4767
-          </a>
+          <div class="bmt-f-actions">
+            <a href="tel:010-7758-4267" class="bmt-f-phone">
+              <i class="fas fa-phone-alt"></i> 010-7758-4267
+            </a>
+            <a href="https://blog.naver.com/hjwhite44" class="bmt-f-blog" target="_blank" rel="noopener" aria-label="네이버 블로그 (새 창)">
+              <i class="fas fa-blog"></i> 네이버 블로그 <i class="fas fa-external-link-alt bmt-ext"></i>
+            </a>
+          </div>
         </div>
         <div class="bmt-f-col">
           <h4>서비스</h4>
@@ -126,9 +144,10 @@
         <div class="bmt-f-col">
           <h4>안내</h4>
           <ul>
-            <li><a href="privacy.html">개인정보처리방침</a></li>
-            <li><a href="tel:010-4242-4767">전화 문의</a></li>
-            <li><a href="mailto:mrkim_calltaxi@naver.com">이메일 문의</a></li>
+            <li><a href="privacy.html"><i class="fas fa-user-shield" style="margin-right:6px;font-size:12px;color:#D9B95E"></i>개인정보처리방침</a></li>
+            <li><a href="tel:010-7758-4267"><i class="fas fa-phone-alt" style="margin-right:6px;font-size:12px;color:#D9B95E"></i>전화 문의</a></li>
+            <li><a href="mailto:hjwhite44@naver.com"><i class="fas fa-envelope" style="margin-right:6px;font-size:12px;color:#D9B95E"></i>이메일 문의</a></li>
+            <li><a href="https://blog.naver.com/hjwhite44" target="_blank" rel="noopener"><i class="fas fa-blog" style="margin-right:6px;font-size:12px;color:#D9B95E"></i>네이버 블로그</a></li>
           </ul>
         </div>
       </div>
@@ -142,11 +161,12 @@
               <span><strong>사업자등록번호</strong> 135-37-01621</span>
             </div>
             <div class="bmt-biz-row">
-              <span><strong>소재지</strong> 부산광역시 사하구 다대동</span>
+              <span><strong>소재지</strong> 부산광역시 금정구 중앙대로 2120</span>
             </div>
             <div class="bmt-biz-row">
-              <span><strong>전화</strong> 010-4242-4767</span>
-              <span><strong>이메일</strong> mrkim_calltaxi@naver.com</span>
+              <span><strong>전화</strong> 010-7758-4267</span>
+              <span><strong>이메일</strong> hjwhite44@naver.com</span>
+              <span><strong>블로그</strong> <a href="https://blog.naver.com/hjwhite44" target="_blank" rel="noopener" style="color:inherit">blog.naver.com/hjwhite44</a></span>
             </div>
           </div>
           <p class="bmt-copyright">© ${new Date().getFullYear()} 부산 장거리 전문 퍼스트 콜택시. All rights reserved.</p>
