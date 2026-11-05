@@ -137,6 +137,8 @@
             <li><a href="tour-reservation.html"><i class="fas fa-map-marked-alt" style="margin-right:6px;font-size:12px;color:#D9B95E"></i>부산 관광 투어</a></li>
             <li><a href="long-distance-reservation.html"><i class="fas fa-road" style="margin-right:6px;font-size:12px;color:#D9B95E"></i>장거리 콜택시</a></li>
             <li><a href="airport-sending.html"><i class="fas fa-plane-departure" style="margin-right:6px;font-size:12px;color:#D9B95E"></i>공항·기차역 샌딩</a></li>
+            <li><a href="wedding-car.html"><i class="fas fa-ring" style="margin-right:6px;font-size:12px;color:#D9B95E"></i>웨딩카</a></li>
+            <li><a href="vip-service.html"><i class="fas fa-user-tie" style="margin-right:6px;font-size:12px;color:#D9B95E"></i>VIP 의전</a></li>
             <li><a href="fleet.html"><i class="fas fa-car" style="margin-right:6px;font-size:12px;color:#D9B95E"></i>차량 소개</a></li>
             <li><a href="reviews.html"><i class="fas fa-star" style="margin-right:6px;font-size:12px;color:#D9B95E"></i>이용 후기</a></li>
           </ul>

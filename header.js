@@ -16,6 +16,8 @@
     { href: 'tour-reservation.html',          label: '부산 관광 투어' },
     { href: 'long-distance-reservation.html', label: '장거리 예약' },
     { href: 'airport-sending.html',           label: '공항·기차역 샌딩' },
+    { href: 'wedding-car.html',               label: '웨딩카' },
+    { href: 'vip-service.html',               label: 'VIP 의전' },
   ];
 
   /* 우측 메뉴 */
@@ -149,7 +151,7 @@
       margin-top: var(--bmt-h);
     }
 
-    @media (max-width: 960px) {
+    @media (max-width: 1180px) {
       #bmt-header {
         grid-template-columns: 1fr auto;
         padding: 0 24px;
