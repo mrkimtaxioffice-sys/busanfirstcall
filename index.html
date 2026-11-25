@@ -17,7 +17,7 @@
     <title>부산 장거리 전문 퍼스트 콜택시 | 장거리·공항·관광 콜택시</title>
     <link rel="canonical" href="https://busanfirstcall.com/">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=DM+Sans:wght@300;400;500&family=Noto+Serif+KR:wght@300;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -34,9 +34,11 @@
         }
 
         /* ── 배경 및 메인 ── */
-        .bg-ocean { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
-        .bg-ocean img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; transform: scale(1.05); animation: slowDrift 30s ease-in-out infinite alternate; filter: brightness(0.78) saturate(0.95); }
+        /* 배경 이미지를 못 불러와도 글씨가 보이도록 사진과 비슷한 밤바다 톤을 미리 깔아 둠 */
+        .bg-ocean { position: absolute; inset: 0; z-index: 0; overflow: hidden; background: linear-gradient(180deg, #0B1430 0%, #1B2A5C 55%, #2A2350 75%, #0E0E0E 100%); }
+        .bg-ocean img { width: 100%; height: 100%; object-fit: cover; object-position: 70% 45%; transform: scale(1.05); animation: slowDrift 30s ease-in-out infinite alternate; filter: brightness(0.78) saturate(0.95); }
         @keyframes slowDrift { from { transform: scale(1.05) translate(0, 0); } to { transform: scale(1.1) translate(-1%, 1%); } }
+        .hero-ai-badge { top: calc(var(--bmt-h, 68px) + 14px); right: 24px; z-index: 15; }
         .bg-overlay-top { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(14,14,14,0.50) 0%, rgba(28,28,28,0.10) 35%, rgba(201,166,70,0.05) 55%, rgba(14,14,14,0.45) 100%); }
 
         .hero { position: relative; z-index: 10; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 80px 40px 140px; }
@@ -167,7 +169,7 @@
             color: #D9B95E; letter-spacing: 2px;
             margin-bottom: 8px;
         }
-        .scard-icon { font-size: 26px; line-height: 1; margin-bottom: 8px; }
+        .scard-icon { font-size: 22px; line-height: 1; margin-bottom: 10px; color: #D9B95E; }
         .scard-name {
             font-size: 12px; font-weight: 700; color: #fff;
             line-height: 1.4; word-break: keep-all;
@@ -312,8 +314,10 @@
         }
         @media (max-width: 768px) {
             /* 카드가 5장이라 화면보다 길어질 수 있으므로 잘리지 않고 스크롤되게 함 */
+            .bg-ocean img { object-position: 82% 45%; }
+            .hero-ai-badge { right: 14px; top: 78px; }
             .hero-section { height: auto; min-height: 100vh; min-height: 100svh; }
-            .hero { height: auto; min-height: 100vh; min-height: 100svh; padding: 80px 20px 160px; justify-content: flex-end; }
+            .hero { height: auto; min-height: 100vh; min-height: 100svh; padding: 112px 20px 160px; justify-content: flex-end; }
             .hero-title { font-size: clamp(28px, 7vw, 48px); margin-bottom: 16px; }
             .hero-sub { font-size: 13px; margin-bottom: 28px; }
             .services { flex-direction: column; align-items: stretch; gap: 10px; width: 100%; max-width: 400px; margin: 0 auto; }
@@ -339,7 +343,7 @@
             .overlay-title { font-size: 18px; letter-spacing: 2px; }
             .spot-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 6px; }
             .scard { padding: 10px 6px 8px; border-radius: 10px; }
-            .scard-icon { font-size: 18px; }
+            .scard-icon { font-size: 16px; margin-bottom: 6px; }
             .scard-name { font-size: 10px; }
             .cpanel { max-width: 100%; }
             .cinfo-bar { flex-wrap: wrap; gap: 8px; padding: 8px 14px; font-size: 11px; }
@@ -441,9 +445,10 @@
 
     <div class="hero-section">
         <div class="bg-ocean">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=90&w=2160" alt="부산 바다">
+            <img src="main-hero.png" width="1922" height="732" alt="광안대교 야경" onerror="this.style.display='none'">
         </div>
         <div class="bg-overlay-top"></div>
+        <span class="bmt-ai-badge hero-ai-badge">AI 생성 이미지</span>
 
         <div class="hero">
             <p class="hero-eyebrow">부산 출발 프리미엄 장거리 이동</p>
@@ -457,7 +462,7 @@
             </p>
             <div class="services">
                 <div class="svc-card" id="card-tour" role="button" tabindex="0">
-                    <div class="svc-bg" style="background-image:url('해동 용궁사.png')"></div>
+                    <div class="svc-bg" style="background-image:url('해동 용궁사.png')"></div><span class="bmt-ai-badge bmt-ai-badge--tr">AI 생성 이미지</span>
                     <div class="svc-body">
                         <span class="svc-num">01</span>
                         <div class="svc-icon"><i class="fas fa-map-marked-alt"></i></div>
@@ -469,7 +474,7 @@
                     </div>
                 </div>
                 <div class="svc-card" id="card-taxi" role="button" tabindex="0">
-                    <div class="svc-bg" style="background-image:url('예약.png')"></div>
+                    <div class="svc-bg" style="background-image:url('예약.png')"></div><span class="bmt-ai-badge bmt-ai-badge--tr">AI 생성 이미지</span>
                     <div class="svc-body">
                         <span class="svc-num">02</span>
                         <div class="svc-icon"><i class="fas fa-road"></i></div>
@@ -481,7 +486,7 @@
                     </div>
                 </div>
                 <div class="svc-card" id="card-airport" role="button" tabindex="0">
-                    <div class="svc-bg" style="background-image:url('샌딩.png')"></div>
+                    <div class="svc-bg" style="background-image:url('샌딩.png')"></div><span class="bmt-ai-badge bmt-ai-badge--tr">AI 생성 이미지</span>
                     <div class="svc-body">
                         <span class="svc-num">03</span>
                         <div class="svc-icon"><i class="fas fa-plane-departure"></i></div>
@@ -493,7 +498,7 @@
                     </div>
                 </div>
                 <div class="svc-card" id="card-wedding" role="button" tabindex="0">
-                    <div class="svc-bg" style="background-image:url('웨딩.png'),linear-gradient(135deg,#0E0E0E 0%,#1E1E1E 55%,#3B3222 100%)"></div>
+                    <div class="svc-bg" style="background-image:url('웨딩.png'),linear-gradient(135deg,#0E0E0E 0%,#1E1E1E 55%,#3B3222 100%)"></div><span class="bmt-ai-badge bmt-ai-badge--tr">AI 생성 이미지</span>
                     <div class="svc-body">
                         <span class="svc-num">04</span>
                         <div class="svc-icon"><i class="fas fa-ring"></i></div>
@@ -505,7 +510,7 @@
                     </div>
                 </div>
                 <div class="svc-card" id="card-vip" role="button" tabindex="0">
-                    <div class="svc-bg" style="background-image:url('의전.png'),linear-gradient(135deg,#0E0E0E 0%,#1E1E1E 55%,#3B3222 100%)"></div>
+                    <div class="svc-bg" style="background-image:url('의전.png'),linear-gradient(135deg,#0E0E0E 0%,#1E1E1E 55%,#3B3222 100%)"></div><span class="bmt-ai-badge bmt-ai-badge--tr">AI 생성 이미지</span>
                     <div class="svc-body">
                         <span class="svc-num">05</span>
                         <div class="svc-icon"><i class="fas fa-user-tie"></i></div>
@@ -539,6 +544,7 @@
     <button id="global-popup-close" class="popup-close" style="display:none" aria-label="닫기"><i class="fas fa-times"></i></button>
 
     <div class="bg-popup bg-tour" id="bg-tour">
+        <span class="bmt-ai-badge bmt-ai-badge--popup">배경 · AI 생성 이미지</span>
         <div class="marquee-wrapper"><div class="marquee-track">
             <div class="marquee-item"><img src="해동 용궁사.png" alt="해동용궁사"></div>
             <div class="marquee-item"><img src="감천문화마을.png" alt="감천문화마을"></div>
@@ -561,30 +567,30 @@
 
             <div class="cpanel active" id="cpanel-a">
                 <div class="spot-grid">
-                    <div class="scard"><div class="scard-num">01</div><div class="scard-icon">🌊</div><div class="scard-name">광안리<br>해수욕장</div></div>
-                    <div class="scard"><div class="scard-num">02</div><div class="scard-icon">🏛️</div><div class="scard-name">동백섬<br>누리마루</div></div>
-                    <div class="scard"><div class="scard-num">03</div><div class="scard-icon">🏖️</div><div class="scard-name">해운대<br>해수욕장</div></div>
-                    <div class="scard"><div class="scard-num">04</div><div class="scard-icon">🏙️</div><div class="scard-name">엘시티<br>스카이라운지</div></div>
-                    <div class="scard"><div class="scard-num">05</div><div class="scard-icon">🌿</div><div class="scard-name">달맞이길</div></div>
-                    <div class="scard"><div class="scard-num">06</div><div class="scard-icon">⛩️</div><div class="scard-name">해동<br>용궁사</div></div>
-                    <div class="scard"><div class="scard-num">07</div><div class="scard-icon">🚡</div><div class="scard-name">블루라인<br>파크</div></div>
-                    <div class="scard"><div class="scard-num">08</div><div class="scard-icon">🛍️</div><div class="scard-name">신세계<br>백화점</div></div>
-                    <div class="scard"><div class="scard-num">09</div><div class="scard-icon">🎬</div><div class="scard-name">영화의<br>전당</div></div>
-                    <div class="scard"><div class="scard-num">10</div><div class="scard-icon">🌃</div><div class="scard-name">마린시티</div></div>
+                    <div class="scard"><div class="scard-num">01</div><div class="scard-icon"><i class="fas fa-water"></i></div><div class="scard-name">광안리<br>해수욕장</div></div>
+                    <div class="scard"><div class="scard-num">02</div><div class="scard-icon"><i class="fas fa-landmark"></i></div><div class="scard-name">동백섬<br>누리마루</div></div>
+                    <div class="scard"><div class="scard-num">03</div><div class="scard-icon"><i class="fas fa-umbrella-beach"></i></div><div class="scard-name">해운대<br>해수욕장</div></div>
+                    <div class="scard"><div class="scard-num">04</div><div class="scard-icon"><i class="fas fa-city"></i></div><div class="scard-name">엘시티<br>스카이라운지</div></div>
+                    <div class="scard"><div class="scard-num">05</div><div class="scard-icon"><i class="fas fa-moon"></i></div><div class="scard-name">달맞이길</div></div>
+                    <div class="scard"><div class="scard-num">06</div><div class="scard-icon"><i class="fas fa-place-of-worship"></i></div><div class="scard-name">해동<br>용궁사</div></div>
+                    <div class="scard"><div class="scard-num">07</div><div class="scard-icon"><i class="fas fa-train"></i></div><div class="scard-name">블루라인<br>파크</div></div>
+                    <div class="scard"><div class="scard-num">08</div><div class="scard-icon"><i class="fas fa-shopping-bag"></i></div><div class="scard-name">신세계<br>백화점</div></div>
+                    <div class="scard"><div class="scard-num">09</div><div class="scard-icon"><i class="fas fa-film"></i></div><div class="scard-name">영화의<br>전당</div></div>
+                    <div class="scard"><div class="scard-num">10</div><div class="scard-icon"><i class="fas fa-building"></i></div><div class="scard-name">마린시티</div></div>
                 </div>
             </div>
 
             <div class="cpanel" id="cpanel-b">
                 <div class="spot-grid">
-                    <div class="scard"><div class="scard-num">01</div><div class="scard-icon">🎨</div><div class="scard-name">감천<br>문화마을</div></div>
-                    <div class="scard"><div class="scard-num">02</div><div class="scard-icon">🚠</div><div class="scard-name">송도<br>해상케이블카</div></div>
-                    <div class="scard"><div class="scard-num">03</div><div class="scard-icon">🌉</div><div class="scard-name">송도<br>용궁구름다리</div></div>
-                    <div class="scard"><div class="scard-num">04</div><div class="scard-icon">🗼</div><div class="scard-name">용두산<br>전망대</div></div>
-                    <div class="scard"><div class="scard-num">05</div><div class="scard-icon">🐟</div><div class="scard-name">자갈치<br>시장</div></div>
-                    <div class="scard"><div class="scard-num">06</div><div class="scard-icon">🏪</div><div class="scard-name">국제시장</div></div>
-                    <div class="scard"><div class="scard-num">07</div><div class="scard-icon">📚</div><div class="scard-name">보수동<br>책방골목</div></div>
-                    <div class="scard"><div class="scard-num">08</div><div class="scard-icon">🏘️</div><div class="scard-name">흰여울<br>문화마을</div></div>
-                    <div class="scard"><div class="scard-num">09</div><div class="scard-icon">🌊</div><div class="scard-name">오륙도</div></div>
+                    <div class="scard"><div class="scard-num">01</div><div class="scard-icon"><i class="fas fa-palette"></i></div><div class="scard-name">감천<br>문화마을</div></div>
+                    <div class="scard"><div class="scard-num">02</div><div class="scard-icon"><i class="fas fa-tram"></i></div><div class="scard-name">송도<br>해상케이블카</div></div>
+                    <div class="scard"><div class="scard-num">03</div><div class="scard-icon"><i class="fas fa-person-walking"></i></div><div class="scard-name">송도<br>용궁구름다리</div></div>
+                    <div class="scard"><div class="scard-num">04</div><div class="scard-icon"><i class="fas fa-monument"></i></div><div class="scard-name">용두산<br>전망대</div></div>
+                    <div class="scard"><div class="scard-num">05</div><div class="scard-icon"><i class="fas fa-fish"></i></div><div class="scard-name">자갈치<br>시장</div></div>
+                    <div class="scard"><div class="scard-num">06</div><div class="scard-icon"><i class="fas fa-store"></i></div><div class="scard-name">국제시장</div></div>
+                    <div class="scard"><div class="scard-num">07</div><div class="scard-icon"><i class="fas fa-book-open"></i></div><div class="scard-name">보수동<br>책방골목</div></div>
+                    <div class="scard"><div class="scard-num">08</div><div class="scard-icon"><i class="fas fa-house-chimney-window"></i></div><div class="scard-name">흰여울<br>문화마을</div></div>
+                    <div class="scard"><div class="scard-num">09</div><div class="scard-icon"><i class="fas fa-sailboat"></i></div><div class="scard-name">오륙도</div></div>
                 </div>
             </div>
 
@@ -602,6 +608,7 @@
     </div>
 
     <div class="bg-popup bg-taxi" id="bg-taxi">
+        <span class="bmt-ai-badge bmt-ai-badge--popup">배경 · AI 생성 이미지</span>
         <div class="taxi-img-box"><img src="예약.png" alt="야간 주행"></div>
         <div class="taxi-overlay-content">
             <h2 class="overlay-title">LONG DISTANCE <em>SERVICE</em></h2>
@@ -625,6 +632,7 @@
     </div>
 
     <div class="bg-popup bg-airport" id="bg-airport">
+        <span class="bmt-ai-badge bmt-ai-badge--popup">배경 · AI 생성 이미지</span>
         <div class="airport-img-box"><img src="샌딩.png" alt="공항 활주로"></div>
         <div class="airport-overlay-content">
             <h2 class="overlay-title">AIRPORT TRANSFER <em>PROCESS</em></h2>
@@ -647,6 +655,7 @@
     </div>
 
     <div class="bg-popup bg-wedding" id="bg-wedding">
+        <span class="bmt-ai-badge bmt-ai-badge--popup">배경 · AI 생성 이미지</span>
         <div class="feature-bg" style="background-image:url('웨딩.png'),linear-gradient(135deg,#0E0E0E 0%,#1E1E1E 55%,#3B3222 100%)"></div>
         <div class="feature-overlay-content">
             <h2 class="overlay-title">WEDDING <em>CAR</em></h2>
@@ -667,6 +676,7 @@
     </div>
 
     <div class="bg-popup bg-vip" id="bg-vip">
+        <span class="bmt-ai-badge bmt-ai-badge--popup">배경 · AI 생성 이미지</span>
         <div class="feature-bg" style="background-image:url('의전.png'),linear-gradient(135deg,#0E0E0E 0%,#1E1E1E 55%,#3B3222 100%)"></div>
         <div class="feature-overlay-content">
             <h2 class="overlay-title">VIP <em>ESCORT</em></h2>
@@ -785,7 +795,7 @@
             document.addEventListener('click', (e) => {
                 const link = e.target.closest('a[href]'); if (!link) return;
                 const href = link.getAttribute('href');
-                if (!href || href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('http') || href.startsWith('#')) return;
+                if (!href || href.startsWith('tel:') || href.startsWith('sms:') || href.startsWith('mailto:') || href.startsWith('http') || href.startsWith('#')) return;
                 e.preventDefault(); navigateTo(href);
             });
         });
