@@ -170,6 +170,9 @@
               <span><strong>이메일</strong> hjwhite44@naver.com</span>
               <span><strong>블로그</strong> <a href="https://blog.naver.com/hjwhite44" target="_blank" rel="noopener" style="color:inherit">blog.naver.com/hjwhite44</a></span>
             </div>
+            <div class="bmt-biz-row bmt-ai-notice">
+              <span><strong>이미지 안내</strong> 'AI 생성 이미지' 표시가 있는 사진은 생성형 AI로 만든 이미지이며, 실제 차량·장소의 모습과 다를 수 있습니다.</span>
+            </div>
           </div>
           <p class="bmt-copyright">© ${new Date().getFullYear()} 부산 장거리 전문 퍼스트 콜택시. All rights reserved.</p>
         </div>
@@ -186,6 +189,34 @@
     footer.id = 'bmt-footer';
     footer.innerHTML = html;
     document.body.appendChild(footer);
+
+    // ── 모바일 하단 고정 상담 바 (메인 페이지는 자체 하단바가 있어 제외) ──
+    if (!document.body.classList.contains('is-fullscreen') && !document.getElementById('bmt-callbar')) {
+      const TEL = '010-7758-4267';
+      const msg = '[예약 문의]\n날짜/시간:\n출발지:\n도착지:\n인원/짐:';
+      const sep = /iPhone|iPad|iPod/.test(navigator.userAgent) ? '&' : '?'; // iOS·안드로이드 문자 링크 형식 차이
+      const bar = document.createElement('div');
+      bar.id = 'bmt-callbar';
+      bar.innerHTML = `
+        <a href="tel:${TEL}" class="cb-call"><i class="fas fa-phone-alt"></i> 전화 상담</a>
+        <a href="sms:${TEL}${sep}body=${encodeURIComponent(msg)}" class="cb-sms"><i class="fas fa-comment-dots"></i> 문자 문의</a>`;
+      const cbStyle = document.createElement('style');
+      cbStyle.textContent = `
+        #bmt-callbar{display:none}
+        @media(max-width:768px){
+          #bmt-callbar{display:flex;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:1001;
+            padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+            background:rgba(14,14,14,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+            border-top:1px solid rgba(201,166,70,.35)}
+          #bmt-callbar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;
+            height:46px;border-radius:12px;font:700 15px 'Noto Sans KR',sans-serif;text-decoration:none}
+          #bmt-callbar .cb-call{background:#C9A646;color:#111}
+          #bmt-callbar .cb-sms{border:1px solid rgba(201,166,70,.55);color:#E8D49A}
+          body{padding-bottom:72px}
+        }`;
+      document.head.appendChild(cbStyle);
+      document.body.appendChild(bar);
+    }
   }
 
   // HTML 요소가 모두 준비되었을 때만 실행되도록 안전하게 호출

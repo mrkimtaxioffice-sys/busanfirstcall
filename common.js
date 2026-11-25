@@ -22,7 +22,7 @@
     var l = e.target.closest('a[href]');
     if (!l || l.target === '_blank' || e.ctrlKey || e.metaKey || e.shiftKey) return;
     var h = l.getAttribute('href');
-    if (!h || /^(tel:|mailto:|https?:|#)/.test(h)) return;
+    if (!h || /^(tel:|sms:|mailto:|https?:|#)/.test(h)) return;
     e.preventDefault();
     o.style.opacity = '1';
     o.style.pointerEvents = 'all';

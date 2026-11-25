@@ -3,7 +3,7 @@
   if (!document.querySelector('link[href*="Cormorant+Garamond"]')) {
     const fontLink = document.createElement('link');
     fontLink.rel = 'stylesheet';
-    fontLink.href = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&display=swap';
+    fontLink.href = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Noto+Serif+KR:wght@300;500;600;700&display=swap';
     document.head.insertBefore(fontLink, document.head.firstChild);
   }
 
@@ -150,6 +150,36 @@
     body:not(.is-fullscreen) .page-header {
       margin-top: var(--bmt-h);
     }
+
+    /* ── 한글 제목 글꼴: 영문은 Cormorant/Playfair, 한글은 Noto Serif KR로 자동 분리 ── */
+    .page-header h1, .cta-box h2, .info-banner h3, .review-cta-banner h3, .hero-title {
+      font-family: 'Cormorant Garamond', 'Noto Serif KR', serif !important;
+    }
+    .fleet-name, .lb-title {
+      font-family: 'Playfair Display', 'Noto Serif KR', serif !important;
+    }
+    /* ── 특징 카드가 페이지 배경에 묻히지 않게 ── */
+    .feature-card { background: #fff !important; }
+
+    /* ── AI 생성 이미지 표시 배지 (전 페이지 공통) ── */
+    .bmt-ai-badge {
+      position: absolute; z-index: 3;
+      display: inline-flex; align-items: center;
+      padding: 3px 9px; border-radius: 20px;
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.85);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 10px; font-weight: 500; line-height: 1.4; letter-spacing: .3px;
+      white-space: nowrap; pointer-events: none;
+    }
+    .bmt-ai-badge--tl { top: 10px; left: 10px; }
+    .bmt-ai-badge--tr { top: 10px; right: 10px; }
+    .bmt-ai-badge--bl { bottom: 10px; left: 10px; }
+    .bmt-ai-badge--br { bottom: 10px; right: 10px; }
+    .bmt-ai-badge--hero { top: 18px; right: 24px; }
+    .bmt-ai-badge--popup { position: fixed; left: 18px; bottom: 18px; z-index: 1060; }
 
     @media (max-width: 1180px) {
       #bmt-header {

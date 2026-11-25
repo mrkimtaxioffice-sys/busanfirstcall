@@ -7,17 +7,17 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://busanfirstcall.com/fleet.html">
     <meta property="og:title" content="차량 소개 | 부산 장거리 전문 퍼스트 콜택시">
-    <meta property="og:description" content="아이오닉5·6, EV6, 그랜저, 테슬라 모델Y, 싼타페, 쏠라티 등 인원과 짐에 맞춘 차량으로 편안하게 이동하세요.">
+    <meta property="og:description" content="아이오닉5·6, EV6, 그랜저, 테슬라 모델Y, 싼타페, 스타리아, 쏠라티 등 인원과 짐에 맞춘 차량으로 편안하게 이동하세요.">
     <meta property="og:image" content="https://busanfirstcall.com/og-image.jpg">
     <meta property="og:site_name" content="부산 장거리 전문 퍼스트 콜택시">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="차량 소개 | 부산 장거리 전문 퍼스트 콜택시">
-    <meta name="twitter:description" content="아이오닉5·6, EV6, 그랜저, 테슬라 모델Y, 싼타페, 쏠라티 등 인원과 짐에 맞춘 차량으로 편안하게 이동하세요.">
-    <meta name="description" content="아이오닉5·6, EV6, 그랜저, 테슬라 모델Y, 싼타페, 쏠라티 등 인원과 짐에 맞춘 차량으로 편안하게 이동하세요.">
+    <meta name="twitter:description" content="아이오닉5·6, EV6, 그랜저, 테슬라 모델Y, 싼타페, 스타리아, 쏠라티 등 인원과 짐에 맞춘 차량으로 편안하게 이동하세요.">
+    <meta name="description" content="아이오닉5·6, EV6, 그랜저, 테슬라 모델Y, 싼타페, 스타리아, 쏠라티 등 인원과 짐에 맞춘 차량으로 편안하게 이동하세요.">
     <title>차량 소개 | 부산 장거리 전문 퍼스트 콜택시</title>
     <link rel="canonical" href="https://busanfirstcall.com/fleet.html">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Playfair+Display:ital,wght@0,700;1,400&family=Noto+Serif+KR:wght@300;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         *,*::before,*::after{box-sizing:border-box}
@@ -58,9 +58,10 @@
         /* ── 카드 그리드: 균일 3열 ── */
         .fleet-grid{
             display:grid;
-            grid-template-columns:repeat(3,1fr);
+            grid-template-columns:repeat(6,1fr);   /* 카드 1장 = 2칸 → 3열 */
             gap:24px;
         }
+        .fleet-grid > .fleet-card{grid-column:span 2}
 
         /* ── 카드 ── */
         .fleet-card{
@@ -188,10 +189,21 @@
         }
         .btn-reserve.long:hover{background:#DCDDE1;transform:translateY(-1px)}
 
-        /* 7대 → 마지막 줄 1대일 때 가운데 정렬 (3열 레이아웃에서만) */
+        /* 마지막 줄이 1대 또는 2대일 때 가운데 정렬 (3열 레이아웃에서만, 차량 수가 바뀌어도 자동 적용) */
         @media(min-width:961px){
-            .fleet-card:last-child:nth-child(3n+1){grid-column:2}
+            .fleet-grid > .fleet-card:last-child:nth-child(3n+1){grid-column:3 / span 2}
+            .fleet-grid > .fleet-card:nth-last-child(2):nth-child(3n+1){grid-column:2 / span 2}
         }
+
+        /* ── 이미지 준비중 자리표시 ── */
+        .fleet-img-pending{
+            position:absolute;inset:0;
+            display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+            background:linear-gradient(135deg,#141414 0%,#1E1E1E 55%,#2E281C 100%);
+            color:rgba(232,212,154,.75);
+        }
+        .fleet-img-pending i{font-size:34px;opacity:.8}
+        .fleet-img-pending span{font-size:12px;font-weight:600;letter-spacing:3px;color:rgba(255,255,255,.55)}
         .fleet-note{margin:28px 0 0;text-align:center;font-size:12px;color:#888}
         .fleet-note i{color:#8A6A1F;margin-right:5px}
         #page-transition-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#F4F4F6;z-index:9999;opacity:0;pointer-events:none;transition:opacity .4s ease}
@@ -223,7 +235,7 @@
         @media(max-width:700px){.fpb-call{flex-direction:column;text-align:center}.fpb-call-btn{width:100%;justify-content:center}}
 
         /* ── 반응형 ── */
-        @media(max-width:960px){.fleet-grid{grid-template-columns:repeat(2,1fr)}}
+        @media(max-width:960px){.fleet-grid{grid-template-columns:repeat(2,1fr)}.fleet-grid > .fleet-card{grid-column:auto}}
         @media(max-width:600px){
             .fleet-grid{grid-template-columns:1fr}
             .page-header h1{font-size:38px}
@@ -263,7 +275,7 @@
 
             <div class="fleet-card">
                 <div class="fleet-img">
-                    <img loading="lazy" width="1536" height="1024" src="ev6.png" alt="기아 EV6">
+                    <img loading="lazy" width="1536" height="1024" src="ev6.png" alt="기아 EV6"><span class="bmt-ai-badge bmt-ai-badge--br">AI 생성 이미지</span>
                     <span class="fleet-badge">ELECTRIC CROSSOVER</span>
                 </div>
                 <div class="fleet-info">
@@ -285,7 +297,7 @@
 
             <div class="fleet-card">
                 <div class="fleet-img">
-                    <img loading="lazy" width="1536" height="1024" src="ioniq5.png" alt="아이오닉 5">
+                    <img loading="lazy" width="1536" height="1024" src="ioniq5.png" alt="아이오닉 5"><span class="bmt-ai-badge bmt-ai-badge--br">AI 생성 이미지</span>
                     <span class="fleet-badge">ELECTRIC SUV</span>
                 </div>
                 <div class="fleet-info">
@@ -307,7 +319,7 @@
 
             <div class="fleet-card">
                 <div class="fleet-img">
-                    <img loading="lazy" width="1536" height="1024" src="ioniq6.png" alt="아이오닉 6">
+                    <img loading="lazy" width="1536" height="1024" src="ioniq6.png" alt="아이오닉 6"><span class="bmt-ai-badge bmt-ai-badge--br">AI 생성 이미지</span>
                     <span class="fleet-badge">ELECTRIC SEDAN</span>
                 </div>
                 <div class="fleet-info">
@@ -329,7 +341,7 @@
 
             <div class="fleet-card">
                 <div class="fleet-img">
-                    <img loading="lazy" width="1536" height="1024" src="grandeur.png" alt="현대 그랜저">
+                    <img loading="lazy" width="1536" height="1024" src="grandeur.png" alt="현대 그랜저"><span class="bmt-ai-badge bmt-ai-badge--br">AI 생성 이미지</span>
                     <span class="fleet-badge">PREMIUM SEDAN</span>
                 </div>
                 <div class="fleet-info">
@@ -352,7 +364,7 @@
 
             <div class="fleet-card">
                 <div class="fleet-img">
-                    <img loading="lazy" width="1536" height="1024" src="Y Juniper.png" alt="테슬라 모델Y 주니퍼">
+                    <img loading="lazy" width="1536" height="1024" src="Y Juniper.png" alt="테슬라 모델Y 주니퍼"><span class="bmt-ai-badge bmt-ai-badge--br">AI 생성 이미지</span>
                     <span class="fleet-badge">ELECTRIC SUV</span>
                 </div>
                 <div class="fleet-info">
@@ -376,7 +388,7 @@
             <!-- ── 신규: 싼타페 (그레이) ── -->
             <div class="fleet-card">
                 <div class="fleet-img">
-                    <img loading="lazy" width="1536" height="1024" src="santafe.png" alt="현대 싼타페 그레이">
+                    <img loading="lazy" width="1536" height="1024" src="santafe.png" alt="현대 싼타페 그레이"><span class="bmt-ai-badge bmt-ai-badge--br">AI 생성 이미지</span>
                     <span class="fleet-badge">PREMIUM SUV</span>
                 </div>
                 <div class="fleet-info">
@@ -397,10 +409,34 @@
                 </div>
             </div>
 
+            <!-- ── 신규: 스타리아 (블랙) ── -->
+            <div class="fleet-card">
+                <div class="fleet-img">
+                    <img loading="lazy" width="1536" height="1024" src="staria.png" alt="현대 스타리아 블랙"><span class="bmt-ai-badge bmt-ai-badge--br">AI 생성 이미지</span>
+                    <span class="fleet-badge">PREMIUM MPV</span>
+                </div>
+                <div class="fleet-info">
+                    <div class="fleet-header">
+                        <span class="fleet-brand">HYUNDAI</span>
+                        <h3 class="fleet-name">스타리아</h3>
+                    </div>
+                    <p class="fleet-desc">넓은 실내와 슬라이딩 도어로 타고 내리기 편한 승합차. 짐이 많은 가족 단위 공항 이동과 소규모 단체 관광에 알맞습니다.</p>
+                    <div class="fleet-specs">
+                        <span><i class="fas fa-users"></i> 최대 8인</span>
+                        <span><i class="fas fa-suitcase"></i> 수하물 6개</span>
+                        <span><i class="fas fa-plane-departure"></i> 가족 공항 이동</span>
+                    </div>
+                    <div class="btn-group">
+                        <a href="tour-reservation.html" class="btn-reserve tour"><i class="fas fa-map-marked-alt"></i> 관광 투어</a>
+                        <a href="long-distance-reservation.html" class="btn-reserve long"><i class="fas fa-road"></i> 장거리</a>
+                    </div>
+                </div>
+            </div>
+
             <!-- ── 신규: 쏠라티 (블랙) ── -->
             <div class="fleet-card">
                 <div class="fleet-img">
-                    <img loading="lazy" width="1536" height="1024" src="solati.png" alt="현대 쏠라티 블랙">
+                    <img loading="lazy" width="1536" height="1024" src="solati.png" alt="현대 쏠라티 블랙"><span class="bmt-ai-badge bmt-ai-badge--br">AI 생성 이미지</span>
                     <span class="fleet-badge">PREMIUM VAN</span>
                 </div>
                 <div class="fleet-info">
